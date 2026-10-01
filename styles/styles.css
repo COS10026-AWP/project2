@@ -23,6 +23,7 @@ html {
 :root {
     --alice-blue: #f0f8faff;
     --white: #ffffffff;
+    --light-grey: lightgrey;
     --jet-black: #12343bff;
     --jet-black-2: #263238ff;
 
