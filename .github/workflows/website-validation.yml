@@ -1,0 +1,21 @@
+name: Website Validation
+
+on:
+  push: # Runs when code is pushed
+  pull_request: # Runs when a pull request changes
+
+jobs:
+  validate:
+    # Uses a GitHub-hosted Ubuntu machine
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validate HTML and CSS
+        uses: anishathalye/proof-html@v2
+        with:
+          directory: .
+          enforce_https: false
+          check_favicon: false
