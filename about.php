@@ -6,6 +6,9 @@
         <meta name="author" content="Nguyen Son Khoi">
         <meta name="keywords" content="HTML, about_page, team_members">
         <meta name="description" content="The introduction page to the members behind the webpage.">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="styles/styles.css">
         <style>
             h2 {
