@@ -6,6 +6,10 @@
         <meta name="author" content="Anastasia Tiffany">
         <meta name="keywords" content="Job, application,contact ">
         <meta name="description" content="A job application form for WWT.">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
         <link rel="stylesheet" href="styles/styles.css">
             <!-- This is to make the forms stand out from the background-->
         <style>
