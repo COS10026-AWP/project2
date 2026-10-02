@@ -20,15 +20,15 @@
     </head>
     <body>
         <header id="site-header">
-            <!-- Update in about.html, apply.html, index.html, jobs.html on change -->
+            <!-- Update in about.php, apply.php, index.php, jobs.php on change -->
             <div id="site-header-container">
                 <img class="logo" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel">
                 <h1 id="site-title">World Wide Travel</h1>
                 <nav id="site-nav">
-                    <a href="index.html">Home</a>
-                    <a href="jobs.html">Job Description</a>
-                    <a href="apply.html">Apply</a>
-                    <a href="about.html">About Us</a>
+                    <a href="index.php">Home</a>
+                    <a href="jobs.php">Job Description</a>
+                    <a href="apply.php">Apply</a>
+                    <a href="about.php">About Us</a>
                 </nav>
             </div>
         </header>
@@ -87,7 +87,7 @@
                 
                 <fieldset>
                     <!--
-                        Skills in skill list generated using ChatGPT (OpenAI) based on jobs.html, version GPT-5.6 Luna, Sep 2026.
+                        Skills in skill list generated using ChatGPT (OpenAI) based on jobs.php, version GPT-5.6 Luna, Sep 2026.
                         All generated text was reviewed by the AI user before addition.
                         Skill list checkbox structure was added by the original author.
                     -->
@@ -158,7 +158,7 @@
         </form>
 
         <footer> 
-            <a href="index.html">
+            <a href="index.php">
             <img src="images/tourism_logo.png" alt="World Wide Travel logo"
             title="World Wide Travel"  id="logo-small"></a>
             <p id="acknowledgements">World Wide Travel acknowledges the Traditional Owners, the Wurundjeri people of the Kulin Nation, on whose land we meet, share and work. We pay our respects to Elders past and present, and extend our respect to Aboriginal and Torres Strait Islander people from all nations of this land. We would like to acknowledge the Traditional Owners of the land on which we work and live, and pay our respects to their Elders past, present and emerging.</p>

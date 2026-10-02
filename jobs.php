@@ -22,15 +22,15 @@
     </head>
     <body>
         <header id="site-header">
-            <!-- Update in about.html, apply.html, index.html, jobs.html on change -->
+            <!-- Update in about.php, apply.php, index.php, jobs.php on change -->
             <div id="site-header-container">
                 <img class="logo" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel">
                 <h1 id="site-title">World Wide Travel</h1>
                 <nav id="site-nav">
-                    <a href="index.html">Home</a>
-                    <a href="jobs.html">Job Description</a>
-                    <a href="apply.html">Apply</a>
-                    <a href="about.html">About Us</a>
+                    <a href="index.php">Home</a>
+                    <a href="jobs.php">Job Description</a>
+                    <a href="apply.php">Apply</a>
+                    <a href="about.php">About Us</a>
                 </nav>
             </div>
         </header>
@@ -49,7 +49,7 @@
                         Review the position requirements and make sure you select the correct six-character
                         <span class="job-highlight-ref" style="font-weight: bold;">job reference number</span>.
                     </p>
-                    <a href="apply.html" target="_blank">Start an application</a>
+                    <a href="apply.php" target="_blank">Start an application</a>
                 </section>
                 <nav id="jump-to-top">
                     <a href="#top">Back to Top</a>
@@ -232,8 +232,8 @@
         </main>
 
         <footer id="site-footer">
-            <!-- Update in about.html, apply.html, index.html, jobs.html on change -->
-            <a href="index.html">
+            <!-- Update in about.php, apply.php, index.php, jobs.php on change -->
+            <a href="index.php">
             <img id="logo-small" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel"></a>
             <p id="acknowledgements">
                 World Wide Travel acknowledges the Traditional Owners, the Wurundjeri people of the Kulin Nation, on whose land we meet, share and work. We pay our respects to Elders past and present, and extend our respect to Aboriginal and Torres Strait Islander people from all nations of this land. We would like to acknowledge the Traditional Owners of the land on which we work and live, and pay our respects to their Elders past, present and emerging.
