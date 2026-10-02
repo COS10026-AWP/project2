@@ -24,19 +24,8 @@
     </head>
     <body>
         <header id="site-header">
-            <!-- Update in about.php, apply.php, index.php, jobs.php on change -->
-            <div id="site-header-container">
-                <img class="logo" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel">
-                <h1 id="site-title">World Wide Travel</h1>
-                <nav id="site-nav">
-                    <a href="index.php">Home</a>
-                    <a href="jobs.php">Job Description</a>
-                    <a href="apply.php">Apply</a>
-                    <a href="about.php">About Us</a>
-                </nav>
-            </div>
+            <?php include 'header.inc.php'; ?>
         </header>
-
         
         <h1 style=" text-align: center; color: #12343B; background-color: #E0F1F5; padding: 20px; margin-left: 20px; margin-right: 20px;">Job Application Page</h1>
 
@@ -161,31 +150,8 @@
             <input type= "submit" value="Apply">
         </form>
 
-        <footer> 
-            <a href="index.php">
-            <img src="images/tourism_logo.png" alt="World Wide Travel logo"
-            title="World Wide Travel"  id="logo-small"></a>
-            <p id="acknowledgements">World Wide Travel acknowledges the Traditional Owners, the Wurundjeri people of the Kulin Nation, on whose land we meet, share and work. We pay our respects to Elders past and present, and extend our respect to Aboriginal and Torres Strait Islander people from all nations of this land. We would like to acknowledge the Traditional Owners of the land on which we work and live, and pay our respects to their Elders past, present and emerging.</p>
-            <br>
-            <div id="social">
-                <a href="https://uharper.atlassian.net/jira/software/projects/AWPP2/">
-                <img src="images/jira.png" alt="Jira" class="social-icon"
-                style="width: 2%; height:auto;" title="Jira logo">
-                </a>
-
-                <a href="https://github.com/COS10026-AWP/project2/">
-                <img src="images/github.png" alt="GitHub" class="social-icon"
-                style="width:2%; height:auto;" title="GitHub logo">
-                </a>
-
-                <a href="mailto:info@worldwidetravel.com">
-                <img src="images/email.png" alt="Email" class="social-icon"
-                style="width:2%; height:auto;" title="Email Us">
-                </a>
-
-                <br>
-                <p id="copyright">Copyright &copy; 2026 World Wide Travel, Australia. All rights reserved.</p>
-            </div>
+        <footer id="site-footer">
+            <?php include 'footer.inc.php'; ?>
         </footer>
     </body>
 </html> 
