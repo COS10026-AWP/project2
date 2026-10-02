@@ -22,15 +22,15 @@
 
     <body>
         <header id="site-header">
-            <!-- Update in about.html, apply.html, index.html, jobs.html on change -->
+            <!-- Update in about.php, apply.php, index.php, jobs.php on change -->
             <div id="site-header-container">
                 <img class="logo" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel">
                 <h1 id="site-title">World Wide Travel</h1>
                 <nav id="site-nav">
-                    <a href="index.html">Home</a>
-                    <a href="jobs.html">Job Description</a>
-                    <a href="apply.html">Apply</a>
-                    <a href="about.html">About Us</a>
+                    <a href="index.php">Home</a>
+                    <a href="jobs.php">Job Description</a>
+                    <a href="apply.php">Apply</a>
+                    <a href="about.php">About Us</a>
                 </nav>
             </div>
         </header>
