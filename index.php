@@ -8,7 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>World Wide Travel</title>
         <link rel="stylesheet" href="styles/styles.css">
+
+        <style>
+            .services td[rowspan] {
+                font-weight: bold;
+                text-align: center;
+            }
+        </style>
+
     </head>
+
+    
     <body>
         <header id="site-header">
             <?php include 'header.inc.php'; ?>
