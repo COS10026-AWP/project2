@@ -25,7 +25,7 @@
 
     <body>
         <header id="site-header">
-            <?php include 'header.inc.php'; ?>
+            <?php include 'header.inc'; ?>
         </header>
         
         <h2>About the Team</h2>
@@ -123,7 +123,7 @@
         <br>
 
         <footer id="site-footer">
-            <?php include 'footer.inc.php'; ?>
+            <?php include 'footer.inc'; ?>
         </footer>
     </body>
 

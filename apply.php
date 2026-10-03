@@ -24,7 +24,7 @@
     </head>
     <body>
         <header id="site-header">
-            <?php include 'header.inc.php'; ?>
+            <?php include 'header.inc'; ?>
         </header>
         
         <h1 style=" text-align: center; color: #12343B; background-color: #E0F1F5; padding: 20px; margin-left: 20px; margin-right: 20px;">Job Application Page</h1>
@@ -151,7 +151,7 @@
         </form>
 
         <footer id="site-footer">
-            <?php include 'footer.inc.php'; ?>
+            <?php include 'footer.inc'; ?>
         </footer>
     </body>
 </html> 
