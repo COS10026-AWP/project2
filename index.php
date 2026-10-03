@@ -12,7 +12,7 @@
         <style>
             .services td[rowspan] {
                 font-weight: bold;
-                text-align: center;
+                text-align: left;
             }
         </style>
 
@@ -24,44 +24,48 @@
             <?php include 'header.inc.php'; ?>
         </header>
     <br>
-
         <main>
-
-            <section class="content">
-                <h2 id="slogan">Taking You Around the World</h2>
-                <br>
-                <p id="description"> The best online platforms for destination information,
-                tour bookings, accommodation services and personalised travel planning.</p>
-            </section>
-
             <section class="destinations">
                 <h3>Explore Our Popular Destinations</h3>
+
                 <div class="destination-box">
 
-                    <div class="destination-card">
-                        <img src="images/australia.png" alt="Uluru Rock, Australia">
+                    <article class="destination-card">
+                        <img src="images/australia.png"
+                            alt="Uluru Rock, Australia">
                         <h4>Australia</h4>
-                        <p>From the Great Barrier Reef to the Outback, Australia offers a diverse range of experiences for every traveler.</p>
+                        <p>
+                            From the Great Barrier Reef to the Outback,
+                            Australia offers a diverse range of experiences
+                            for every traveller.
+                        </p>
                         <p><i>Photo Credit: WorldStrides Australia</i></p>
-                    </div>
+                    </article>
 
-                    <div class="destination-card">
-                        <img src="images/japan.png" alt="Temple and cherry blossom, Japan">
+                    <article class="destination-card">
+                        <img src="images/japan.png"
+                            alt="Temple and cherry blossom, Japan">
                         <h4>Japan</h4>
-                        <p>Experience the culture and attractions of Japan on your next trip.</p>
+                        <p>
+                            Experience the culture and attractions of Japan
+                            on your next trip.
+                        </p>
                         <p><i>Photo Credit: Daily Sabah</i></p>
-                    </div>
+                    </article>
 
-                    <div class="destination-card">
-                        <img src="images/france.png" alt="Effiel Tower, France">
+                    <article class="destination-card">
+                        <img src="images/france.png"
+                            alt="Eiffel Tower, France">
                         <h4>France</h4>
-                        <p>Explore the scenic landscapes and adventures that France has to offer.</p>
+                        <p>
+                            Explore the scenic landscapes and adventures
+                            that France has to offer.
+                        </p>
                         <p><i>Photo Credit: Yogue India</i></p>
-                    </div>
-
+                    </article>
                 </div>
             </section>
-
+               
             <section class="services" style="background-color: #E0F1F5; padding: 100px 30px;">
                 <h3 style="text-align: center; font-size: 30px; color: #12343B;">Our Services</h3>
                 <table>
