@@ -2,7 +2,7 @@
 filename: styles.css
 author: Anastasia Tiffany, Harper Lam, Nathan Yan, Son Khoi Nguyen
 created:  03 September 2026
-last modified: 11 September 2026
+last modified: 10 September 2026
 description: Styles for 2602-cos10026-applied-web-project-1
 */
 
@@ -23,7 +23,6 @@ html {
 :root {
     --alice-blue: #f0f8faff;
     --white: #ffffffff;
-    --light-grey: lightgrey;
     --jet-black: #12343bff;
     --jet-black-2: #263238ff;
 
@@ -83,9 +82,12 @@ footer #social {
 #site-header-container {
     display: flex;
     /* use flexbox to align the logo and navigation horizontally */
+    /* use flexbox to align the logo and navigation horizontally */
     align-items: center;
     max-width: 1200px;
     padding: 15px 30px;
+    /* 15 pixel top and bottom
+    30 pixel left and right */
     /* 15 pixel top and bottom
     30 pixel left and right */
     margin: auto;
@@ -116,7 +118,7 @@ footer #social {
 }
 
 /* -------------------------
-    index.php styles
+    index.html styles
     - content
     - destinations
     - services
@@ -181,7 +183,7 @@ footer #social {
     /* Crop the image to fill the fixed-height container */
     object-fit: cover;
 }
-/* Change the scale of destination cards on hover 
+/* change the scale of of bow when hover 
 credit https://prismic.io/blog/css-hover-effects */
 .destination-card:hover {
     transform: scale(1.07, 1.07);
@@ -270,10 +272,9 @@ td {
 }
 
 /* -------------------------
-    jobs.php
+    jobs.html
     - page layout
         - page properties
-    - shared card styling (position and sidebar)
     - sidebar
     - position cards
         - header
@@ -329,6 +330,7 @@ td {
 
     background: var(--color-bg-section);
 }
+
 
 /* Sidebar */
 #job-sidebar {
@@ -440,7 +442,7 @@ td {
         gap: 15px;
     }
 
-    /* index.php responsive design */
+    /* index.html responsive design */
     .destination-box {
         flex-direction: column;
     }
@@ -457,7 +459,7 @@ td {
     font-size: 15px;
     line-height: 1.5;
     }
-    /* jobs.php responsive design */
+    /* jobs.html responsive design */
     #job-content {
         grid-template-columns: 1fr;
     }
