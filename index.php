@@ -56,24 +56,31 @@
                 <h3 style="text-align: center; font-size: 30px; color: #12343B;">Our Services</h3>
                 <table>
                     <tr>
-                        <th style="background-color: #FAFAF7;">Service</th>
+                        <th>Category</th>
+                        <th>Service</th>
                         <th>Description</th>
                     </tr>
+
                     <tr>
-                        <td class="sers">Destination Information</td>
+                        <td rowspan="2">Travel Planning</td>
+                        <td>Destination Information</td>
                         <td>Comprehensive guides and insights on various travel destinations.</td>
                     </tr>
+
                     <tr>
-                        <td class="sers">Tour Bookings</td>
+                        <td>Personalised Travel Planning</td>
+                        <td>Customised travel itineraries tailored to your preferences.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2">Booking Services</td>
+                        <td>Tour Bookings</td>
                         <td>Easy and convenient booking options for your tours and excursions.</td>
                     </tr>
+
                     <tr>
-                        <td class="sers">Accommodation Services</td>
-                        <td>Assisted you in finding and booking suitable accommodations.</td>
-                    </tr>
-                    <tr>
-                        <td class="sers">Personalised Travel Planning</td>
-                        <td>Customised travel itineraries tailored to your preferences.</td>
+                        <td>Accommodation Services</td>
+                        <td>Assistance in finding and booking suitable accommodations.</td>
                     </tr>
                 </table>
             </section>
@@ -84,7 +91,5 @@
         </footer>
       
     </body>
-
-
 
 </html> 
