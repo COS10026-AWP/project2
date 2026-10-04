@@ -11,12 +11,12 @@
 
         <link rel="stylesheet" href="styles/styles.css">
         <style>
-            h2 {
+            h1 {
                 color: #f9c74fff;
                 text-align: center;
                 font-size: 25px;
             }
-            h3 {
+            h2 {
                 color: #895053ff;
                 font-size: 20px;
             }
@@ -28,10 +28,10 @@
             <?php include 'header.inc.php'; ?>
         </header>
         
-        <h2>About the Team</h2>
+        <h1>About the Team</h1>
 
         <ol>
-            <li> <h3>The Group</h3>
+            <li> <h2>The Group</h2>
                 <ul>
                     <li>We are Group 2!</li>
                     <li>We are currently studying a class in the 10026 Web Technology course</li>
@@ -40,7 +40,7 @@
                 </ul>
             </li>
 
-            <li> <h3>Our Contributions</h3>
+            <li> <h2>Our Contributions</h2>
                 <ul>
                     <li>Nathan: Co-leader, responsible for the job info page. </li>
                     <li>Harper: Leader in project planning, responsible for HTML, CSS, and the home page.</li>
@@ -49,7 +49,7 @@
                 </ul>
             </li>
 
-            <li> <h3>Cool Quotes!</h3>
+            <li> <h2>Cool Quotes!</h2>
                 <ul>
                     <li>好好学习，天天向上
                         <ul><li>Translation (from Mandarin): Study hard and make progress every day.</li></ul>
@@ -66,7 +66,7 @@
                 </ul>
             </li>
 
-            <li> <h3>A Picture Of Us!</h3>
+            <li> <h2>A Picture Of Us!</h2>
                 <figure>
                     <img style="display: block; margin: 0 auto; width: 90%; height: 90%;"
                          src="images/group.png" alt="A picture of us!" title="Group Photo"
@@ -75,7 +75,7 @@
                 </figure>
             </li>
 
-            <li> <h3>Our fun facts!</h3>
+            <li> <h2>Our fun facts!</h2>
                 <table>
                     <caption><strong>A Table Listing Our Fun Facts!</strong></caption>
 
