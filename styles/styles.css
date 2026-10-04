@@ -188,7 +188,7 @@ credit https://prismic.io/blog/css-hover-effects */
     box-shadow: 0 0 20px rgba(5, 6, 6, 0.5);
 }
 
-.destinations > h3 {
+.destinations > h2 {
     margin-bottom: 40px;
     font-size: 30px;
     text-align: center;
@@ -214,12 +214,12 @@ credit https://prismic.io/blog/css-hover-effects */
 
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
-.destination-card h4,
+.destination-card h3,
 .destination-card p {
     margin-left: 25px;
     margin-right: 25px;
 }
-.destination-card h4 {
+.destination-card h3 {
     font-weight: bold;
     font-size: 25px;
     color: #895053;

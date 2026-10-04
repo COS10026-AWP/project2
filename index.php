@@ -38,14 +38,51 @@
 
     <!--MAIN-->
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Harper Lam">
+    <meta name="keywords"
+          content="tourism, travel, technology, booking, accommodation,
+          transportation, attractions, personalised, travel planning, job">
+    <meta name="description"
+          content="A website that provides destination information,
+          tour bookings, accommodation services and personalised travel planning.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Wide Travel</title>
+
+    <!--External CSS-->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!--Embedded CSS-->
+    <style>
+        .services td[rowspan] {
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!--HEADER-->
+
+    <header id="site-header">
+        <?php include 'header.inc'; ?>
+    </header>
+
+
+    <!--CONTENT-->
     <main>
-
-        <!-- Main heading for this page -->
-        <h1>World Wide Travel</h1>
-
+        <section class="content">
+            <h1 id="slogan">Taking You Around the World</h1>
+                <br>
+                    <p id="description"> The best online platforms for destination information,
+                    tour bookings, accommodation services and personalised travel planning.</p>
+        </section>
 
         <!--DESTINATIONS-->
-
         <section class="destinations">
             <h2>Explore Our Popular Destinations</h2>
             <div class="destination-box">
@@ -104,25 +141,34 @@
         </section>
 
 
-        <!--TRAVEL TIPS-->
-
+        <!--TRAVEL TIPS (add css for this)-->
         <aside class="travel-tips">
-
             <h2>Travel Tips</h2>
-
             <p>
                 Before travelling internationally, remember to check
                 passport validity, visa requirements and local travel
                 advice for your destination.
             </p>
-
             <p>
                 Planning ahead can help make your journey safer,
                 easier and more enjoyable.
             </p>
-
         </aside>
 
+        <! add we're hiring section here>
+        <section class="hiring">
+            <h2>We're Hiring!</h2>
+            <p>
+                Join our team and be part of a dynamic and innovative
+                travel company. We are looking for passionate individuals
+                who are eager to contribute to our mission of providing
+                exceptional travel experiences.
+            </p>
+            <p>
+                Check out our current job openings and apply today!
+                <a href="jobs.php">View Job Openings</a>
+            </p>
+        </section>
 
         <!--SERVICES-->
         <section class="services"
@@ -200,4 +246,12 @@
 
 </body>
 
+    <!-- FOOTER -->
+    <footer id="site-footer">
+        <?php include 'footer.inc'; ?>
+    </footer>
+
+</body>
+
+</html>
 </html>
