@@ -7,7 +7,7 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 ## Attribution
 | Name | Description | License |
 | :--- | :--- | :--- |
-| [proof-html](https://github.com/anishathalye/proof-html) | GitHub Action used to validate HTML, CSS, and other website resources | [MIT](https://github.com/anishathalye/proof-html/blob/main/LICENSE) |
+| [proof-html](https://github.com/anishathalye/proof-html) | [website-validation.yml](.github/workflows/website-validation.yml): GitHub Action used to validate HTML, CSS, and other website resources | [MIT](https://github.com/anishathalye/proof-html/blob/main/LICENSE) |
 | Media: WorldStrides Australia | [index.php](index.php): Australia destination card (Uluru, Australia) ||
 | Media: Daily Sabah | [index.php](index.php): Japan destination card (Temple and cherry blossom, Japan) ||
 | Media: Yogue India | [index.php](index.php): France destination card (Eiffel Tower, France) ||
