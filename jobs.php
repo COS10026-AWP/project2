@@ -25,7 +25,7 @@
     </head>
     <body>
         <header id="site-header">
-            <?php include 'header.inc'; ?>
+            <?php include 'header.inc.php'; ?>
         </header>
 
         <main id="job-content">
@@ -225,7 +225,7 @@
         </main>
 
         <footer id="site-footer">
-            <?php include 'footer.inc'; ?>
+            <?php include 'footer.inc.php'; ?>
         </footer>
     </body>
 </html>
