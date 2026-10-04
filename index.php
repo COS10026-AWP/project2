@@ -36,6 +36,43 @@
     </header>
 
 
+    <!--MAIN-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Harper Lam">
+    <meta name="keywords"
+          content="tourism, travel, technology, booking, accommodation,
+          transportation, attractions, personalised, travel planning, job">
+    <meta name="description"
+          content="A website that provides destination information,
+          tour bookings, accommodation services and personalised travel planning.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Wide Travel</title>
+
+    <!--External CSS-->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!--Embedded CSS-->
+    <style>
+        .services td[rowspan] {
+            font-weight: bold;
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!--HEADER-->
+
+    <header id="site-header">
+        <?php include 'header.inc'; ?>
+    </header>
+
+
     <!--CONTENT-->
     <main>
         <section class="content">
@@ -209,4 +246,12 @@
 
 </body>
 
+    <!-- FOOTER -->
+    <footer id="site-footer">
+        <?php include 'footer.inc'; ?>
+    </footer>
+
+</body>
+
+</html>
 </html>
