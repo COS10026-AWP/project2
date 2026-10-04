@@ -32,7 +32,7 @@
     <!--HEADER-->
 
     <header id="site-header">
-        <?php include 'header.inc'; ?>
+        <?php include 'header.inc.php'; ?>
     </header>
 
 
@@ -195,7 +195,7 @@
 
     <!-- FOOTER -->
     <footer id="site-footer">
-        <?php include 'footer.inc'; ?>
+        <?php include 'footer.inc.php'; ?>
     </footer>
 
 </body>
