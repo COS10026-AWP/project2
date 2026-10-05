@@ -126,6 +126,15 @@ footer #social {
     color: white;
 }
 
+#job-content a {
+    color: var(--color-text-link-dark);
+}
+
+#job-content a:hover {
+    color: var(--color-text-link-dark-hover);
+    font-style: italic;
+}
+
 #site-nav a:hover {
     color: #F9C74F;
 }
@@ -341,15 +350,6 @@ td {
 #job-content h3 {
     color: var(--color-text-headers);
     font-weight: bold;
-}
-
-#job-content a {
-    color: var(--color-text-link-dark);
-}
-
-#job-content a:hover {
-    color: var(--color-text-link-dark-hover);
-    font-style: italic;
 }
 
 /* Cards */
