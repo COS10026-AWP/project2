@@ -154,79 +154,63 @@
                         Skill list checkbox structure was added by the original author.
                     -->
                 <legend>Skill list</legend>
-                <fieldset style="display: flex; align-items: center; gap:15px;">
-                    <legend>Programming languages</legend>
-                    <p> <label for="skill-html">HTML5</label>
-                        <input type="checkbox" id="skill-html" name="category[]" value="html">
-                    </p>
-                    <p> <label for="skill-css">CSS3</label>
-                        <input type="checkbox" id="skill-css" name="category[]" value="css">
-                    </p>
-                    <p> <label for="skill-javascript">JavaScript</label>
-                        <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
-                    </p>
-                </fieldset>
-
-                <fieldset style="display: grid; grid-template-columns: auto auto; align-items:center; gap:10px">
-                    <legend>Technical and Design Skills</legend>
-                    <p> <label for="skill-git">Git and GitHub</label>
-                        <input type="checkbox" id="skill-git" name="category[]" value="git">
-                    </p>
-                    <p> <label for="skill-figma">Figma and Prototyping</label>
-                        <input type="checkbox" id="skill-figma" name="category[]" value="figma">
-                    </p>
-                    <p> <label for="skill-resp-design">Responsive Web Design and Web Accessibility</label>
-                        <input type="checkbox" id="skill-resp-design" name="category[]" value="responsive-design">
-                    </p>
-                    <p> <label for="skill-accessibility">Web Accessibility</label>
-                        <input type="checkbox" id="skill-accessibility" name="category[]" value="accessibility">
-                    </p>
-                    <p> <label for="skill-ux">UX/UI Design</label>
-                        <input type="checkbox" id="skill-ux" name="category[]" value="ux-ui">
-                    </p>
-                    <p> <label for="skill-user-research">User Research</label>
-                        <input type="checkbox" id="skill-user-research" name="category[]" value="user-research">
-                    </p>
-                    <p> <label for="skill-api">API Development and Integration</label>
-                        <input type="checkbox" id="skill-api" name="category[]" value="api">
-                    </p>
-                    <p> <label for="skill-database-data-analysis">Database Management and Data Analysis</label>
-                        <input type="checkbox" id="skill-database-data-analysis" name="category[]" value="database-data">
-                    </p>
-                </fieldset>
-                
-                <fieldset style="display: grid; grid-template-columns: auto auto; align-items:center; gap:10px">
-                    <legend>Professional Skills</legend>
-                <!--<p> <label for="skill-data">Data Analysis</label>
+                <p> <label for="skill-html">HTML5</label>
+                    <input type="checkbox" id="skill-html" name="category[]" value="html">
+                </p>
+                <p> <label for="skill-css">CSS3</label>
+                    <input type="checkbox" id="skill-css" name="category[]" value="css">
+                </p>
+                <p> <label for="skill-javascript">JavaScript</label>
+                    <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
+                </p>
+                <p> <label for="skill-git">Git and GitHub</label>
+                    <input type="checkbox" id="skill-git" name="category[]" value="git">
+                </p>
+                <p> <label for="skill-figma">Figma and Prototyping</label>
+                    <input type="checkbox" id="skill-figma" name="category[]" value="figma">
+                </p>
+                <p> <label for="skill-resp-design">Responsive Web Design</label>
+                    <input type="checkbox" id="skill-resp-design" name="category[]" value="responsive-design">
+                </p>
+                <p> <label for="skill-accessibility">Web Accessibility</label>
+                    <input type="checkbox" id="skill-accessibility" name="category[]" value="accessibility">
+                </p>
+                <p> <label for="skill-ux">UX/UI Design</label>
+                    <input type="checkbox" id="skill-ux" name="category[]" value="ux-ui">
+                </p>
+                <p> <label for="skill-user-research">User Research</label>
+                    <input type="checkbox" id="skill-user-research" name="category[]" value="user-research">
+                </p>
+                <p> <label for="skill-api">API Development and Integration</label>
+                    <input type="checkbox" id="skill-api" name="category[]" value="api">
+                </p>
+                <p> <label for="skill-database">Database Management</label>
+                    <input type="checkbox" id="skill-database" name="category[]" value="database">
+                </p>
+                <p> <label for="skill-data">Data Analysis</label>
                     <input type="checkbox" id="skill-data" name="category[]" value="data-analysis">
-                </p> -->
-                    <p> <label for="skill-project">Project Management</label>
-                        <input type="checkbox" id="skill-project" name="category[]" value="project-management">
-                    </p>
-                    <p> <label for="skill-agile">Agile Development</label>
-                        <input type="checkbox" id="skill-agile" name="category[]" value="agile">
-                    </p>
-               <!-- <p> <label for="skill-communication">Communication</label>
+                </p>
+                <p> <label for="skill-project">Project Management</label>
+                    <input type="checkbox" id="skill-project" name="category[]" value="project-management">
+                </p>
+                <p> <label for="skill-agile">Agile Development</label>
+                    <input type="checkbox" id="skill-agile" name="category[]" value="agile">
+                </p>
+                <p> <label for="skill-communication">Communication</label>
                     <input type="checkbox" id="skill-communication" name="category[]" value="communication">
-                    </p>-->
-                    <p> <label for="skill-teamwork">Teamwork and Collaboration</label>
-                     <input type="checkbox" id="skill-teamwork" name="category[]" value="teamwork">
-                    </p>
-                    <p> <label for="skill-problem-solving">Problem Solving</label>
-                     <input type="checkbox" id="skill-problem-solving" name="category[]" value="problem-solving">
-                    </p>
-                </fieldset>
-
-                <fieldset style="display: grid; grid-template-columns: auto auto; align-items:center; gap:10px">
-                    <legend>Tourism skills</legend>
-                    <p> <label for="skill-tourism">Travel and Tourism Knowledge</label>
-                        <input type="checkbox" id="skill-tourism" name="category[]" value="tourism">
-                    </p>
-                    <p> <label for="skill-booking">Online Booking Systems</label>
-                        <input type="checkbox" id="skill-booking" name="category[]" value="booking-systems">
-                    </p>
-                </fieldset>
-
+                </p>
+                <p> <label for="skill-teamwork">Teamwork and Collaboration</label>
+                    <input type="checkbox" id="skill-teamwork" name="category[]" value="teamwork">
+                </p>
+                <p> <label for="skill-problem-solving">Problem Solving</label>
+                    <input type="checkbox" id="skill-problem-solving" name="category[]" value="problem-solving">
+                </p>
+                <p> <label for="skill-tourism">Travel and Tourism Knowledge</label>
+                    <input type="checkbox" id="skill-tourism" name="category[]" value="tourism">
+                </p>
+                <p> <label for="skill-booking">Online Booking Systems</label>
+                    <input type="checkbox" id="skill-booking" name="category[]" value="booking-systems">
+                </p>
                 <p> <label for="other">Other skills</label>
                     <textarea id="other" name="other" rows="4" cols="40"></textarea>
                 </p>
