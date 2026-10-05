@@ -101,41 +101,41 @@
                 <p>
                     <label for="dob"> Date of birth</label> <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
                 </p>
+            </fieldset>
 
-                <fieldset style="display: flex; align-items: center; gap:15px;">
-                    <legend>Gender</legend>
-                    <p>
-                        <label for="male">Male</label>
-                        <input type="radio" name="gender" id="male" value="male" required="required">
-                    </p>
-                    <p>
-                        <label for="female">Female</label>
-                        <input type="radio" name="gender" id="female" value="female">
-                    </p>
-                </fieldset>
+            <fieldset style="display: flex; align-items: center; gap:15px;">
+                <legend>Gender</legend>
+                <p>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="male" value="male" required="required">
+                </p>
+                <p>
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" id="female" value="female">
+                </p>
             </fieldset>
 
             <fieldset>
-                <legend>Address and Contact details</legend>
+                <legend>Address and Contact information </legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="street">Street address</label> <input type="text" name="street" id="street"
+                    <label for="address">Street address</label> <input type="text" name="address" id="address"
                         maxlength="40" required="required">
 
-                    <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
-                        required="required">
+                <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" pattern="{1,40}"
+                    required="required">
 
-                    <label for="state">State</label>
-                    <select name="state" id="state" required="required">
-                        <option value="">Please select</option>
-                        <option value="vic">VIC</option>
-                        <option value="nsw">NSW</option>
-                        <option value="qld">QLD</option>
-                        <option value="nt">NT</option>
-                        <option value="wa">WA</option>
-                        <option value="sa">SA</option>
-                        <option value="tas">TAS</option>
-                        <option value="act">ACT</option>
-                    </select>
+                <label for="state">State</label>
+                <select name="state" id="state">
+                    <option value=" ">Please select</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="qld">QLD</option>
+                    <option value="nt">NT</option>
+                    <option value="wa">WA</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="act">ACT</option>
+                </select>
 
                         <label for="postcode">Postcode</label> <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
