@@ -182,12 +182,6 @@ footer #social {
     /* Crop the image to fill the fixed-height container */
     object-fit: cover;
 }
-/* Change the scale of destination cards on hover
-credit https://prismic.io/blog/css-hover-effects */
-.destination-card:hover {
-    transform: scale(1.07, 1.07);
-    box-shadow: 0 0 20px rgba(5, 6, 6, 0.5);
-}
 
 .destinations > h2 {
     margin-bottom: 40px;
@@ -214,6 +208,12 @@ credit https://prismic.io/blog/css-hover-effects */
     background-color: white;
 
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+/* Change the scale of destination cards on hover
+credit https://prismic.io/blog/css-hover-effects */
+.destination-card:hover {
+    transform: scale(1.07, 1.07);
+    box-shadow: 0 0 20px rgba(5, 6, 6, 0.5);
 }
 .destination-card h3,
 .destination-card p {
