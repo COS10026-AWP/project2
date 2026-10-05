@@ -44,52 +44,44 @@
                     pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
             </p>
 
-            <fieldset>
-                <legend>Personal information</legend>
-                <p style="display: flex; align-items: center; gap:15px;">
-                    <label for="first_name">First name</label> <input type="text" name="first_name" id="first_name"
-                        pattern="[a-zA-Z]{1,20}" required="required">
-                    <label for="surname">Last name</label> <input type="text" name="surname" id="surname"
-                        pattern="[a-zA-Z]{1,20}" required="required">
-                </p>
-                <p>
-                    <label for="dob"> Date of birth</label> <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
-                </p>
-            </fieldset>
+            <p style="display: flex; align-items: center; gap:15px;">
+                <label for="first_name">First name</label> <input type="text" name="first_name" id="first_name"
+                    pattern="[a-zA-Z]{1,20}" required="required">
+                <label for="surname">Last name</label> <input type="text" name="surname" id="surname"
+                    pattern="[a-zA-Z]{1,20}" required="required">
+            </p>
+            <p>
+                <label for="dob"> Date of birth</label> <input type="date" name="dob" id="dob" required="required">
+            </p>
 
             <fieldset style="display: flex; align-items: center; gap:15px;">
                 <legend>Gender</legend>
                 <p>
                     <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="male" required="required">
-                </p>
-                <p>
+                    <input type="radio" name="gender" id="male" value="male">
                     <label for="female">Female</label>
                     <input type="radio" name="gender" id="female" value="female">
                 </p>
             </fieldset>
+            <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
+                <label for="address">Street address</label> <input type="text" name="address" id="address"
+                    pattern="{1,40}" required="required">
 
-            <fieldset>
-                <legend>Address and Contact information </legend>
-                <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="address">Street address</label> <input type="text" name="address" id="address"
-                        maxlength="40" required="required">
+                <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" pattern="{1,40}"
+                    required="required">
 
-                    <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
-                        required="required">
-
-                    <label for="state">State</label>
-                    <select name="state" id="state" required="required">
-                        <option value="">Please select</option>
-                        <option value="vic">VIC</option>
-                        <option value="nsw">NSW</option>
-                        <option value="qld">QLD</option>
-                        <option value="nt">NT</option>
-                        <option value="wa">WA</option>
-                        <option value="sa">SA</option>
-                        <option value="tas">TAS</option>
-                        <option value="act">ACT</option>
-                    </select>
+                <label for="state">State</label>
+                <select name="state" id="state">
+                    <option value=" ">Please select</option>
+                    <option value="vic">VIC</option>
+                    <option value="nsw">NSW</option>
+                    <option value="qld">QLD</option>
+                    <option value="nt">NT</option>
+                    <option value="wa">WA</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="act">ACT</option>
+                </select>
 
                     <label for="postcode">Postcode</label> <input type="text" name="postcode" id="postcode"
                         pattern="[0-9]{4}" required="required">
