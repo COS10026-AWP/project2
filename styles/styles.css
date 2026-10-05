@@ -182,7 +182,7 @@ footer #social {
     /* Crop the image to fill the fixed-height container */
     object-fit: cover;
 }
-/* Change the scale of destination cards on hover 
+/* Change the scale of destination cards on hover
 credit https://prismic.io/blog/css-hover-effects */
 .destination-card:hover {
     transform: scale(1.07, 1.07);
@@ -239,16 +239,16 @@ credit https://prismic.io/blog/css-hover-effects */
 }
 
 /* Services */
-.services th {
-    font-size: 18px;
-    color: #263238;
-}
 th,
 td {
     padding: 15px;
     border: 1px solid #ddd;
 
     background-color: white;
+}
+.services th {
+    font-size: 18px;
+    color: #263238;
 }
 .services table {
     width: 80%;
