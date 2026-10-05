@@ -103,7 +103,7 @@
 =======
 
             <fieldset>
-                <legend>Address and Contact details</legend>
+                <legend>Address and Contact information </legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
                     <label for="street">Street address</label> 
                     <input type="text" name="street" id="street"
