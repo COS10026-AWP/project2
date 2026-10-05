@@ -95,27 +95,30 @@
                         Skill list checkbox structure was added by the original author.
                     -->
                 <legend>Skill list</legend>
-                <p> <label for="skill-html">HTML5</label>
-                    <input type="checkbox" id="skill-html" name="category[]" value="html">
-                </p>
-                <p> <label for="skill-css">CSS3</label>
-                    <input type="checkbox" id="skill-css" name="category[]" value="css">
-                </p>
-                <p> <label for="skill-javascript">JavaScript</label>
-                    <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
-                </p>
+                <fieldset style="display: flex; align-items: center; gap:15px;">
+                    <legend>Programming languages</legend>
+                    <p> <label for="skill-html">HTML5</label>
+                        <input type="checkbox" id="skill-html" name="category[]" value="html">
+                    </p>
+                    <p> <label for="skill-css">CSS3</label>
+                        <input type="checkbox" id="skill-css" name="category[]" value="css">
+                    </p>
+                    <p> <label for="skill-javascript">JavaScript</label>
+                        <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
+                    </p>
+                </fieldset>
                 <p> <label for="skill-git">Git and GitHub</label>
                     <input type="checkbox" id="skill-git" name="category[]" value="git">
                 </p>
                 <p> <label for="skill-figma">Figma and Prototyping</label>
                     <input type="checkbox" id="skill-figma" name="category[]" value="figma">
                 </p>
-                <p> <label for="skill-resp-design">Responsive Web Design</label>
-                    <input type="checkbox" id="skill-resp-design" name="category[]" value="responsive-design">
+                <p> <label for="skill-resp-design-web-access">Responsive Web Design and Web Accessibility</label>
+                    <input type="checkbox" id="skill-resp-design-web-access" name="category[]" value="responsive-design-web-access">
                 </p>
-                <p> <label for="skill-accessibility">Web Accessibility</label>
+                <!--<p> <label for="skill-accessibility">Web Accessibility</label>
                     <input type="checkbox" id="skill-accessibility" name="category[]" value="accessibility">
-                </p>
+                </p>-->
                 <p> <label for="skill-ux">UX/UI Design</label>
                     <input type="checkbox" id="skill-ux" name="category[]" value="ux-ui">
                 </p>
@@ -125,20 +128,20 @@
                 <p> <label for="skill-api">API Development and Integration</label>
                     <input type="checkbox" id="skill-api" name="category[]" value="api">
                 </p>
-                <p> <label for="skill-database">Database Management</label>
-                    <input type="checkbox" id="skill-database" name="category[]" value="database">
+                <p> <label for="skill-database-data-analysis">Database Management and Data Analysis</label>
+                    <input type="checkbox" id="skill-database-data-analysis" name="category[]" value="database-data">
                 </p>
-                <p> <label for="skill-data">Data Analysis</label>
+                <!--<p> <label for="skill-data">Data Analysis</label>
                     <input type="checkbox" id="skill-data" name="category[]" value="data-analysis">
-                </p>
+                </p> -->
                 <p> <label for="skill-project">Project Management</label>
                     <input type="checkbox" id="skill-project" name="category[]" value="project-management">
                 </p>
                 <p> <label for="skill-agile">Agile Development</label>
                     <input type="checkbox" id="skill-agile" name="category[]" value="agile">
                 </p>
-                <p> <label for="skill-communication">Communication</label>
-                    <input type="checkbox" id="skill-communication" name="category[]" value="communication">
+               <!-- <p> <label for="skill-communication">Communication</label>
+                    <input type="checkbox" id="skill-communication" name="category[]" value="communication">-->
                 </p>
                 <p> <label for="skill-teamwork">Teamwork and Collaboration</label>
                     <input type="checkbox" id="skill-teamwork" name="category[]" value="teamwork">
