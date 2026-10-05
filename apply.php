@@ -281,14 +281,14 @@
                     <legend>Professional Skills</legend>
                 <!--<p> <label for="skill-data">Data Analysis</label>
                     <input type="checkbox" id="skill-data" name="category[]" value="data-analysis">
-                </p> -->
-                    <p> <label for="skill-project">Project Management</label>
-                        <input type="checkbox" id="skill-project" name="category[]" value="project-management">
-                    </p>
-                    <p> <label for="skill-agile">Agile Development</label>
-                        <input type="checkbox" id="skill-agile" name="category[]" value="agile">
-                    </p>
-               <!-- <p> <label for="skill-communication">Communication</label>
+                </p>
+                <p> <label for="skill-project">Project Management</label>
+                    <input type="checkbox" id="skill-project" name="category[]" value="project-management">
+                </p>
+                <p> <label for="skill-agile">Agile Development</label>
+                    <input type="checkbox" id="skill-agile" name="category[]" value="agile">
+                </p>
+                <p> <label for="skill-communication">Communication</label>
                     <input type="checkbox" id="skill-communication" name="category[]" value="communication">
                     </p>-->
                     <p> <label for="skill-teamwork">Teamwork and Collaboration</label>
