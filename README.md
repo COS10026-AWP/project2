@@ -1,13 +1,13 @@
 # COS10026 Web Technology Project
 
-A group-made website for a fictional tourism and travel technology platform that needs a website to advertise job vacancies.
+A group-made site for a fictional tourism and travel technology platform that needs a site to advertise job vacancies.
 
 This student project is a continuation of Applied Web Project Part 1, which may be found at [this repository](https://github.com/COS10026-AWP/project1).
 
 ## Attribution
 | Name | Description | License |
 | :--- | :--- | :--- |
-| [proof-html](https://github.com/anishathalye/proof-html) | [website-validation.yml](.github/workflows/website-validation.yml): GitHub Action used to validate HTML, CSS, and other website resources | [MIT](https://github.com/anishathalye/proof-html/blob/main/LICENSE) |
+| [proof-html](https://github.com/anishathalye/proof-html) | [website-validation.yml](.github/workflows/website-validation.yml): GitHub Action used to validate HTML, CSS, and other site resources | [MIT](https://github.com/anishathalye/proof-html/blob/main/LICENSE) |
 | [super-linter](https://github.com/super-linter/super-linter) | [lint.yml](.github/workflows/lint.yml): Lanugage-agnostic GitHub Action used to validate source code | [MIT](https://github.com/super-linter/super-linter/blob/main/LICENSE) |
 | Media: WorldStrides Australia | [index.php](index.php): Australia destination card (Uluru, Australia) ||
 | Media: Daily Sabah | [index.php](index.php): Japan destination card (Temple and cherry blossom, Japan) ||
