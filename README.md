@@ -7,7 +7,6 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 ## Attribution
 | Name | Description | License |
 | :--- | :--- | :--- |
-| [proof-html](https://github.com/anishathalye/proof-html) | [website-validation.yml](.github/workflows/website-validation.yml): GitHub Action used to validate HTML, CSS, and other site resources | [MIT](https://github.com/anishathalye/proof-html/blob/main/LICENSE) |
 | [super-linter](https://github.com/super-linter/super-linter) | [lint.yml](.github/workflows/lint.yml): Lanugage-agnostic GitHub Action used to validate source code | [MIT](https://github.com/super-linter/super-linter/blob/main/LICENSE) |
 | Media: WorldStrides Australia | [index.php](index.php): Australia destination card (Uluru, Australia) ||
 | Media: Daily Sabah | [index.php](index.php): Japan destination card (Temple and cherry blossom, Japan) ||
