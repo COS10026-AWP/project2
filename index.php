@@ -21,56 +21,34 @@
             text-align: left;
         }
     </style>
-
 </head>
+ 
 
 
-<body>
-
-    <!--HEADER-->
+    <body>
+   <!--HEADER-->
 
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
 
 
-    <!--MAIN-->
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Harper Lam">
-        <meta name="keywords" content="tourism, travel, technology, booking, accommodation,
-          transportation, attractions, personalised, travel planning, job">
-        <meta name="description" content="A website that provides destination information,
-          tour bookings, accommodation services and personalised travel planning.">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>World Wide Travel</title>
-
-        <!--External CSS-->
-        <link rel="stylesheet" href="styles/styles.css">
-
-        <!--Embedded CSS-->
-        <style>
-            .services td[rowspan] {
-                font-weight: bold;
-                text-align: left;
-            }
-        </style>
-
-    </head>
-
-
-    <body>
-
-        <!--HEADER-->
-
-        <header id="site-header">
-            <?php include 'header.inc.php'; ?>
-        </header>
-
-
         <!--CONTENT-->
         <main>
+              <section class="hiring">
+                <h1>We're Hiring!</h1>
+                    <p>
+                        Join our team and be part of a dynamic and innovative
+                        travel company. We are looking for passionate individuals
+                        who are eager to contribute to our mission of providing
+                        exceptional travel experiences.
+                    </p>
+                    <p>
+                        Check out our current job openings and apply today!
+                        <a href="jobs.php">View Job Openings</a>
+                    </p>
+                </section>
+
             <section class="content">
                 <h1 id="slogan">Taking You Around the World</h1>
                 <br>
@@ -128,45 +106,27 @@
                             <i>Photo Credit: Yogue India</i>
                         </p>
                     </article>
-
                 </div>
-
-            </section>
-
-
-            <!--TRAVEL TIPS (add css for this)-->
-            <aside class="travel-tips">
-                <h2>Travel Tips</h2>
-                <p>
-                    Before travelling internationally, remember to check
-                    passport validity, visa requirements and local travel
-                    advice for your destination.
-                </p>
-                <p>
-                    Planning ahead can help make your journey safer,
-                    easier and more enjoyable.
-                </p>
-            </aside>
-
-            <! add we're hiring section here>
-                <section class="hiring">
-                    <h2>We're Hiring!</h2>
-                    <p>
-                        Join our team and be part of a dynamic and innovative
-                        travel company. We are looking for passionate individuals
-                        who are eager to contribute to our mission of providing
-                        exceptional travel experiences.
-                    </p>
-                    <p>
-                        Check out our current job openings and apply today!
-                        <a href="jobs.php">View Job Openings</a>
-                    </p>
-                </section>
-
+                    <aside class="travel-tips">
+                        <h2>Travel Tips</h2>
+                        <p>
+                            Before travelling internationally, remember to check
+                            passport validity, visa requirements and local travel
+                            advice for your destination.
+                        </p>
+                        <p>
+                            Planning ahead can help make your journey safer,
+                            easier and more enjoyable.
+                        </p>
+                    </aside>
+        </section>
+          
+                        
                 <!--SERVICES-->
                 <section class="services" style="background-color: #E0F1F5; padding: 100px 30px;">
 
-                    <h2>Our Services</h2>
+                    <h2 style="text-align: center; font-size: 30px; color: #12343B;">Our Services</h2>
+
 
                     <table>
 
@@ -180,7 +140,7 @@
                             <td rowspan="2">
                                 Travel Planning
                             </td>
-                            <td>
+                            <td class="services-hover">
                                 Destination Information
                             </td>
                             <td>
@@ -191,7 +151,7 @@
 
 
                         <tr>
-                            <td>
+                            <td class="services-hover">
                                 Personalised Travel Planning
                             </td>
                             <td>
@@ -206,7 +166,7 @@
                             <td rowspan="2">
                                 Booking Services
                             </td>
-                            <td>
+                            <td class="services-hover">
                                 Tour Bookings
                             </td>
                             <td>
@@ -217,7 +177,7 @@
 
 
                         <tr>
-                            <td>
+                            <td class="services-hover">
                                 Accommodation Services
                             </td>
                             <td>
@@ -230,21 +190,11 @@
 
         </main>
 
-
-        <!-- FOOTER -->
-        <footer id="site-footer">
-            <?php include 'footer.inc.php'; ?>
-        </footer>
-
-    </body>
-
     <!-- FOOTER -->
     <footer id="site-footer">
         <?php include 'footer.inc.php'; ?>
     </footer>
 
 </body>
-
-</html>
 
 </html>

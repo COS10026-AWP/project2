@@ -1,21 +1,26 @@
 <!-- https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax -->
 
-<!-- Contributor notes/log/to-do -->
----
+## Description
+<!-- Clear summary of what this PR does -->
 
-[Addresses/adds/fixes etc.]:
-> [Detailed summary]
- # Changes
-- [Updates [pull_request_template.md](/.github/pull_request_template.md)]
+## Changes made
+<!-- List specific changes made -->
+-
 
-# Checks
-<!-- Using XAMPP, check source code with Ctrl+U (Windows) or ⌘-Option-U (Mac) to copy-paste HTML -->
-HTML Validation with [Nu HTML Checker](https://validator.w3.org/nu/)
-<!-- This PR does not modify any .php files -->
+## Checklist
+<!-- Using XAMPP, and in localhost, check source code with Ctrl+U (Windows) or ⌘-Option-U (Mac) to copy-paste HTML -->
+- HTML Validation with [Nu HTML Checker](https://validator.w3.org/nu/#textarea)
   - [ ] about.php
   - [ ] apply.php
   - [ ] index.php
   - [ ] jobs.php
+  <!-- - This PR does not modify any .php files -->
 
-Linter validation with [Super-linter](https://github.com/super-linter/super-linter)
-- [ ] Changes do not introduce new warnings or errors
+<!-- After the GitHub action is automatically run, check the summary comment in the PR -->
+- Linter validation with [Super-linter](https://github.com/super-linter/super-linter)
+  - [ ] Changes do not introduce new warnings or errors
+
+- Documentation
+  - [ ] Attributions, if any, have been updated in README.md
+  - [ ] External source usage, if any, has been updated in README.md
+  - [ ] Generative AI usage, if any, has been updated in README.md
