@@ -298,11 +298,11 @@ td {
     background-color: white;
 }
 
-.services .sers {
+.services .services-hover {
     background-color: #FAFAF7;
 }
 
-.services .sers:hover {
+.services .services-hover:hover {
     background-color: #F9C74F;
     text-decoration: underline;
 }
