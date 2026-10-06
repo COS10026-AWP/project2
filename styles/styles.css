@@ -158,8 +158,8 @@ footer #social {
 
     /* Centre vertically */
     justify-content: center;
-    background-image: url('../images/airplane.png');
     background-size: cover;
+    background-image: url('../images/airplane.png');
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
