@@ -35,6 +35,20 @@
 
         <!--CONTENT-->
         <main>
+              <section class="hiring">
+                <h1>We're Hiring!</h1>
+                    <p>
+                        Join our team and be part of a dynamic and innovative
+                        travel company. We are looking for passionate individuals
+                        who are eager to contribute to our mission of providing
+                        exceptional travel experiences.
+                    </p>
+                    <p>
+                        Check out our current job openings and apply today!
+                        <a href="jobs.php">View Job Openings</a>
+                    </p>
+                </section>
+
             <section class="content">
                 <h1 id="slogan">Taking You Around the World</h1>
                 <br>
@@ -92,41 +106,22 @@
                             <i>Photo Credit: Yogue India</i>
                         </p>
                     </article>
-
                 </div>
-
-            </section>
-
-
-            <!--TRAVEL TIPS (add css for this)-->
-            <aside class="travel-tips">
-                <h2>Travel Tips</h2>
-                <p>
-                    Before travelling internationally, remember to check
-                    passport validity, visa requirements and local travel
-                    advice for your destination.
-                </p>
-                <p>
-                    Planning ahead can help make your journey safer,
-                    easier and more enjoyable.
-                </p>
-            </aside>
-
-            <!-- add we're hiring section here-->
-                <section class="hiring">
-                    <h2>We're Hiring!</h2>
-                    <p>
-                        Join our team and be part of a dynamic and innovative
-                        travel company. We are looking for passionate individuals
-                        who are eager to contribute to our mission of providing
-                        exceptional travel experiences.
-                    </p>
-                    <p>
-                        Check out our current job openings and apply today!
-                        <a href="jobs.php">View Job Openings</a>
-                    </p>
-                </section>
-
+                    <aside class="travel-tips">
+                        <h2>Travel Tips</h2>
+                        <p>
+                            Before travelling internationally, remember to check
+                            passport validity, visa requirements and local travel
+                            advice for your destination.
+                        </p>
+                        <p>
+                            Planning ahead can help make your journey safer,
+                            easier and more enjoyable.
+                        </p>
+                    </aside>
+        </section>
+          
+                        
                 <!--SERVICES-->
                 <section class="services" style="background-color: #E0F1F5; padding: 100px 30px;">
 
