@@ -16,7 +16,7 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 ## External Sources
 | Link | Description | Date | Commit |
 | :--- | :--- | :--- | :--- |
-| [Stack Overflow](https://stackoverflow.com/a/74816531) | [jobs.php](jobs.php): Highlight on hover | 07 Sep 2026 | [58781f5](https://github.com/COS10026-AWP/project1/commit/58781f5f51fbfde36840a846b03f55d04016dbc9)* |
+| [Stack Overflow](https://stackoverflow.com/a/74816531) | [jobs.php](jobs.php): Highlight on hover | 09 Sep 2026 | [ab1f5b6](https://github.com/COS10026-AWP/project1/commit/ab1f5b610fb1c2060e3476de398f6de2831b5146)* |
 | [Stack Overflow](https://stackoverflow.com/questions/48522388/the-meaning-and-benefits-of-flex-1) | [styles.css](styles/styles.css): Usage of `flex: 1`| 09 Sep 2026 | [d0ab126](https://github.com/COS10026-AWP/project1/commit/d0ab1266b9344dd6cbec1fd565e45eb9c8c2655a)* |
 [Prismic](https://prismic.io/blog/css-hover-effects) | [styles.css](styles/styles.css): Card hover effect | 11 Sep 2026 | [f1bce07](https://github.com/COS10026-AWP/project1/commit/f1bce07002bd6eef7ef1758142a70e2a4f93148a)* |
 
