@@ -60,14 +60,14 @@
             <section class="destinations">
                 <h2>Explore Our Popular Destinations</h2>
                 <div class="destination-box">
-                    <!-- Australia -->
+                    <!-- China -->
 
                     <article class="destination-card">
-                        <img src="images/australia.png" alt="Uluru Rock, Australia">
-                        <h3>Australia</h3>
+                        <img src="images/china.jpg" alt="Great Wall of China">
+                        <h3>China</h3>
                         <p>
-                            From the Great Barrier Reef to the Outback,
-                            Australia offers a diverse range of experiences
+                            From the Great Wall to the Forbidden City,
+                            China offers a rich cultural experience
                             for every traveller.
                         </p>
                         <p>
@@ -76,14 +76,14 @@
                     </article>
 
 
-                    <!-- Japan -->
+                    <!-- Indonesia -->
 
                     <article class="destination-card">
 
-                        <img src="images/japan.png" alt="Temple and cherry blossom, Japan">
-                        <h3>Japan</h3>
+                        <img src="images/indonesia.jpg" alt="Beach and palm trees, Indonesia">
+                        <h3>Indonesia</h3>
                         <p>
-                            Experience the culture and attractions of Japan
+                            Experience the culture and natural beauty of Indonesia
                             on your next trip.
                         </p>
                         <p>
@@ -92,15 +92,15 @@
                     </article>
 
 
-                    <!-- France -->
+                    <!-- Vietnam -->
 
                     <article class="destination-card">
 
-                        <img src="images/france.png" alt="Eiffel Tower, France">
-                        <h3>France</h3>
+                        <img src="images/vietnam.jpg" alt="Ha Long Bay, Vietnam">
+                        <h3>Vietnam</h3>
                         <p>
                             Explore the scenic landscapes and adventures
-                            that France has to offer.
+                            that Vietnam has to offer.
                         </p>
                         <p>
                             <i>Photo Credit: Yogue India</i>
