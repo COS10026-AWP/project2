@@ -39,14 +39,17 @@
                 <h1>We're Hiring!</h1>
                     <p>
                         Join our team and be part of a dynamic and innovative
-                        travel company. We are looking for passionate individuals
+                        travel company. </p>
+                    <p>
+                        We are looking for passionate individuals
                         who are eager to contribute to our mission of providing
                         exceptional travel experiences.
                     </p>
                     <p>
                         Check out our current job openings and apply today!
-                        <a href="jobs.php">View Job Openings</a>
                     </p>
+                        <a href="jobs.php" class="button">View Job Openings</a>
+                        <a href="apply.php" class="button">Apply Now</a>
                 </section>
 
             <section class="content">
@@ -71,7 +74,7 @@
                             for every traveller.
                         </p>
                         <p>
-                            <i>Photo Credit: WorldStrides Australia</i>
+                            <i>Photo by Hanson Lu on Unsplash</i>
                         </p>
                     </article>
 
@@ -87,7 +90,7 @@
                             on your next trip.
                         </p>
                         <p>
-                            <i>Photo Credit: Daily Sabah</i>
+                            <i>Photo by Dika Pebriyanta on Unsplash</i>
                         </p>
                     </article>
 
@@ -103,11 +106,12 @@
                             that Vietnam has to offer.
                         </p>
                         <p>
-                            <i>Photo Credit: Yogue India</i>
+                            <i>Photo by Marina Lobato on Unsplash</i>
                         </p>
                     </article>
                 </div>
                     <aside class="travel-tips">
+                        <br>
                         <h2>Travel Tips</h2>
                         <p>
                             Before travelling internationally, remember to check
