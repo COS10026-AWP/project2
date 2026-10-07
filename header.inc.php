@@ -6,5 +6,6 @@
         <a href="jobs.php">Job Description</a>
         <a href="apply.php">Apply</a>
         <a href="about.php">About Us</a>
+        <a href="login.php">Login</a>
     </nav>
 </div>
