@@ -34,9 +34,24 @@
         <aside id="job-sidebar">
             <nav id="job-available">
                 <h2>Jobs available</h2>
-                <a href="#job-fs2026">Full-stack Software Dev</a>
-                <a href="#job-pm2026">Product Manager</a>
-                <a href="#job-ux2026">UX/UI Designer</a>
+                <?php
+                require_once('settings.php');
+                $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
+                if (!$db_conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                $query = "SELECT reference_number, title FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
+                $result = mysqli_query($db_conn, $query);
+                if (!$result) {
+                    echo "There are no jobs to display.";
+                } else {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<a href='#job-" . strtolower($row['reference_number']) . "'>" . $row['title'] . "</a>";
+                    }
+                }
+                mysqli_close($db_conn);
+                ?>
             </nav>
             <section id="job-apply-note">
                 <h2>Before you apply</h2>
