@@ -20,6 +20,6 @@
     </a>
     <br>
     <p id="copyright">
-        Copyright &copy; 2026 World Wide Travel, Australia. All rights reserved.
+        &copy; 2026 World Wide Travel, Australia. All rights reserved.
     </p>
 </div>
