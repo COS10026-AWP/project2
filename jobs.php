@@ -56,6 +56,23 @@
                     Job details and descriptions generated using ChatGPT (OpenAI), version GPT-5.6 Luna, Sep 2026.
                     All generated text was reviewed by the author before use.
                 -->
+            <?php
+            // Include the database connection file
+            require_once('settings.php');
+            $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
+            if (!$db_conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            $query = "SELECT * FROM job_listings";
+            $result = mysqli_query($db_conn, $query);
+            if (!$result) {
+                echo "There are no jobs to display.";
+            } else {
+                // Fetch and display job listings
+            }
+            mysqli_close($db_conn);
+            ?>
             <section class="job-position" id="job-fs2026">
                 <div class="job-header">
                     <h2 class="job-title">Full-Stack Software Developer</h2>
