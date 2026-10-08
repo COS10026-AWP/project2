@@ -8,10 +8,10 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 | Name | Description | License |
 | :--- | :--- | :--- |
 | [super-linter](https://github.com/super-linter/super-linter) | [lint.yml](.github/workflows/lint.yml): Lanugage-agnostic GitHub Action used to validate source code | [MIT](https://github.com/super-linter/super-linter/blob/main/LICENSE) |
-| Media: WorldStrides Australia | [index.php](index.php): Australia destination card (Uluru, Australia) ||
-| Media: Daily Sabah | [index.php](index.php): Japan destination card (Temple and cherry blossom, Japan) ||
-| Media: Yogue India | [index.php](index.php): France destination card (Eiffel Tower, France) ||
-
+| [Media](https://unsplash.com/photos/airplane-flying-through-a-cloudy-blue-sky-QRH9Vze-LoE): Kirill Rahcheev | [index.php](index.php): Background image | [Unsplash](https://unsplash.com/license) |
+| [Media](https://unsplash.com/photos/great-wall-of-china-in-autumn-Q36BvLGdOAg): Hanson Lu | [index.php](index.php): Destination card photo (China) | [Unsplash](https://unsplash.com/license) |
+| [Media](https://unsplash.com/photos/brown-and-white-temple-near-body-of-water-during-daytime-qQXcvI1SWOI): Dika Pebriyanta | [index.php](index.php): Destination card photo (Indonesia) | [Unsplash](https://unsplash.com/license) |
+| [Media](https://unsplash.com/photos/boats-on-turquoise-ha-long-bay-kG7pOXbBfNs): Marina Lobato | [index.php](index.php): Destination card photo (Vietnam) | [Unsplash](https://unsplash.com/license) |
 
 ## External Sources
 | Link | Description | Date | Commit |
