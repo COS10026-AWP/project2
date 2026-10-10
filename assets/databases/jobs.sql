@@ -1,5 +1,8 @@
 CREATE DATABASE world_wide_travel_db;
 USE world_wide_travel_db;
+
+DROP TABLE IF EXISTS job_listings;
+
 CREATE TABLE job_listings (
   reference_number CHAR(6) NOT NULL PRIMARY KEY ,
   title VARCHAR(100) NOT NULL ,
