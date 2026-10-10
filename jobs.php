@@ -88,7 +88,7 @@
             if (!$result) {
                 echo "There are no jobs to display.";
             } else {
-                function toListItems(string $text) : string
+                function toListItems(string $text): string
                 {
                     $lines = json_decode($text, true);
                     $listItems = '';
