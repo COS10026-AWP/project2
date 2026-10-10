@@ -1,3 +1,11 @@
+<?php
+$config = require(__DIR__ . '/settings.php');
+$db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+if (!$db_conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,12 +43,6 @@
             <nav id="job-available">
                 <h2>Jobs available</h2>
                 <?php
-                require_once('settings.php');
-                $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
-                if (!$db_conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
                 $query = "SELECT reference_number, title
                     FROM job_listings
                     WHERE job_status = 'active'
@@ -76,13 +78,6 @@
                     All generated text was reviewed by the author before use.
                 -->
             <?php
-            // Include the database connection file
-            require_once('settings.php');
-            $db_conn = mysqli_connect($host, $user, $pwd, $sql_db);
-            if (!$db_conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-
             $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
             $result = mysqli_query($db_conn, $query);
             if (!$result) {
@@ -155,3 +150,7 @@
 </body>
 
 </html>
+
+<?php
+mysqli_close($db_conn);
+?>
