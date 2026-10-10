@@ -41,7 +41,11 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $query = "SELECT reference_number, title FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
+                $query = "SELECT reference_number, title
+                    FROM job_listings
+                    WHERE job_status = 'active'
+                    ORDER BY title
+                    ASC";
                 $result = mysqli_query($db_conn, $query);
                 if (!$result) {
                     echo "There are no jobs to display.";
@@ -109,13 +113,19 @@
                     echo "<p class='job-desc'>" . $row['short_description'] . "</p>";
 
                     echo "<dl class='job-details'>";
-                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>" . toSalary($row['salary_min'], $row['salary_max']) . "</dd> </div>";
-                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>" . $row['reporting_line'] . "</dd> </div>";
+                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>" .
+                        toSalary($row['salary_min'], $row['salary_max']) .
+                        "</dd> </div>";
+                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>" .
+                    $row['reporting_line'] . "</dd> </div>";
                     echo "</dl>";
 
-                    echo "<section class='job-resp'> <h3>Key responsibilities</h3> <ul> " . toListItems($row['key_responsibilities']) . "</ul> </section>";
-                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3> <ol> " . toListItems($row['essential_requirements']) . "</ol> </section>";
-                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3> <ol> " . toListItems($row['preferable_requirements']) . "</ol> </section>";
+                    echo "<section class='job-resp'> <h3>Key responsibilities</h3> <ul> " .
+                        toListItems($row['key_responsibilities']) . "</ul> </section>";
+                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3> <ol> " .
+                        toListItems($row['essential_requirements']) . "</ol> </section>";
+                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3> <ol> " .
+                        toListItems($row['preferable_requirements']) . "</ol> </section>";
 
                     echo "</section>";
                 }
