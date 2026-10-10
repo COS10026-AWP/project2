@@ -99,35 +99,38 @@
                     }
                     return $listItems;
                 }
-                function toSalary(string $min, string $max) : string
-                {
-                    return '$' . htmlspecialchars($min) . ' - $' . htmlspecialchars($max);
-                }
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<section class='job-position' id='job-" . strtolower($row['reference_number']) . "'>";
+                    $reference_number = htmlspecialchars($row['reference_number']);
+                    $title = htmlspecialchars($row['title']);
+                    $short_description = htmlspecialchars($row['short_description']);
+                    $salary = '$' . htmlspecialchars($row['salary_min']) . ' - $' .
+                        htmlspecialchars($row['salary_max']);
+                    $reporting_line = htmlspecialchars($row['reporting_line']);
+                    $key_resps = toListItems($row['key_responsibilities']);
+                    $ess_reqs = toListItems($row['essential_requirements']);
+                    $pref_reqs = toListItems($row['preferable_requirements']);
+
+                    echo "<section class='job-position' id='job-{strtolower($reference_number)}'>";
 
                     echo "<div class='job-header'>";
-                    echo "<h2 class='job-title'>" . $row['title'] . "</h2>";
-                    echo "<p class='job-ref-id'>" . $row['reference_number'] . "</p>";
+                    echo "<h2 class='job-title'>{$title}</h2>";
+                    echo "<p class='job-ref-id'>{$reference_number}</p>";
                     echo "</div>";
 
-                    echo "<p class='job-desc'>" . $row['short_description'] . "</p>";
+                    echo "<p class='job-desc'>{$short_description}</p>";
 
                     echo "<dl class='job-details'>";
-                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>" .
-                        toSalary($row['salary_min'], $row['salary_max']) .
-                        "</dd> </div>";
-                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>" .
-                    $row['reporting_line'] . "</dd> </div>";
+                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>{$salary}</dd> </div>";
+                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>{$reporting_line}</dd> </div>";
                     echo "</dl>";
 
-                    echo "<section class='job-resp'> <h3>Key responsibilities</h3> <ul> " .
-                        toListItems($row['key_responsibilities']) . "</ul> </section>";
-                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3> <ol> " .
-                        toListItems($row['essential_requirements']) . "</ol> </section>";
-                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3> <ol> " .
-                        toListItems($row['preferable_requirements']) . "</ol> </section>";
+                    echo "<section class='job-resp'> <h3>Key responsibilities</h3>
+                        <ul> {$key_resps}</ul> </section>";
+                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3>
+                        <ol> {$ess_reqs}</ol> </section>";
+                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3>
+                        <ol> {$pref_reqs}</ol> </section>";
 
                     echo "</section>";
                 }
