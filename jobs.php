@@ -96,15 +96,15 @@ if (!$db_conn) {
                 }
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $reference_number = htmlspecialchars($row['reference_number']);
-                    $title = htmlspecialchars($row['title']);
-                    $short_description = htmlspecialchars($row['short_description']);
-                    $salary = '$' . htmlspecialchars($row['salary_min']) . ' - $' .
-                        htmlspecialchars($row['salary_max']);
-                    $reporting_line = htmlspecialchars($row['reporting_line']);
-                    $key_resps = toListItems($row['key_responsibilities']);
-                    $ess_reqs = toListItems($row['essential_requirements']);
-                    $pref_reqs = toListItems($row['preferable_requirements']);
+                    $reference_number = htmlspecialchars((string) $row['reference_number']);
+                    $title = htmlspecialchars((string) $row['title']);
+                    $short_description = htmlspecialchars((string) $row['short_description']);
+                    $salary = '$' . htmlspecialchars((string) $row['salary_min']) . ' - $' .
+                        htmlspecialchars((string) $row['salary_max']);
+                    $reporting_line = htmlspecialchars((string) $row['reporting_line']);
+                    $key_resps = toListItems((string) $row['key_responsibilities']);
+                    $ess_reqs = toListItems((string) $row['essential_requirements']);
+                    $pref_reqs = toListItems((string) $row['preferable_requirements']);
 
                     echo "<section class='job-position' id='job-{strtolower($reference_number)}'>";
 
