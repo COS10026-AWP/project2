@@ -49,8 +49,10 @@ if (!$db_conn) {
                     ORDER BY title
                     ASC";
                 $result = mysqli_query($db_conn, $query);
-                if (!$result) {
-                    echo "There are no jobs to display.";
+                if (!($result instanceof mysqli_result)) {
+                    echo 'Could not load jobs.';
+                } elseif (mysqli_num_rows($result) === 0) {
+                    echo 'There are no jobs to display.';
                 } else {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $reference_number = htmlspecialchars((string) $row['reference_number']);
@@ -82,8 +84,10 @@ if (!$db_conn) {
             <?php
             $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
             $result = mysqli_query($db_conn, $query);
-            if (!$result) {
-                echo "There are no jobs to display.";
+            if (!($result instanceof mysqli_result)) {
+                echo 'Could not load jobs.';
+            } elseif (mysqli_num_rows($result) === 0) {
+                echo 'There are no jobs to display.';
             } else {
                 function toListItems(string $text): string
                 {
