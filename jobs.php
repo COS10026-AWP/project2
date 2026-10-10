@@ -53,7 +53,9 @@ if (!$db_conn) {
                     echo "There are no jobs to display.";
                 } else {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<a href='#job-" . strtolower($row['reference_number']) . "'>" . $row['title'] . "</a>";
+                        $reference_number = htmlspecialchars((string) $row['reference_number']);
+
+                        echo "<a href='#job-" . strtolower($reference_number) . "'>" . $row['title'] . "</a>";
                     }
                 }
                 mysqli_close($db_conn);
