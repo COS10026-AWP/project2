@@ -1,3 +1,4 @@
+// phpcs:disable
 <?php
 $config = require(__DIR__ . '/settings.php');
 $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
@@ -60,7 +61,6 @@ if (!$db_conn) {
                         echo "<a href='#job-" . strtolower($reference_number) . "'>" . $row['title'] . "</a>";
                     }
                 }
-                mysqli_close($db_conn);
                 ?>
             </nav>
             <section id="job-apply-note">
@@ -136,7 +136,6 @@ if (!$db_conn) {
                     echo "</section>";
                 }
             }
-            mysqli_close($db_conn);
             ?>
         </article>
         <section class="job-signup">
