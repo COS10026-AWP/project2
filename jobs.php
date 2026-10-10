@@ -1,6 +1,6 @@
-// phpcs:disable
 <?php
 $config = require(__DIR__ . '/settings.php');
+require(__DIR__ . '/src/services/jobs_helper.php');
 $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
 if (!$db_conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -44,21 +44,14 @@ if (!$db_conn) {
             <nav id="job-available">
                 <h2>Jobs available</h2>
                 <?php
-                $query = "SELECT reference_number, title
-                    FROM job_listings
-                    WHERE job_status = 'active'
-                    ORDER BY title
-                    ASC";
-                $result = mysqli_query($db_conn, $query);
-                if (!($result instanceof mysqli_result)) {
+                $activeJobsNav = getJobsForNav($db_conn);
+                if (!(is_array($activeJobsNav))) {
                     echo 'Could not load jobs.';
-                } elseif (mysqli_num_rows($result) === 0) {
+                } elseif (count($activeJobsNav) === 0) {
                     echo 'There are no jobs to display.';
                 } else {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $reference_number = htmlspecialchars((string) $row['reference_number']);
-
-                        echo "<a href='#job-" . strtolower($reference_number) . "'>" . $row['title'] . "</a>";
+                    foreach ($activeJobsNav as $job) {
+                        echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
                     }
                 }
                 ?>
@@ -82,56 +75,33 @@ if (!$db_conn) {
                     All generated text was reviewed by the author before use.
                 -->
             <?php
-            $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-            $result = mysqli_query($db_conn, $query);
-            if (!($result instanceof mysqli_result)) {
+            $activeJobs = getAvailableJobs($db_conn);
+            if (!(is_array($activeJobs))) {
                 echo 'Could not load jobs.';
-            } elseif (mysqli_num_rows($result) === 0) {
+            } elseif (count($activeJobs) === 0) {
                 echo 'There are no jobs to display.';
             } else {
-                function toListItems(string $text): string
-                {
-                    $lines = json_decode($text, true);
-                    $listItems = '';
-                    foreach ($lines as $line) {
-                        if (!empty(trim($line))) {
-                            $listItems .= '<li>' . htmlspecialchars(trim($line)) . '</li>';
-                        }
-                    }
-                    return $listItems;
-                }
-
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $reference_number = htmlspecialchars((string) $row['reference_number']);
-                    $title = htmlspecialchars((string) $row['title']);
-                    $short_description = htmlspecialchars((string) $row['short_description']);
-                    $salary = '$' . htmlspecialchars((string) $row['salary_min']) . ' - $' .
-                        htmlspecialchars((string) $row['salary_max']);
-                    $reporting_line = htmlspecialchars((string) $row['reporting_line']);
-                    $key_resps = toListItems((string) $row['key_responsibilities']);
-                    $ess_reqs = toListItems((string) $row['essential_requirements']);
-                    $pref_reqs = toListItems((string) $row['preferable_requirements']);
-
-                    echo "<section class='job-position' id='job-{strtolower($reference_number)}'>";
+                foreach ($activeJobs as $job) {
+                    echo "<section class='job-position' id='job-{strtolower({$job['reference_number']})}'>";
 
                     echo "<div class='job-header'>";
-                    echo "<h2 class='job-title'>{$title}</h2>";
-                    echo "<p class='job-ref-id'>{$reference_number}</p>";
+                    echo "<h2 class='job-title'>{$job['title']}</h2>";
+                    echo "<p class='job-ref-id'>{$job['reference_number']}</p>";
                     echo "</div>";
 
-                    echo "<p class='job-desc'>{$short_description}</p>";
+                    echo "<p class='job-desc'>{$job['short_description']}</p>";
 
                     echo "<dl class='job-details'>";
-                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>{$salary}</dd> </div>";
-                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>{$reporting_line}</dd> </div>";
+                    echo "<div class='job-salary'> <dt>Salary</dt> <dd>{$job['salary']}</dd> </div>";
+                    echo "<div class='job-rep-line'> <dt>Reports to</dt> <dd>{$job['reporting_line']}</dd> </div>";
                     echo "</dl>";
 
                     echo "<section class='job-resp'> <h3>Key responsibilities</h3>
-                        <ul> {$key_resps}</ul> </section>";
+                        <ul> {$job['key_responsibilities']}</ul> </section>";
                     echo "<section class='job-req-ess'> <h3>Essential requirements</h3>
-                        <ol> {$ess_reqs}</ol> </section>";
+                        <ol> {$job['essential_requirements']}</ol> </section>";
                     echo "<section class='job-req-pref'> <h3>Preferable requirements</h3>
-                        <ol> {$pref_reqs}</ol> </section>";
+                        <ol> {$job['preferable_requirements']}</ol> </section>";
 
                     echo "</section>";
                 }
