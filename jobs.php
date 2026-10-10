@@ -101,7 +101,7 @@
                 }
                 function toSalary(string $min, string $max) : string
                 {
-                    return '$' . number_format($min) . ' - $' . number_format($max);
+                    return '$' . htmlspecialchars($min) . ' - $' . htmlspecialchars($max);
                 }
 
                 while ($row = mysqli_fetch_assoc($result)) {
