@@ -88,7 +88,8 @@
             if (!$result) {
                 echo "There are no jobs to display.";
             } else {
-                function toListItems($text) {
+                function toListItems(string $text) : string
+                {
                     $lines = json_decode($text, true);
                     $listItems = '';
                     foreach ($lines as $line) {
@@ -98,7 +99,8 @@
                     }
                     return $listItems;
                 }
-                function toSalary($min, $max) {
+                function toSalary(string $min, string $max) : string
+                {
                     return '$' . number_format($min) . ' - $' . number_format($max);
                 }
 
