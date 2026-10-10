@@ -1,4 +1,5 @@
 <?php
+
 // XAMPP runs the server locally, $user and $pwd are the default credentials for XAMPP's MySQL
 $host = "localhost";
 $user = "root";
