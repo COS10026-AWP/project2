@@ -1,4 +1,4 @@
-CREATE DATABASE world_wide_travel_db;
+CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
 USE world_wide_travel_db;
 
 DROP TABLE IF EXISTS job_listings;
