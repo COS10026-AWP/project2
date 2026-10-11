@@ -12,6 +12,13 @@ function toListItems(string $text): string
     return $listItems;
 }
 
+function toSalary(float $min, float $max): string
+{
+    $min_salary = number_format($min, 0);
+    $max_salary = number_format($max, 0);
+    return "\${$min_salary} - \${$max_salary}";
+}
+
 function getAvailableJobs(mysqli $db_conn): array|bool
 {
     $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
@@ -25,8 +32,7 @@ function getAvailableJobs(mysqli $db_conn): array|bool
             $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
             $job['title'] = htmlspecialchars((string) $job['title']);
             $job['short_description'] = htmlspecialchars((string) $job['short_description']);
-            $job['salary'] = '$' . htmlspecialchars((string) $job['salary_min']) . ' - $' .
-                htmlspecialchars((string) $job['salary_max']);
+            $job['salary'] = toSalary((float) $job['salary_min'], (float) $job['salary_max']);
             $job['reporting_line'] = htmlspecialchars((string) $job['reporting_line']);
             $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
             $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
