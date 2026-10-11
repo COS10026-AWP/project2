@@ -19,16 +19,30 @@ function toSalary(float $min, float $max): string
     return "\${$min_salary} - \${$max_salary}";
 }
 
+function getQueryAsArray(mysqli $db_conn, string $query): array|bool
+{
+    try {
+        $query_res = mysqli_query($db_conn, $query);
+    } catch (mysqli_sql_exception $e) {
+        error_log('Database query error: ' . $e->getMessage());
+        return false;
+    }
+    if (is_bool($query_res)) {
+        return $query_res;
+    } else {
+        return mysqli_fetch_all($query_res, MYSQLI_ASSOC);
+    }
+}
+
 function getAvailableJobs(mysqli $db_conn): array|bool
 {
     $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = mysqli_query($db_conn, $query);
+    $query_res = getQueryAsArray($db_conn, $query);
 
     if (is_bool($query_res)) {
         return $query_res;
     } else {
-        $res = mysqli_fetch_all($query_res, MYSQLI_ASSOC);
-        foreach ($res as &$job) {
+        foreach ($query_res as &$job) {
             $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
             $job['title'] = htmlspecialchars((string) $job['title']);
             $job['short_description'] = htmlspecialchars((string) $job['short_description']);
@@ -39,24 +53,23 @@ function getAvailableJobs(mysqli $db_conn): array|bool
             $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
         }
         unset($job);
-        return $res;
+        return $query_res;
     }
 }
 
 function getJobsForNav(mysqli $db_conn): array|bool
 {
     $query = "SELECT reference_number, title FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = mysqli_query($db_conn, $query);
+    $query_res = getQueryAsArray($db_conn, $query);
 
     if (is_bool($query_res)) {
         return $query_res;
     } else {
-        $res = mysqli_fetch_all($query_res, MYSQLI_ASSOC);
-        foreach ($res as &$job) {
+        foreach ($query_res as &$job) {
             $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
             $job['title'] = htmlspecialchars((string) $job['title']);
         }
         unset($job);
-        return $res;
+        return $query_res;
     }
 }
