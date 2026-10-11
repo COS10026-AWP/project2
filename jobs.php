@@ -1,9 +1,12 @@
 <?php
 $config = require(__DIR__ . '/settings.php');
 require(__DIR__ . '/src/services/jobs_helper.php');
-$db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
-if (!$db_conn) {
-    die("Connection failed: " . mysqli_connect_error());
+
+$db_conn = false;
+try {
+    $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+} catch (mysqli_sql_exception $e) {
+    error_log('Database connection error: ' . $e->getMessage());
 }
 ?>
 
@@ -44,7 +47,7 @@ if (!$db_conn) {
             <nav id="job-available">
                 <h2>Jobs available</h2>
                 <?php
-                $activeJobsNav = getJobsForNav($db_conn);
+                $activeJobsNav = ($db_conn instanceof mysqli) ? getJobsForNav($db_conn) : false;
                 if (!(is_array($activeJobsNav))) {
                     echo 'Could not load jobs.';
                 } elseif (count($activeJobsNav) === 0) {
@@ -75,7 +78,7 @@ if (!$db_conn) {
                     All generated text was reviewed by the author before use.
                 -->
             <?php
-            $activeJobs = getAvailableJobs($db_conn);
+            $activeJobs = ($db_conn instanceof mysqli) ? getAvailableJobs($db_conn) : false;
             if (!(is_array($activeJobs))) {
                 echo 'Could not load jobs.';
             } elseif (count($activeJobs) === 0) {
@@ -127,5 +130,7 @@ if (!$db_conn) {
 </html>
 
 <?php
-mysqli_close($db_conn);
+if ($db_conn instanceof mysqli) {
+    mysqli_close($db_conn);
+}
 ?>
