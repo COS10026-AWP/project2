@@ -109,6 +109,7 @@
                     <input type="text" name="street" id="street"
                         maxlength="40" required="required">
 >>>>>>> ddca11b (changed a few code for less confusion)
+                    maxlength="40" required="required">
 
                 <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
                     required="required">
