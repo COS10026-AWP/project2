@@ -162,17 +162,14 @@
                 <legend>Gender</legend>
                 <p>
                     <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="male">
+                    <input type="radio" name="gender" id="male" value="male" required="required">
                     <label for="female">Female</label>
                     <input type="radio" name="gender" id="female" value="female">
                 </p>
             </fieldset>
-
-            <fieldset>
-                <legend>Address and Contact information </legend>
-                <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="address">Street address</label> <input type="text" name="address" id="address"
-                        maxlength="40" required="required">
+            <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
+                <label for="address">Street address</label> <input type="text" name="address" id="address"
+                    pattern="{1,40}" required="required">
 
                 <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" pattern="{1,40}"
                     required="required">
