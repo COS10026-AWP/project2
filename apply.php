@@ -36,41 +36,15 @@
         }
 
         form {
-            color: #12343B;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
-        legend {
-            font-weight: bold;
-            
+        form p {
+            color: #12343B
         }
 
-        input, select {
-            background-color: #F0F8FA;
-            border-radius: 5px;
-            border: 3px solid #ddd;
-        }
-        
-        input[type="checkbox"], input[type="radio"] {
-            accent-color: #12343B;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            background-color: #12343B;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .button:hover {
-            background-color: #F9C74F;
-            color: black;
+        .skill-align {
         }
     </style>
 </head>
