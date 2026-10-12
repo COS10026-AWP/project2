@@ -71,21 +71,21 @@
                     pattern="[a-zA-Z]{1,20}" required="required">
             </p>
             <p>
-                <label for="dob"> Date of birth</label> <input type="date" name="dob" id="dob" required="required">
+                <label for="dob"> Date of birth</label> <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
             </p>
 
             <fieldset style="display: flex; align-items: center; gap:15px;">
                 <legend>Gender</legend>
                 <p>
                     <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="male">
+                    <input type="radio" name="gender" id="male" value="male" required="required">
                     <label for="female">Female</label>
                     <input type="radio" name="gender" id="female" value="female">
                 </p>
             </fieldset>
             <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
                 <label for="address">Street address</label> <input type="text" name="address" id="address"
-                    pattern="{1,40}" required="required">
+                    maxlength="40" required="required">
 
                 <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
                     required="required">
