@@ -22,8 +22,23 @@
         form p {
             color: #12343B
         }
-
-        .skill-align {
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #F9C74F;
+            color: black;
         }
     </style>
 </head>
@@ -165,8 +180,8 @@
                 </p>
             </fieldset>
         </fieldset>
-        <input type="submit" value="Apply">
-        <input type= "reset" value="Reset">
+        <input type="submit" value="Apply" class="button">
+        <input type= "reset" value="Reset" class="button">
     </form>
 
     <footer id="site-footer">
