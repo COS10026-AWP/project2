@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="styles/styles.css">
     <!-- This is to make the forms stand out from the background-->
     <style>
+        body {
+            background-color: #F0F8FA;
+        }
         form {
             margin-left: 20px;
             margin-right: 20px;
