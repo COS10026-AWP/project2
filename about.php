@@ -76,10 +76,9 @@
                 <br>
 
                 <dt>Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì
-                    việc chúng ta đang làm mà thôi.
+                    việc chúng ta đang làm mà thôi.</dt>
                 <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
                     on something else other than what we're doing.</dd>
-                </dt>
             </ul>
         </dl>
         </li>
