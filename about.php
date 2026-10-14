@@ -88,6 +88,7 @@
             <figure>
                 <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
                     alt="A picture of us!" title="Group Photo" width="1200" height="900">
+                <figcaption>A photo representing the group.</figcaption>
             </figure>
         </li>
 
