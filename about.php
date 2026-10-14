@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         h1 {
-            color: #f9c74fff;
+            color: #895053ff;
             text-align: center;
             font-size: 25px;
         }
