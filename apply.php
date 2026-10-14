@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
+<<<<<<< HEAD
 
         .apply-page {
             padding: 20px;
@@ -45,6 +46,11 @@
         .apply-forms legend {
             font-weight: bold;
             
+=======
+        form {
+            margin-left: 20px;
+            margin-right: 20px;
+>>>>>>> eb2bdb4 (Changed background colour)
         }
 
         .apply-forms input, select {
@@ -162,7 +168,7 @@
                 <legend>Gender</legend>
                 <p>
                     <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="male" required="required">
+                    <input type="radio" name="gender" id="male" value="male">
                     <label for="female">Female</label>
                     <input type="radio" name="gender" id="female" value="female">
                 </p>
