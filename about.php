@@ -57,29 +57,21 @@
 
         <li><h2>Cool Quotes!</h2>
         <dl>
-            <ul>
-                <dt>好好学习，天天向上</dt>
-                <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
+            <dt>好好学习，天天向上</dt>
+            <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
 
-                <br>
+            <dt>Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn
+                là nên cố gắng cho hiện tại.</dt>
+            <dd>Translation (from Vietnamese): The future changes from moment to moment. Therefore, instead
+                of worrying about what lies ahead, it is better to focus on the present.</dd>
 
-                <dt>Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn
-                    là nên cố gắng cho hiện tại.</dt>
-                <dd>Translation (from Vietnamese): The future changes from moment to moment. Therefore, instead
-                    of worrying about what lies ahead, it is better to focus on the present.</dd>
-                
-                <br>
+            <dt>Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.</dt>
+            <dd>Translation (from Indonesian): Life is a road, don't know what's along the way</dd>
 
-                <dt>Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.</dt>
-                <dd>Translation (from Indonesian): Life is a road, don't know what's along the way</dd>
-                
-                <br>
-
-                <dt>Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì
-                    việc chúng ta đang làm mà thôi.</dt>
-                <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
-                    on something else other than what we're doing.</dd>
-            </ul>
+            <dt>Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì
+                việc chúng ta đang làm mà thôi.</dt>
+            <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
+                on something else other than what we're doing.</dd>
         </dl>
         </li>
 
