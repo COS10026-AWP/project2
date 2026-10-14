@@ -14,27 +14,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     <!-- This is to make the forms stand out from the background-->
     <style>
-        body {
-            background-color: white;
-        }
-        
-        #apply-page {
-            padding: 20px;
-            background-color: #F0F8FA;
-        }
-
-        #apply-forms {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 20px;
-        }
-
-        fieldset {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 10px;
-        }
-
         form {
             margin-left: 20px;
             margin-right: 20px;
