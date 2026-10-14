@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         h1 {
-            color: #895053ff;
+            color: #12343B;
             text-align: center;
             font-size: 25px;
         }
 
         h2 {
-            color: #895053ff;
+            color: #12343B;
             font-size: 20px;
         }
 
@@ -142,7 +142,7 @@
 
     <br>
 
-    <p style="color: #895053ff; text-align: center;">We hope you have a good experience at our website!</p>
+    <p style="color: #12343B; text-align: center;">We hope you have a good experience at our website!</p>
 
     <br>
 
