@@ -59,7 +59,7 @@
         <?php include 'header.inc.php'; ?>
     </header>
 
-    <h1>About the Team</h1>
+    <h1>About Us</h1>
 
     <ol>
         <li>
