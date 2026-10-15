@@ -618,10 +618,14 @@ td {
         height: 0;
     }
 
-    
+} 
 /* mobile navigation */
 
 @media only screen and (max-width: 500px) {
+    
+    #menu-toggle {
+        display: none;
+    }
 
     #site-header {
         position: sticky;
@@ -689,7 +693,7 @@ td {
         left: 0;
         width: 18px;
         height: 2px;
-        background-color: #12343B;
+        background-color: #F9C74F;
         border-radius: 2px;
         transition: transform 0.3s, opacity 0.2s;
     }
@@ -809,7 +813,8 @@ td {
         .menu-button i {
             transition: none;
         }
+        
     }
 }
 
-}
+
