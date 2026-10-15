@@ -75,10 +75,10 @@
         <li>
             <h2>Our Contributions</h2>
             <ul>
-                <li><p class="student-id">(106565482)</p> Nathan : Co-leader, responsible for the job info page. </li>
-                <li><p class="student-id">(106696764)</p> Harper : Leader in project planning, responsible for HTML, CSS, and the home page.</li>
-                <li><p class="student-id">(105996858)</p> Tiffany : Responsible for the job application page.</li>
-                <li><p class="student-id">(106379243)</p> Khoi : Responsible for the about page.</li>
+                <li><p class="student-id">106565482</p> Nathan : Co-leader, responsible for the job info page. </li>
+                <li><p class="student-id">106696764</p> Harper : Leader in project planning, responsible for HTML, CSS, and the home page.</li>
+                <li><p class="student-id">105996858</p> Tiffany : Responsible for the job application page.</li>
+                <li><p class="student-id">106379243</p> Khoi : Responsible for the about page.</li>
             </ul>
         </li>
 
