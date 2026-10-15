@@ -26,16 +26,16 @@
         dd { font-size: 12px; }
 
         .student-id {
-            color: #895053;
+            color: #12343B;
             font-weight: bold;
             padding: 5px;
-            border: 2px solid #895053;
+            border: 2px solid #12343B;
             border-radius: 5px;
             display: inline-block;
         }
 
         .student-id:hover {
-            background-color: #895053;
+            background-color: #12343B;
             color: white;
         }
     </style>
@@ -62,9 +62,9 @@
         <li>
             <h2>Our Contributions</h2>
             <ul>
-                <li><p class="student-id">(placeholder ID)</p> Nathan : Co-leader, responsible for the job info page. </li>
-                <li><p class="student-id">(placeholder ID)</p> Harper : Leader in project planning, responsible for HTML, CSS, and the home page.</li>
-                <li><p class="student-id">(placeholder ID)</p> Tiffany : Responsible for the job application page.</li>
+                <li><p class="student-id">(106565482)</p> Nathan : Co-leader, responsible for the job info page. </li>
+                <li><p class="student-id">(106696764)</p> Harper : Leader in project planning, responsible for HTML, CSS, and the home page.</li>
+                <li><p class="student-id">(105996858)</p> Tiffany : Responsible for the job application page.</li>
                 <li><p class="student-id">(106379243)</p> Khoi : Responsible for the about page.</li>
             </ul>
         </li>
