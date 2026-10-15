@@ -8,5 +8,5 @@ CREATE TABLE users (
   -- With php password_hash(), the PASSWORD_DEFAULT algorithm produces a 60-character hash,
   -- however 255 allows for future changes in the algorithm that may produce longer hashes.
   password_hash VARCHAR(255) NOT NULL ,
-  user_role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+  user_role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
   );
