@@ -723,4 +723,95 @@ td {
         transform: translateY(-5px) rotate(-45deg);
     }
 
+    /* dropdown menu. credit: codefront*/
+
+    #site-nav {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin: 0;
+        transition: grid-template-rows 0.35s, opacity 0.25s;
+    }
+
+    #menu-toggle:checked ~ #site-nav {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+
+    #site-nav ul {
+        display: block;
+        overflow: hidden;
+        min-height: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #site-nav li {
+        border-bottom: 1px solid #456168;
+    }
+
+    #site-nav a {
+        display: block;
+        padding: 14px 5px;
+        color: white;
+        text-decoration: none;
+        transition: padding 0.2s, color 0.2s;
+    }
+
+    #site-nav a:hover {
+        color: #F9C74F;
+        padding-left: 12px;
+    }
+
+    /* shrinking animations */
+
+    @keyframes shrink-header {
+        to {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    }
+
+    @keyframes shrink-padding {
+        to {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+
+    @keyframes shrink-title {
+        to {
+            font-size: 16px;
+        }
+    }
+
+    @keyframes shrink-button {
+        to {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+        }
+    }
+
+    #menu-toggle:focus-visible ~ .header-row .menu-button {
+        outline: 2px solid #F9C74F;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #site-header,
+        #site-header-container,
+        #site-title,
+        .menu-button {
+            animation: none;
+        }
+
+        #site-nav,
+        .menu-button i {
+            transition: none;
+        }
+    }
+}
+
+}
+}
 }
