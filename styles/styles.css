@@ -706,7 +706,7 @@ td {
         top: 10px;
     }
 
-    /* hamburger changes to x */
+    /* hamburger changes to x, credit: codefront */
 
     #menu-toggle:checked ~ .header-row
     .menu-button i:nth-child(1) {
@@ -812,6 +812,4 @@ td {
     }
 }
 
-}
-}
 }
