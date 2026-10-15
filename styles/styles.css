@@ -763,7 +763,7 @@ td {
         padding-left: 12px;
     }
 
-    /* shrinking animations */
+    /* shrinking animations, credit: codefront */
 
     @keyframes shrink-header {
         to {
