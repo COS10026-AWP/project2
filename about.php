@@ -38,6 +38,20 @@
             background-color: #12343B;
             color: white;
         }
+
+        table { 
+            border-collapse: collapse;
+            color: #12343B;
+        }
+
+        th {
+            text-align: center;
+            background-color: #F0F8FA;
+        }
+
+        th:hover { background-color: #e0f1f5; }
+
+        td:hover { background-color: #e0f1f5; }
     </style>
 </head>
 
@@ -113,30 +127,30 @@
 
                 <tbody>
                     <tr>
-                        <th>Nathan</th>
-                        <th>Used to dream of becoming a ski instructor to travel the world, but never found the time to
-                            stack up enough experience</th>
-                        <th>Runs around in circles for eight hours a week, and spends around the same time doing
-                            flashcards (both as hobbies)</th>
+                        <td>Nathan</td>
+                        <td>Used to dream of becoming a ski instructor to travel the world, but never found the time to
+                            stack up enough experience</td>
+                        <td>Runs around in circles for eight hours a week, and spends around the same time doing
+                            flashcards (both as hobbies)</td>
                     </tr>
 
                     <tr>
-                        <th>Harper</th>
-                        <th>Nearly drown as a kid</th>
-                        <th>Had 8 stiches on her foot as a kid</th>
+                        <td>Harper</td>
+                        <td>Nearly drown as a kid</td>
+                        <td>Had 8 stiches on her foot as a kid</td>
                     </tr>
 
                     <tr>
-                        <th>Tiffany</th>
-                        <th>Can recognize 85% of Asian countries by their flags most of the times</th>
-                        <th>Have a Spotify playlist that is over 75 hours</th>
+                        <td>Tiffany</td>
+                        <td>Can recognize 85% of Asian countries by their flags most of the times</td>
+                        <td>Have a Spotify playlist that is over 75 hours</td>
                     </tr>
 
                     <tr>
-                        <th>Khoi</th>
-                        <th>Have ungodly skills to play rhythm games, along with a neverending hyperfixation on them
-                        </th>
-                        <th>Have met multiple popular celebrities in person and had their autographs</th>
+                        <td>Khoi</td>
+                        <td>Have ungodly skills to play rhythm games, along with a neverending hyperfixation on them
+                        </td>
+                        <td>Have met multiple popular celebrities in person and had their autographs</td>
                     </tr>
                 </tbody>
             </table>
