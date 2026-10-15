@@ -114,8 +114,6 @@
         <li>
             <h2>Our fun facts!</h2>
             <table>
-                <caption><strong>A Table Listing Our Fun Facts!</strong></caption>
-
                 <thead>
                     <tr>
                         <th>Name</th>
