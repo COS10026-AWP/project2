@@ -773,3 +773,61 @@ td {
         }
     }
 }
+
+/* fix desktop header alignment */
+@media only screen and (min-width: 501px) {
+    #site-header-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 1200px;
+        padding: 15px 30px;
+    }
+
+    #site-header-container .header-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #site-header .logo {
+        width: 200px;
+        height: auto;
+    }
+
+    #site-title {
+        margin: 0 30px 0 15px;
+        font-size: 1.8rem;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    #site-header-container {
+        display: block;
+        padding: 0.85rem 1rem 0.6rem;
+    }
+
+    .header-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #site-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 10px 0 0;
+    }
+
+    #site-nav a {
+        display: block;
+        padding: 12px 5px;
+        border-bottom: 1px solid #7f8687;
+    }
+}
+
+
