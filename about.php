@@ -112,7 +112,7 @@
         </li>
 
         <li>
-            <h2>Our fun facts!</h2>
+            <h2>Our Fun Facts!</h2>
             <table>
                 <thead>
                     <tr>
