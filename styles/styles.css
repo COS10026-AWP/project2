@@ -617,4 +617,110 @@ td {
         visibility: hidden;
         height: 0;
     }
+
+    
+/* mobile navigation */
+
+@media only screen and (max-width: 500px) {
+
+    #site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        animation: shrink-header linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0px 140px;
+    }
+
+    #site-header-container {
+        display: block;
+        padding: 18px 20px;
+        animation: shrink-padding linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0px 140px;
+    }
+
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #site-title {
+        margin: 0;
+        font-size: 20px;
+        animation: shrink-title linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0px 140px;
+    }
+
+    /* hamburger button, credit: codefront*/
+
+    #menu-toggle {
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+    }
+
+    .menu-button {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        cursor: pointer;
+        animation: shrink-button linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0px 140px;
+    }
+
+    .menu-button span {
+        position: relative;
+        width: 18px;
+        height: 12px;
+    }
+
+    .menu-button i {
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        background-color: #12343B;
+        border-radius: 2px;
+        transition: transform 0.3s, opacity 0.2s;
+    }
+
+    .menu-button i:nth-child(1) {
+        top: 0;
+    }
+
+    .menu-button i:nth-child(2) {
+        top: 5px;
+    }
+
+    .menu-button i:nth-child(3) {
+        top: 10px;
+    }
+
+    /* hamburger changes to x */
+
+    #menu-toggle:checked ~ .header-row
+    .menu-button i:nth-child(1) {
+        transform: translateY(5px) rotate(45deg);
+    }
+
+    #menu-toggle:checked ~ .header-row
+    .menu-button i:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .header-row
+    .menu-button i:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+    }
+
 }
