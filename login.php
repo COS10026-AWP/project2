@@ -1,3 +1,14 @@
+<?php
+$config = require(__DIR__ . '/settings.php');
+
+$db_conn = false;
+try {
+    $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+} catch (mysqli_sql_exception $e) {
+    error_log('Database connection error: ' . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,3 +50,9 @@
 </body>
 
 </html>
+
+<?php
+if ($db_conn instanceof mysqli) {
+    mysqli_close($db_conn);
+}
+?>
