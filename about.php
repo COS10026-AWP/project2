@@ -46,10 +46,9 @@
 
         th {
             text-align: center;
-            background-color: #F0F8FA;
+            background-color: #12343B;
+            color: white;
         }
-
-        th:hover { background-color: #e0f1f5; }
 
         td:hover { background-color: #e0f1f5; }
     </style>
