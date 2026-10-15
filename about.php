@@ -100,7 +100,7 @@
 
         <li>
             <h2>Our fun facts!</h2>
-            <!-- <table>
+            <table>
                 <caption><strong>A Table Listing Our Fun Facts!</strong></caption>
 
                 <thead>
@@ -139,8 +139,7 @@
                         <th>Have met multiple popular celebrities in person and had their autographs</th>
                     </tr>
                 </tbody>
-            </table> 
-            commented out for archival purposes -->
+            </table>
 
         </li>
     </ol>
