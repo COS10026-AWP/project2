@@ -1,5 +1,6 @@
 <?php
-$invalid_login = false;
+$failed_login = false;
+$failed_login_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $config = require(__DIR__ . '/settings.php');
@@ -9,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
     } catch (mysqli_sql_exception $e) {
         error_log('Database connection error: ' . $e->getMessage());
+        $failed_login = true;
+        $failed_login_message = 'Something went wrong. Please try again.';
+        exit();
     }
 
     $query = "SELECT * FROM users WHERE username = ?";
@@ -34,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     }
-    $invalid_login = true;
+    $failed_login = true;
+    $failed_login_message = 'Invalid username or password.';
 }
 ?>
 
@@ -68,9 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-
-                <?php if ($invalid_login): ?>
-                    <p class="invalid-login">Invalid username or password.</p>
+                <?php if ($failed_login): ?>
+                    <p class="invalid-login"><?= $failed_login_message ?></p>
                 <?php endif; ?>
 
                 <button type="submit">Login</button>
@@ -86,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 
 <?php
-if (@$db_conn instanceof mysqli) {
+if ($db_conn instanceof mysqli) {
     mysqli_close($db_conn);
 }
 ?>
