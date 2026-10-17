@@ -10,7 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $query = "SELECT * FROM users WHERE username = ?";
-    $result = mysqli_query($db_conn, $query);
+    $stmt = mysqli_prepare($db_conn, $query);
+    mysqli_stmt_bind_param($stmt, 's', $_POST['username']);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
