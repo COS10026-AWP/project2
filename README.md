@@ -14,8 +14,9 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 | [Media](https://unsplash.com/photos/boats-on-turquoise-ha-long-bay-kG7pOXbBfNs): Marina Lobato | [index.php](index.php): Destination card photo (Vietnam) | [Unsplash](https://unsplash.com/license) |
 
 ## External Sources
-| Link | Description | Date | Commit |
+| Link | Description | Date | Commit/PR |
 | :--- | :--- | :--- | :--- |
+[Signup and Login with PHP and MySQL](https://youtu.be/5L9UhOnuos0) ([MIT](https://github.com/daveh/php-signup-login/blob/main/LICENSE)) | [login.php](login.css): PHP login page inspiration | 13 Oct 2026 | [#28](https://github.com/COS10026-AWP/project2/pull/28)* |
 [Prismic](https://prismic.io/blog/css-hover-effects) | [styles.css](styles/styles.css): Card hover effect | 11 Sep 2026 | [f1bce07](https://github.com/COS10026-AWP/project1/commit/f1bce07002bd6eef7ef1758142a70e2a4f93148a)* |
 | [Stack Overflow](https://stackoverflow.com/questions/48522388/the-meaning-and-benefits-of-flex-1) | [styles.css](styles/styles.css): Usage of `flex: 1`| 09 Sep 2026 | [d0ab126](https://github.com/COS10026-AWP/project1/commit/d0ab1266b9344dd6cbec1fd565e45eb9c8c2655a)* |
 | [Stack Overflow](https://stackoverflow.com/a/74816531) | [jobs.php](jobs.php): Highlight on hover | 09 Sep 2026 | [ab1f5b6](https://github.com/COS10026-AWP/project1/commit/ab1f5b610fb1c2060e3476de398f6de2831b5146)* |
@@ -26,7 +27,7 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 ## GenAI Usage
 Generative AI tools were utilised as listed below. All AI-generated code was reviewed and modified by the author before use.
 
-| Model | Description | Date | Commit |
+| Model | Description | Date | Commit/PR |
 | :--- | :--- | :--- | :--- |
 | ChatGPT (OpenAI), GPT-5.6 Luna | [apply.php](apply.php): Fictional skill list skills | Sep 2026 | [a14e3a1](https://github.com/COS10026-AWP/project1/commit/a14e3a1ed79b2d03fb880210bbcb5fc385fdaccd)*
 | ChatGPT (OpenAI), GPT-5.6 Luna | [jobs.php](jobs.php): Fictional job details and descriptions | Sep 2026 | [c377012](https://github.com/COS10026-AWP/project1/commit/c377012790e879e88b7099a8d03cecb63506ffdd)* |
