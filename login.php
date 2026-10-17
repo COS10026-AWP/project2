@@ -1,11 +1,34 @@
 <?php
-$config = require(__DIR__ . '/settings.php');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $config = require(__DIR__ . '/settings.php');
 
-$db_conn = false;
-try {
-    $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
-} catch (mysqli_sql_exception $e) {
-    error_log('Database connection error: ' . $e->getMessage());
+    $db_conn = false;
+    try {
+        $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+    } catch (mysqli_sql_exception $e) {
+        error_log('Database connection error: ' . $e->getMessage());
+    }
+
+    $query = "SELECT * FROM users WHERE username = ?";
+    $result = mysqli_query($db_conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+        if (password_verify($_POST['password'], $user['password_hash'])) {
+            session_start();
+            session_regenerate_id(true); // Regenerate session ID to prevent session fixation
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_role'] = $user['user_role'];
+
+            if ($user['user_role'] === 'admin') {
+                header('Location: manage.php');
+                exit();
+            } else {
+                header("Location: {$_SERVER['HTTP_REFERER']}");
+                exit();
+            }
+        }
+    }
 }
 ?>
 
@@ -32,7 +55,7 @@ try {
     <main id="job-content">
         <section id="login-section">
             <h1>Login</h1>
-            <form id="login-form" action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
+            <form id="login-form" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
 
@@ -52,7 +75,7 @@ try {
 </html>
 
 <?php
-if ($db_conn instanceof mysqli) {
+if (@$db_conn instanceof mysqli) {
     mysqli_close($db_conn);
 }
 ?>
