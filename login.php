@@ -1,6 +1,5 @@
 <?php
-$failed_login = false;
-$failed_login_message = '';
+$login_error = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $config = require(__DIR__ . '/settings.php');
@@ -13,11 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_close($db_conn);
     } catch (mysqli_sql_exception $e) {
         error_log('Database connection error: ' . $e->getMessage());
-        $failed_login = true;
-        $failed_login_message = 'Something went wrong. Please try again.';
+        $login_error = 'Something went wrong. Please try again.';
     }
 
-    if (!$failed_login) {
+    if (!$login_error) {
         if ($user) {
             update_session_for_user($user);
             $return_url = ($user['user_role'] === 'admin') ?
@@ -27,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_close($db_conn);
             exit();
         } else {
-            $failed_login = true;
-            $failed_login_message = 'Invalid username or password.';
+            $login_error = 'Invalid username or password.';
         }
     }
 }
@@ -65,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password:</label>
             <input id="password" type="password" name="password" required>
 
-            <?php if ($failed_login): ?>
-                <p id="invalid-login"><?= $failed_login_message ?></p>
+            <?php if ($login_error): ?>
+                <p id="invalid-login"><?= $login_error ?></p>
             <?php endif; ?>
 
             <button type="submit">Login</button>
