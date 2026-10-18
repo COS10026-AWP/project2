@@ -23,3 +23,12 @@ function update_session_for_user(array $user): void
     $_SESSION['username'] = $user['username'];
     $_SESSION['user_role'] = $user['user_role'];
 }
+
+function redirect_by_role(string $user_role): void
+{
+    $return_url = ($user_role === 'admin') ?
+        'manage.php' :
+        ($_SERVER['HTTP_REFERER'] ?? 'index.php');
+    header("Location: {$return_url}");
+    exit();
+}

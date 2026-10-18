@@ -18,12 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$login_error) {
         if ($user) {
             update_session_for_user($user);
-            $return_url = ($user['user_role'] === 'admin') ?
-                'manage.php' :
-                ($_SERVER['HTTP_REFERER'] ?? 'index.php');
-            header("Location: {$return_url}");
-            mysqli_close($db_conn);
-            exit();
+            redirect_by_role($user['user_role']);
         } else {
             $login_error = 'Invalid username or password.';
         }
