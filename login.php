@@ -31,11 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($user['user_role'] === 'admin') {
                 header('Location: manage.php');
-                exit();
             } else {
                 header("Location: {$_SERVER['HTTP_REFERER']}");
-                exit();
             }
+            mysqli_close($db_conn);
+            exit();
         }
     }
     $failed_login = true;
@@ -88,9 +88,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
-
-<?php
-if ($db_conn instanceof mysqli) {
-    mysqli_close($db_conn);
-}
-?>
