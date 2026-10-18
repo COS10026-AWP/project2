@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user['user_role'] === 'admin') {
                 header('Location: manage.php');
             } else {
-                header("Location: {$_SERVER['HTTP_REFERER']}");
+                $return_url = $_SERVER['HTTP_REFERER'] ?? 'index.php';
+                header("Location: {$return_url}");
             }
             mysqli_close($db_conn);
             exit();
