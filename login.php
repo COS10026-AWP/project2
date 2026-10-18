@@ -63,23 +63,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php include 'header.inc.php'; ?>
     </header>
 
-    <main id="job-content">
-        <section id="login-section">
-            <h1>Login</h1>
-            <form id="login-form" method="POST">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required
-                    value=<?= htmlspecialchars($_POST["username"] ?? "")?>>
+    <main id="login">
+        <h1>Login</h1>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <?php if ($failed_login): ?>
-                    <p class="invalid-login"><?= $failed_login_message ?></p>
-                <?php endif; ?>
+        <form id="login-form" method="POST">
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" required
+                value=<?= htmlspecialchars($_POST["username"] ?? "")?>>
 
-                <button type="submit">Login</button>
-            </form>
-        </section>
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required>
+
+            <?php if ($failed_login): ?>
+                <p id="invalid-login"><?= $failed_login_message ?></p>
+            <?php endif; ?>
+
+            <button type="submit">Login</button>
+        </form>
     </main>
 
     <footer id="site-footer">
