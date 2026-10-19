@@ -1,19 +1,24 @@
 <?php
 function get_user_from_credentials(mysqli $db_conn, string $username, string $password): ?array
 {
-    $query = "SELECT * FROM users WHERE username = ?";
-    $stmt = mysqli_prepare($db_conn, $query);
-    mysqli_stmt_bind_param($stmt, 's', $username);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    try {
+        $query = "SELECT * FROM users WHERE username = ?";
+        $stmt = mysqli_prepare($db_conn, $query);
+        mysqli_stmt_bind_param($stmt, 's', $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
-        if (password_verify($password, $user['password_hash'])) {
-            return $user;
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user = mysqli_fetch_assoc($result);
+            if (password_verify($password, $user['password_hash'])) {
+                return $user;
+            }
         }
+        return null;
+    } catch (mysqli_sql_exception $e) {
+        error_log('Database query error: ' . $e->getMessage());
+        return null;
     }
-    return null;
 }
 
 function update_session_for_user(array $user): void
