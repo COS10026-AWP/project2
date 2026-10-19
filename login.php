@@ -1,7 +1,7 @@
 <?php
 $login_error = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     $config = require(__DIR__ . '/settings.php');
     require(__DIR__ . '/src/services/process_login.php');
 
