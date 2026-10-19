@@ -12,7 +12,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
         $login_error = 'Something went wrong. Please try again.';
     }
 
-    if ($db_conn instanceof mysqli) {
+    if (!is_string($_POST['username']) || !is_string($_POST['password'])) {
+        $login_error = 'Something went wrong. Please try again.';
+    }
+
+    if ($login_error === null && $db_conn instanceof mysqli) {
         $user = get_user_from_credentials($db_conn, $_POST['username'], $_POST['password']);
         mysqli_close($db_conn);
     } else {
