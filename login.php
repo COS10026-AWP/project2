@@ -5,23 +5,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $config = require(__DIR__ . '/settings.php');
     require(__DIR__ . '/src/services/process_login.php');
 
-    $user = false;
     try {
         $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
-        $user = get_user_from_credentials($db_conn, $_POST['username'], $_POST['password']);
-        mysqli_close($db_conn);
     } catch (mysqli_sql_exception $e) {
         error_log('Database connection error: ' . $e->getMessage());
         $login_error = 'Something went wrong. Please try again.';
     }
 
-    if (!$login_error) {
-        if ($user) {
-            update_session_for_user($user);
-            redirect_by_role($user['user_role']);
-        } else {
-            $login_error = 'Invalid username or password.';
-        }
+    if ($db_conn instanceof mysqli) {
+        $user = get_user_from_credentials($db_conn, $_POST['username'], $_POST['password']);
+        mysqli_close($db_conn);
+    } else {
+        $user = null;
+    }
+
+    if ($login_error === null && is_array($user)) {
+        update_session_for_user($user);
+        redirect_by_role($user['user_role']);
+    } else {
+        $login_error = 'Invalid username or password.';
     }
 }
 ?>
