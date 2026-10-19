@@ -5,6 +5,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     $config = require(__DIR__ . '/settings.php');
     require(__DIR__ . '/src/services/process_login.php');
 
+    $db_conn = false;
     try {
         $db_conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
     } catch (mysqli_sql_exception $e) {
