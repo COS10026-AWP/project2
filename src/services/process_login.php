@@ -10,7 +10,7 @@ function get_user_from_credentials(mysqli $db_conn, string $username, string $pa
 
         if ($result && mysqli_num_rows($result) > 0) {
             $user = mysqli_fetch_assoc($result);
-            if (password_verify($password, $user['password_hash'])) {
+            if (is_array($user) && password_verify($password, $user['password_hash'])) {
                 return $user;
             }
         }
