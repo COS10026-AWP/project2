@@ -86,6 +86,18 @@ foreach ($skills_arr as $skill) {
 }
 $skills_string = implode(", ", $sanitised_skills);
 
+$sanitised_skills = [];
+foreach ($skills_arr as $skill) {
+    $sanitised_skills[] = clean($skill, $conn);
+}
+$skills_string = implode(", ", $sanitised_skills);
+
+$sanitised_skills = [];
+foreach ($skills_arr as $skill) {
+    $sanitised_skills[] = clean($skill, $conn);
+}
+$skills_string = implode(", ", $sanitised_skills);
+
 $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status) 
         VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
 
