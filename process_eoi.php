@@ -76,4 +76,14 @@ foreach ($skills_arr as $skill) {
 }
 $skills_string = implode(", ", $sanitised_skills);
 
+$sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status) 
+        VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
+
+if (mysqli_query($conn, $sql)) {
+    $eoi_id = mysqli_insert_id($conn);
+    echo "<h1>Application Successfully Submitted!</h1>";
+    echo "<p>Thank you. Your EOI tracking number is: <strong>$eoi_id</strong></p>";
+    echo "<p><a href='index.php'>Return to Home</a></p>";
+}
+
 ?>
