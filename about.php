@@ -15,12 +15,12 @@
         h1 {
             color: #12343B;
             text-align: center;
-            font-size: 25px;
+            font-size: 30px;
         }
 
         h2 {
             color: #12343B;
-            font-size: 20px;
+            font-size: 25px;
         }
 
         p { color: #12343B }
