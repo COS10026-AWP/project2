@@ -7,22 +7,42 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit();
 }
 
-$table_sql = "CREATE TABLE IF NOT EXISTS eoi (
+$table"CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
-    reference VARCHAR(6) NOT NULL,
-    first_name VARCHAR(20) NOT NULL,
-    surname VARCHAR(20) NOT NULL,
-    dob VARCHAR(10) NOT NULL,
-    gender VARCHAR(10) NOT NULL,
-    address VARCHAR(40) NOT NULL,
-    suburb VARCHAR(40) NOT NULL,
-    state VARCHAR(3) NOT NULL,
-    postcode VARCHAR(4) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    number VARCHAR(12) NOT NULL,
-    skills TEXT NOT NULL,
+    reference VARCHAR(6),
+    first_name VARCHAR(20),
+    surname VARCHAR(20),
+    dob VARCHAR(10),
+    gender VARCHAR(10),
+    street VARCHAR(40),
+    suburb VARCHAR(40),
+    state VARCHAR(3),
+    postcode VARCHAR(4),
+    email VARCHAR(100),
+    phone VARCHAR(12),
+    skills TEXT,
     other TEXT,
-    status ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
+    status ENUM('New', 'Current', 'Final') DEFAULT 'New'
 );"
+
+$reference = $_POST["reference"];
+$first_name = $_POST["first_name"];
+$surname = $_POST["surname"];
+$dob = $_POST["dob"];
+
+$gender = $_POST["gender"];
+$gender = "";
+if ($gender == "male") {
+    $gender = "Male";
+} else if ($gender == "female") {
+    $gender = "female";
+} 
+
+$address = $_POST["address"];
+$suburb = $_POST["suburb"];
+$state = $_POST["state"];
+$postcode = $_POST["postcode"];
+$email = $_POST["email"];
+$number = $_POST["number"];
 
 ?>
