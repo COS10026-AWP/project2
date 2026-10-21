@@ -25,7 +25,7 @@
 
         p { color: #12343B }
 
-        dt { font-size: 20px }
+        dt { font-size: 20px; }
 
         dd { font-size: 15px; }
 
