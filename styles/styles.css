@@ -2,7 +2,7 @@
 filename: styles.css
 author: Anastasia Tiffany, Harper Lam, Nathan Yan, Son Khoi Nguyen
 created:  03 September 2026
-last modified: 8 October 2026
+last modified: 21 October 2026
 description: Styles for 2602-cos10026-applied-web-project-1
 */
 
@@ -101,6 +101,13 @@ footer #social {
     margin: auto;
 }
 
+/* Logo and title sit together in one row */
+#site-header .header-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #site-header .logo {
     height: auto;
     width: 200px;
@@ -111,6 +118,12 @@ footer #social {
     font-size: 1.8rem;
     font-weight: bold;
     color: white;
+}
+
+/* Hamburger controls are hidden on desktop and enabled in the mobile query */
+#menu-toggle,
+.menu-button {
+    display: none;
 }
 
 /* Navigation */
@@ -280,13 +293,17 @@ footer #social {
     overflow: hidden;
     background-color: white;
     box-shadow: 0 6px 10px rgb(0 0 0 / 10%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Change the scale of destination cards on hover
-credit https://prismic.io/blog/css-hover-effects */
-.destination-card:hover {
-    transform: scale(1.07, 1.07);
-    box-shadow: 0 0 20px rgb(5 6 6 / 50%);
+credit https://prismic.io/blog/css-hover-effects
+Only on devices that can really hover, so touch screens don't get stuck zoomed */
+@media (hover: hover) {
+    .destination-card:hover {
+        transform: scale(1.07, 1.07);
+        box-shadow: 0 0 20px rgb(5 6 6 / 50%);
+    }
 }
 
 .destination-card h3,
@@ -411,7 +428,8 @@ td {
 }
 
 #job-content h1 {
-    height: 40px;
+    /* min-height so a long title can wrap on small screens without overlapping */
+    min-height: 40px;
     margin: 20px 0;
 }
 
@@ -424,8 +442,7 @@ td {
 
 /* Cards */
 #job-sidebar > *,
-.job-position
-{
+.job-position {
     padding: 0 1.5rem 2rem;
     border: var(--jobs-card-border);
     border-radius: var(--jobs-card-radius-l);
@@ -480,6 +497,7 @@ td {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 1rem;
 }
 
 .job-ref-id {
@@ -488,7 +506,10 @@ td {
     border-radius: var(--jobs-card-radius-s);
     background: var(--color-bg-highlight);
 }
-.job-ref-id::before { content: "#"}
+
+.job-ref-id::before {
+    content: "#";
+}
 
 /* Job details */
 .job-details {
@@ -521,23 +542,32 @@ td {
 
 /* -------------------------
     Responsive design
+    Order matters: widest query first, narrowest last,
+    so smaller screens override larger ones.
     - small screens (to 800px)
-    - very small screens (to 500px)
+    - very small screens (to 500px, hamburger menu)
     - short screens (vertically to 500px)
 ------------------------- */
 @media only screen and (width <= 800px) {
     /* Responsive design for small screens up to 800px */
     #site-header-container {
         /* Stack the logo and navigation vertically on smaller screens */
-        flex-direction:column;
+        flex-direction: column;
+        padding: 12px 15px;
     }
 
-    header #name {
+    #site-header .header-row {
         /* Adds logo-navigation spacing on smaller screens */
         margin: 10px 0;
+        justify-content: center;
     }
 
-    header #site-nav {
+    #site-title {
+        margin: 0 0 0 15px;
+        font-size: 1.4rem;
+    }
+
+    #site-nav {
         /* Centre navigation links */
         flex-wrap: wrap;
         justify-content: center;
@@ -546,6 +576,10 @@ td {
     }
 
     /* index.php responsive design */
+    .destinations {
+        padding: 40px 20px;
+    }
+
     .destination-box {
         flex-direction: column;
     }
@@ -554,14 +588,23 @@ td {
         height: 250px;
     }
 
+    .services table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
     .social-icon {
-    min-width: 25px;
+        min-width: 25px;
     }
 
     footer #acknowledgements {
-    text-align: center;
-    font-size: 15px;
-    line-height: 1.5;
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.5;
     }
 
     /* jobs.php responsive design */
@@ -575,10 +618,10 @@ td {
         margin: 0;
     }
 
+    /* display: none removes the leftover padding and border that height: 0 left behind */
     #jump-to-top,
     #job-available {
-        visibility: hidden;
-        height: 0;
+        display: none;
     }
 
     #job-listings {
@@ -594,6 +637,7 @@ td {
     /* Responsive design for very small screens up to 500px */
     .content {
         min-height: 400px;
+        padding: 20px 15px;
     }
 
     .content #slogan {
@@ -603,51 +647,45 @@ td {
     .content #description {
         font-size: 16px;
     }
-}
 
-@media only screen and (height <= 500px) {
-    /* Responsive design for short viewports up to 500px */
-    #job-sidebar {
-        position: static;
-        height: auto;
-        margin-top: 80px;
+    .hiring h1 {
+        font-size: 1.8em;
     }
 
-    #job-available {
-        visibility: hidden;
-        height: 0;
+    .job-header {
+        flex-direction: column;
     }
 
-} 
+    #job-content {
+        padding: 10px;
+    }
 
-/* hide the checkbox by default */
-#menu-toggle {
-    display: none;
-}
+    #job-content > * {
+        margin: 0;
+    }
 
-/* mobile navigation */
-@media only screen and (max-width: 500px) {
+    .job-position {
+        padding: 0 1rem 1.5rem;
+    }
+
+    /* Mobile navigation (hamburger menu) */
     #site-header {
         position: sticky;
         top: 0;
         z-index: 100;
-        animation: shrink-header linear both;
-        animation-timeline: scroll(root);
-        animation-range: 0px 140px;
     }
 
     #site-header-container {
         display: block;
         padding: 12px 15px;
-        animation: shrink-padding linear both;
-        animation-timeline: scroll(root);
-        animation-range: 0px 140px;
     }
 
-    .header-row {
+    #site-header .header-row {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         gap: 10px;
+        margin: 0;
     }
 
     #site-header .logo {
@@ -658,12 +696,9 @@ td {
     #site-title {
         margin: 0;
         font-size: 20px;
-        animation: shrink-title linear both;
-        animation-timeline: scroll(root);
-        animation-range: 0px 140px;
     }
 
-    /* hamburger button */
+    /* Checkbox is visually hidden but still keyboard focusable */
     #menu-toggle {
         display: block;
         position: absolute;
@@ -683,9 +718,6 @@ td {
         border-radius: 8px;
         cursor: pointer;
         flex-shrink: 0;
-        animation: shrink-button linear both;
-        animation-timeline: scroll(root);
-        animation-range: 0px 140px;
     }
 
     .menu-button span {
@@ -701,10 +733,12 @@ td {
         background-color: #12343B;
     }
 
-    /* dropdown menu */
+    /* Dropdown menu: hidden until the checkbox is ticked */
     #site-nav {
         display: none;
         flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         gap: 0;
         margin: 10px 0 0;
     }
@@ -725,7 +759,39 @@ td {
         color: #F9C74F;
     }
 
-    /* shrinking animations */
+    /* Keyboard focus */
+    #menu-toggle:focus-visible ~ .header-row .menu-button {
+        outline: 2px solid #F9C74F;
+        outline-offset: 2px;
+    }
+
+    /* Header shrinks on scroll (only in browsers that support scroll timelines) */
+    @supports (animation-timeline: scroll()) {
+        #site-header {
+            animation: shrink-header linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 140px;
+        }
+
+        #site-header-container {
+            animation: shrink-padding linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 140px;
+        }
+
+        #site-title {
+            animation: shrink-title linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 140px;
+        }
+
+        .menu-button {
+            animation: shrink-button linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 140px;
+        }
+    }
+
     @keyframes shrink-header {
         to {
             box-shadow: 0 4px 15px rgb(0 0 0 / 20%);
@@ -753,13 +819,7 @@ td {
         }
     }
 
-    /* keyboard focus */
-    #menu-toggle:focus-visible ~ .header-row .menu-button {
-        outline: 2px solid #F9C74F;
-        outline-offset: 2px;
-    }
-
-    /* respect reduced-motion preferences */
+    /* Respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
         #site-header,
         #site-header-container,
@@ -767,67 +827,18 @@ td {
         .menu-button {
             animation: none;
         }
-
-        .menu-button i {
-            transition: none;
-        }
     }
 }
 
-/* fix desktop header alignment */
-@media only screen and (min-width: 501px) {
-    #site-header-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        max-width: 1200px;
-        padding: 15px 30px;
-    }
-
-    #site-header-container .header-row {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #site-header .logo {
-        width: 200px;
+@media only screen and (height <= 500px) {
+    /* Responsive design for short viewports up to 500px */
+    #job-sidebar {
+        position: static;
         height: auto;
+        margin-top: 80px;
     }
 
-    #site-title {
-        margin: 0 30px 0 15px;
-        font-size: 1.8rem;
-    }
-}
-
-
-
-@media screen and (max-width: 700px) {
-    #site-header-container {
-        display: block;
-        padding: 0.85rem 1rem 0.6rem;
-    }
-
-    .header-row {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-    }
-
-    #site-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        margin: 10px 0 0;
-    }
-
-    #site-nav a {
-        display: block;
-        padding: 12px 5px;
-        border-bottom: 1px solid #7f8687;
+    #job-available {
+        display: none;
     }
 }
-
-
