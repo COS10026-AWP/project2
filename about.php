@@ -62,7 +62,10 @@
 
     <h1>About Us</h1>
 
-    <h2>The Group</h2>
+    <aside class="travel-tips">
+        <h2>The Group</h2>
+    </aside>
+    
     <ul>
         <li>We are Group 2!</li>
         <li>We are currently studying a class in the 10026 Web Technology course</li>
@@ -70,7 +73,10 @@
         <li>Led by our handsome tutor Rahul!</li>
     </ul>
 
-    <h2>Our Contributions</h2>
+    <aside class="travel-tips">
+        <h2>Our Contributions</h2>
+    </aside>
+    
     <dl>
         <dt><p class="student-id">106696764</p> Harper</dt>
         <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
@@ -85,7 +91,10 @@
         <dd>Responsible for the about page.</dd>
     </dl>
 
-    <h2>Cool Quotes!</h2>
+    <aside class="travel-tips">
+        <h2>Cool Quotes!</h2>
+    </aside>
+    
     <dl>
         <dt>好好学习，天天向上</dt>
         <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
@@ -104,7 +113,10 @@
             on something else other than what we're doing.</dd>
     </dl>
 
-    <h2>Our Team</h2>
+    <aside class="travel-tips">
+        <h2>Our Team</h2>
+    </aside>
+    
     <figure>
         <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
             alt="A picture of us!" title="Group Photo" width="1200" height="900">
