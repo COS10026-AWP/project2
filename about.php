@@ -23,6 +23,8 @@
             font-size: 20px;
         }
 
+        p { color: #12343B }
+
         dd { font-size: 12px; }
 
         .student-id {
