@@ -14,16 +14,63 @@
     <link rel="stylesheet" href="styles/styles.css">
     <!-- This is to make the forms stand out from the background-->
     <style>
+        body {
+            background-color: white;
+        }
+        
+        #apply-page {
+            padding: 20px;
+            background-color: #F0F8FA;
+        }
+
+        #apply-forms {
+            border: 3px solid #ddd;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        fieldset {
+            border: 3px solid #ddd;
+            background-color: white;
+            border-radius: 10px;
+        }
+
         form {
-            margin-left: 20px;
-            margin-right: 20px;
+            color: #12343B;
         }
 
-        form p {
-            color: #12343B
+        legend {
+            font-weight: bold;
+            
         }
 
-        .skill-align {
+        input, select {
+            background-color: #F0F8FA;
+            border-radius: 5px;
+            border: 3px solid #ddd;
+        }
+        
+        input[type="checkbox"], input[type="radio"] {
+            accent-color: #12343B;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #F9C74F;
+            color: black;
         }
     </style>
 </head>
@@ -32,17 +79,16 @@
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
+    <section id="apply-page">
+        <h1 style="text-align: center; color: #12343B; margin-bottom: 30px; margin-top: 13px;">
+            Job Application Page</h1>
 
-    <h1
-        style="text-align: center; color: #12343B; background-color: #E0F1F5; padding: 20px; margin: 0 20px;">
-        Job Application Page</h1>
-
-    <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-        <fieldset>
-            <p>
-                <label for="reference">Job reference number</label> <input type="text" name="reference" id="reference"
-                    pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
-            </p>
+        <form method="post" action="process_eoi.php" novalidate>
+            <fieldset id="apply-forms">
+                <p>
+                    <label for="reference">Job reference number</label> <input type="text" name="reference" id="reference"
+                        pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
+                </p>
 
             <fieldset>
                 <legend>Personal information</legend>
@@ -55,24 +101,24 @@
                 <p>
                     <label for="dob"> Date of birth</label> <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
                 </p>
-            </fieldset>
 
-            <fieldset style="display: flex; align-items: center; gap:15px;">
-                <legend>Gender</legend>
-                <p>
-                    <label for="male">Male</label>
-                    <input type="radio" name="gender" id="male" value="male" required="required">
-                </p>
-                <p>
-                    <label for="female">Female</label>
-                    <input type="radio" name="gender" id="female" value="female">
-                </p>
+                <fieldset style="display: flex; align-items: center; gap:15px;">
+                    <legend>Gender</legend>
+                    <p>
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="male" value="male" required="required">
+                    </p>
+                    <p>
+                        <label for="female">Female</label>
+                        <input type="radio" name="gender" id="female" value="female">
+                    </p>
+                </fieldset>
             </fieldset>
 
             <fieldset>
-                <legend>Address and Contact information </legend>
+                <legend>Address and Contact details</legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="address">Street address</label> <input type="text" name="address" id="address"
+                    <label for="street">Street address</label> <input type="text" name="street" id="street"
                         maxlength="40" required="required">
 
                     <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
@@ -91,14 +137,14 @@
                         <option value="act">ACT</option>
                     </select>
 
-                    <label for="postcode">Postcode</label> <input type="text" name="postcode" id="postcode"
-                        pattern="[0-9]{4}" required="required">
+                        <label for="postcode">Postcode</label> <input type="text" name="postcode" id="postcode"
+                            pattern="[0-9]{4}" required="required">
 
-                    <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
-                    <label for="number">Phone number</label> <input type="tel" name="number" id="number"
-                        pattern="[0-9]{8,12}" required="required">
-                </p>
-            </fieldset>
+                        <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
+                        <label for="phone">Phone number</label> <input type="tel" name="phone" id="phone"
+                            pattern="[0-9]{8,12}" required="required">
+                    </p>
+                </fieldset>
 
 
             <fieldset>
@@ -186,8 +232,8 @@
                 </p>
             </fieldset>
         </fieldset>
-        <input type="submit" value="Apply">
-        <input type= "reset" value="Reset">
+        <input type="submit" value="Apply" class="button">
+        <input type= "reset" value="Reset" class="button">
     </form>
 
     <footer id="site-footer">
