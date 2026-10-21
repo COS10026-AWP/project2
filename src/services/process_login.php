@@ -4,19 +4,31 @@ function get_user_from_credentials(mysqli $db_conn, string $username, string $pa
     try {
         $query = "SELECT * FROM users WHERE username = ?";
         $stmt = mysqli_prepare($db_conn, $query);
-        mysqli_stmt_bind_param($stmt, 's', $username);
-        mysqli_stmt_execute($stmt);
+
+        if (is_bool($stmt)) {
+            error_log('Database query preparation error: ' . mysqli_error($db_conn));
+            return null;
+        }
+
+        $_ = mysqli_stmt_bind_param($stmt, 's', $username);
+        $_ = mysqli_stmt_execute($stmt);
+
         $result = mysqli_stmt_get_result($stmt);
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            $user = mysqli_fetch_assoc($result);
-            if (is_array($user) &&
-                is_string($user['password_hash']) &&
-                password_verify($password, $user['password_hash'])) {
-                return $user;
-            }
+        if (is_bool($result)) {
+            error_log('Database query execution error: ' . mysqli_error($db_conn));
+            return null;
         }
-        return null;
+
+        // User is returned as an associative array if found, or null if not found or password does not match
+        $user = mysqli_fetch_assoc($result);
+        if (is_array($user) &&
+            is_string($user['password_hash']) &&
+            password_verify($password, $user['password_hash'])) {
+            return $user;
+        } else {
+            return null;
+        }
     } catch (mysqli_sql_exception $e) {
         error_log('Database query error: ' . $e->getMessage());
         return null;
