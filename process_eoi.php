@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="styles/styles.css"></head>
 <?php
 $config = require 'settings.php';
 $conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
