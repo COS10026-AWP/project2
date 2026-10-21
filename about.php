@@ -103,7 +103,6 @@
         <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption>
     </figure>
 
-    <h2>Our Fun Facts!</h2>
     <table>
         <thead>
             <tr>
