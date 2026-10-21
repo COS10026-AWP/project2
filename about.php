@@ -20,12 +20,12 @@
 
         h2 {
             color: #12343B;
-            font-size: 25px;
+            font-size: 23px;
         }
 
         p { color: #12343B }
 
-        dt { font-size: 20px; }
+        dt { font-size: 18px; }
 
         dd { font-size: 15px; }
 
@@ -56,6 +56,19 @@
         caption { font-size: 20px; }
 
         .travel-tips { border-left: 4px solid #12343B ;}
+
+        .heading-background {
+            display: inline-block;
+            color: #12343B;
+            background: #e0f1f5;
+            padding: 5px 25px;
+            border-radius: 20px;
+        }
+
+        .heading-background:hover {
+            color: #ffffff;
+            background: #12343B;
+        }
     </style>
 </head>
 
@@ -66,9 +79,7 @@
 
     <h1>About Us</h1>
 
-    <aside class="travel-tips">
-        <h2>The Group</h2>
-    </aside>
+    <h2 class="heading-background">The Group</h2>
     
     <ul>
         <li>We are Group 2!</li>
@@ -77,9 +88,7 @@
         <li>Led by our handsome tutor Rahul!</li>
     </ul>
 
-    <aside class="travel-tips">
-        <h2>Our Contributions</h2>
-    </aside>
+    <h2 class="heading-background">Our Contributions</h2>
     
     <dl>
         <aside class="travel-tips">
@@ -111,9 +120,7 @@
         </aside>
     </dl>
 
-    <aside class="travel-tips">
-        <h2>Cool Quotes!</h2>
-    </aside>
+    <h2 class="heading-background">Cool Quotes!</h2>
     
     <dl>
         <aside class="travel-tips">
@@ -141,9 +148,7 @@
         </aside>
     </dl>
 
-    <aside class="travel-tips">
-        <h2>Our Team</h2>
-    </aside>
+    <h2 class="heading-background">Our Team</h2>
     
     <figure>
         <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
