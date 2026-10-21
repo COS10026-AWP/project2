@@ -62,9 +62,12 @@
                     <input type="radio" name="gender" id="female" value="female">
                 </p>
             </fieldset>
-            <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                <label for="address">Street address</label> <input type="text" name="address" id="address"
-                    maxlength="40" required="required">
+
+            <fieldset>
+                <legend>Address and Contact information </legend>
+                <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
+                    <label for="address">Street address</label> <input type="text" name="address" id="address"
+                        maxlength="40" required="required">
 
                 <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
                     required="required">
@@ -85,11 +88,11 @@
                         <label for="postcode">Postcode</label> <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
 
-                        <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
-                        <label for="phone">Phone number</label> <input type="tel" name="phone" id="phone"
-                            pattern="[0-9]{8,12}" required="required">
-                    </p>
-                </fieldset>
+                    <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
+                    <label for="number">Phone number</label> <input type="tel" name="number" id="number"
+                        pattern="[0-9]{8,12}" required="required">
+                </p>
+            </fieldset>
 
 
             <fieldset>

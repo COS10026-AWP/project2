@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit();
 }
 
-$table_sql = "CREATE TABLE IF NOT EXISTS eoi (
+$table"CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     reference VARCHAR(6),
     first_name VARCHAR(20),
