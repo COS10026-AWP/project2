@@ -25,14 +25,11 @@
 
         p { color: #12343B }
 
-        dd { font-size: 12px; }
+        dd { font-size: 14px; }
 
         .student-id {
             color: #12343B;
             font-weight: bold;
-            padding: 5px;
-            border: 2px solid #12343B;
-            border-radius: 5px;
             display: inline-block;
         }
 
@@ -74,12 +71,19 @@
     </ul>
 
     <h2>Our Contributions</h2>
-    <ul>
-        <li><p class="student-id">106565482</p> Nathan : Co-leader, responsible for the job info page. </li>
-        <li><p class="student-id">106696764</p> Harper : Leader in project planning, responsible for HTML, CSS, and the home page.</li>
-        <li><p class="student-id">105996858</p> Tiffany : Responsible for the job application page.</li>
-        <li><p class="student-id">106379243</p> Khoi : Responsible for the about page.</li>
-    </ul>
+    <dl>
+        <dt><p class="student-id">106696764</p> Harper</dt>
+        <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
+
+        <dt><p class="student-id">106565482</p> Nathan</dt>
+        <dd>Co-leader, responsible for the job info page.</dd>
+
+        <dt><p class="student-id">105996858</p> Tiffany</dt>
+        <dd>Responsible for the job application page.</dd>
+
+        <dt><p class="student-id">106379243</p> Khoi</dt>
+        <dd>Responsible for the about page.</dd>
+    </dl>
 
     <h2>Cool Quotes!</h2>
     <dl>
