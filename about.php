@@ -42,7 +42,6 @@
         table { 
             border-collapse: collapse;
             color: #12343B;
-            font-size: 20px;
         }
 
         th {
@@ -52,6 +51,8 @@
         }
 
         td:hover { background-color: #e0f1f5; }
+
+        caption { font-size: 20px; }
     </style>
 </head>
 
