@@ -25,7 +25,9 @@
 
         p { color: #12343B }
 
-        dd { font-size: 14px; }
+        dt { font-size: 20px }
+
+        dd { font-size: 15px; }
 
         .student-id {
             color: #12343B;
