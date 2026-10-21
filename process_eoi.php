@@ -71,4 +71,10 @@ if (!empty($errors)) {
     exit();
 }
 
+$sanitised_skills = [];
+foreach ($skills_arr as $skill) {
+    $sanitised_skills[] = clean($skill, $conn);
+}
+$skills_string = implode(", ", $sanitised_skills);
+
 ?>
