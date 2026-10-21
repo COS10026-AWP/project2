@@ -96,11 +96,11 @@
             on something else other than what we're doing.</dd>
     </dl>
 
-    <h2>A Picture Of Us!</h2>
+    <h2>Our Team</h2>
     <figure>
         <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
             alt="A picture of us!" title="Group Photo" width="1200" height="900">
-        <figcaption>A photo representing the group.</figcaption>
+        <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption>
     </figure>
 
     <h2>Our Fun Facts!</h2>
