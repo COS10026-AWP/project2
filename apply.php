@@ -55,7 +55,7 @@
         style="text-align: center; color: #12343B; background-color: #E0F1F5; padding: 20px; margin: 0 20px;">
         Job Application Page</h1>
 
-    <form method="post" action="process_eoi.php">
+    <form method="post" action="process_eoi.php" novalidate>
         <fieldset>
             <p>
                 <label for="reference">Job reference number</label> <input type="text" name="reference" id="reference"
