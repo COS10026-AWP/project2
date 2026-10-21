@@ -17,3 +17,14 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
 $_SESSION['last_activity'] = time();
 
 require_once "settings.php"; 
+
+// allowed values (stops anything else being used for sorting)
+$statuses = array("New", "Current", "Final");
+$sort_fields = array(
+    "EOInumber" => "EOI Number",
+    "reference" => "Job Reference",
+    "first_name" => "First Name",
+    "surname" => "Last Name",
+    "status" => "Status"
+);
+
