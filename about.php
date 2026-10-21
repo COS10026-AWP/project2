@@ -42,6 +42,7 @@
         table { 
             border-collapse: collapse;
             color: #12343B;
+            font-size: 20px;
         }
 
         th {
@@ -104,6 +105,7 @@
     </figure>
 
     <table>
+        <caption>Fun Facts About Our Team Member</caption>
         <thead>
             <tr>
                 <th>Name</th>
