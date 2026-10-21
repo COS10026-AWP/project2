@@ -60,6 +60,7 @@ if (!in_array(strtolower($state), ['vic', 'nsw', 'qld', 'nt', 'wa', 'sa', 'tas',
 if (!preg_match("/^[0-9]{4}$/", $post)) $errors[] = "Postcode must be exactly 4 digits.";
 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email.";
 if (!preg_match("/^[0-9]{8,12}$/", $phone)) $errors[] = "Phone number must be between 8 and 12 digits.";
+$skills_arr = $_POST['category'] ?? [];
 if (empty($skills_arr)) $errors[] = "You must select at least one skill from the list.";
 
 if (!empty($errors)) {
