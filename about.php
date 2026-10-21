@@ -81,28 +81,28 @@
     
     <dl>
         <aside class="travel-tips">
-        <dt><p class="student-id">106696764</p> Harper</dt>
+        <dt>Harper <p class="student-id">(106696764)</p></dt>
         <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         </aside>
 
         <aside class="travel-tips">
-        <dt><p class="student-id">106565482</p> Nathan</dt>
+        <dt>Nathan <p class="student-id">(106565482)</p></dt>
         <dd>Co-leader, responsible for the job info page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         </aside>
 
         <aside class="travel-tips">
-        <dt><p class="student-id">105996858</p> Tiffany</dt>
+        <dt>Tiffany <p class="student-id">(105996858)</p></dt>
         <dd>Responsible for the job application page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         </aside>
 
         <aside class="travel-tips">
-        <dt><p class="student-id">106379243</p> Khoi</dt>
+        <dt>Khoi <p class="student-id">(106379243)</p></dt>
         <dd>Responsible for the about page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
