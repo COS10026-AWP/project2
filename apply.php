@@ -96,20 +96,12 @@
                 </fieldset>
 >>>>>>> af1f76a (cleaned up css on apply.php)
             </fieldset>
-<<<<<<< HEAD
-            <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                <label for="address">Street address</label> <input type="text" name="address" id="address"
-                    pattern="{1,40}" required="required">
-=======
 
             <fieldset>
                 <legend>Address and Contact information </legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="street">Street address</label> 
-                    <input type="text" name="street" id="street"
+                    <label for="address">Street address</label> <input type="text" name="address" id="address"
                         maxlength="40" required="required">
->>>>>>> ddca11b (changed a few code for less confusion)
-                    maxlength="40" required="required">
 
                 <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
                     required="required">
