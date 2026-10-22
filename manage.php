@@ -233,7 +233,53 @@ $result = $stmt->get_result();
             </tr>
         </thead>
         <tbody>
-        
+        <?php
+        if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['reference']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['surname']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['dob']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['street'] . ", " . $row['suburb'] . " " . strtoupper($row['state']) . " " . $row['postcode']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['skills']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['other']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+
+                // status form: hidden fields remember the EOI and the current search
+                echo "<td>";
+                echo "<form method='post' action='manage.php'>";
+                echo "<input type='hidden' name='action' value='update_status'>";
+                echo "<input type='hidden' name='eoi_id' value='" . intval($row['EOInumber']) . "'>";
+                echo "<input type='hidden' name='filter' value='" . htmlspecialchars($filter) . "'>";
+                echo "<input type='hidden' name='job_ref' value='" . htmlspecialchars($job_ref) . "'>";
+                echo "<input type='hidden' name='first_name' value='" . htmlspecialchars($first_name) . "'>";
+                echo "<input type='hidden' name='last_name' value='" . htmlspecialchars($last_name) . "'>";
+                echo "<input type='hidden' name='sort' value='" . htmlspecialchars($sort) . "'>";
+                echo "<input type='hidden' name='dir' value='" . strtolower($dir) . "'>";
+                echo "<select name='status'>";
+                foreach ($statuses as $s) {
+                    echo "<option value='$s'";
+                    if ($row['status'] == $s) {
+                        echo " selected";
+                    }
+                    echo ">$s</option>";
+                }
+                echo "</select> ";
+                echo "<input type='submit' value='Update'>";
+                echo "</form>";
+                echo "</td>";
+
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='13'>No EOIs found.</td></tr>";
+        }
+        ?>
         </tbody>
     </table>
 
