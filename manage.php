@@ -141,4 +141,112 @@ if ($search == "job") {
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage EOIs</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header id="site-header">
+        <?php include 'header.inc.php'; ?>
+    </header>
+
+    <h1>Manage Expressions of Interest</h1>
+
+    <!-- list, search, and sort -->
+    <form method="post" action="manage.php">
+        <fieldset>
+            <legend>List EOIs</legend>
+            <p>
+                <input type="radio" name="filter" id="filter_all" value="all" <?php if ($filter == "all") { echo "checked"; } ?>>
+                <label for="filter_all">All EOIs</label>
+            </p>
+            <p>
+                <input type="radio" name="filter" id="filter_job" value="job" <?php if ($filter == "job") { echo "checked"; } ?>>
+                <label for="filter_job">By job reference</label>
+                <input type="text" name="job_ref" value="<?php echo htmlspecialchars($job_ref); ?>">
+            </p>
+            <p>
+                <input type="radio" name="filter" id="filter_name" value="name" <?php if ($filter == "name") { echo "checked"; } ?>>
+                <label for="filter_name">By applicant name</label>
+                <input type="text" name="first_name" placeholder="First name" value="<?php echo htmlspecialchars($first_name); ?>">
+                <input type="text" name="last_name" placeholder="Last name" value="<?php echo htmlspecialchars($last_name); ?>">
+                (one or both)
+            </p>
+            <p>
+                <label for="sort">Sort by</label>
+                <select name="sort" id="sort">
+                    <?php
+                    foreach ($sort_fields as $column => $label) {
+                        echo "<option value='$column'";
+                        if ($sort == $column) {
+                            echo " selected";
+                        }
+                        echo ">$label</option>";
+                    }
+                    ?>
+                </select>
+                <select name="dir">
+                    <option value="asc" <?php if ($dir == "ASC") { echo "selected"; } ?>>Ascending</option>
+                    <option value="desc" <?php if ($dir == "DESC") { echo "selected"; } ?>>Descending</option>
+                </select>
+            </p>
+            <input type="submit" value="Search">
+        </fieldset>
+    </form>
+
+    <!-- Delete all EOIs for a job reference -->
+    <form method="post" action="manage.php">
+        <fieldset>
+            <legend>Delete EOIs by job reference</legend>
+            <input type="hidden" name="action" value="delete_by_job">
+            <label for="delete_job_ref">Job reference</label>
+            <input type="text" name="job_reference" id="delete_job_ref" required="required">
+            <input type="checkbox" name="confirm_delete" id="confirm_delete" required="required">
+            <label for="confirm_delete">Yes, delete all EOIs for this job reference</label>
+            <input type="submit" value="Delete all">
+        </fieldset>
+    </form>
+
+    <!-- Results -->
+    <table>
+        <thead>
+            <tr>
+                <th>EOI #</th>
+                <th>Job Ref</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Skills</th>
+                <th>Other Skills</th>
+                <th>Status</th>
+                <th>Change Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+
+    <footer id="site-footer">
+        <?php include 'footer.inc.php'; ?>
+    </footer>
+</body>
+
+</html>
+<?php
+$stmt->close();
+mysqli_close($conn);
+?>
+
+
 
