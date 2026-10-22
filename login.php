@@ -73,7 +73,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
             <label for="password">Password:</label>
             <input id="password" type="password" name="password" required>
 
-            <?php if ($login_error): ?>
+            <?php if ($login_error) : ?>
                 <p id="invalid-login"><?= $login_error ?></p>
             <?php endif; ?>
 
