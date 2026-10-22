@@ -35,12 +35,17 @@ $sort_fields = array(
     "status" => "Status"
 );
 
+// initialize message variable, which will be used to display messages to the manager
+$message = "";
+
 // delete and update
 if (isset($_POST['action'])) {
-
     // delete all EOIs for a job reference
     if ($_POST['action'] == "delete_by_job") {
-        $job = trim($_POST['job_reference']);
+        $job = "";
+        if (isset($_POST['job_reference'])) {
+            $job = trim(strval($_POST['job_reference']));
+        }
         if ($job == "") {
             $message = "Please enter a job reference to delete.";
         } elseif (!isset($_POST['confirm_delete'])) {
@@ -49,7 +54,8 @@ if (isset($_POST['action'])) {
             $stmt = $conn->prepare("DELETE FROM eoi WHERE reference = ?");
             $stmt->bind_param("s", $job);
             if ($stmt->execute()) {
-                $message = "Deleted " . $stmt->affected_rows . " EOI(s) for job reference " . htmlspecialchars($job) . ".";
+                $message = "Deleted " . $stmt->affected_rows . " EOI(s) for job reference "
+                    . htmlspecialchars($job) . ".";
             } else {
                 $message = "Sorry, the EOIs could not be deleted.";
             }
@@ -59,8 +65,14 @@ if (isset($_POST['action'])) {
 
     // change the status of one EOI
     if ($_POST['action'] == "update_status") {
-        $eoi_id = intval($_POST['eoi_id']); // convert id to integer 
-        $status = $_POST['status'];
+        $eoi_id = 0;
+        $status = "";
+        if (isset($_POST['eoi_id'])) {
+            $eoi_id = intval($_POST['eoi_id']); // convert id to integer
+        }
+        if (isset($_POST['status'])) {
+            $status = strval($_POST['status']);
+        }
         if ($eoi_id > 0 && in_array($status, $statuses)) {
             $stmt = $conn->prepare("UPDATE eoi SET status = ? WHERE EOInumber = ?");
             $stmt->bind_param("si", $status, $eoi_id);
@@ -74,9 +86,9 @@ if (isset($_POST['action'])) {
             $message = "Invalid status.";
         }
     }
-
 }
- // initialize search and sort variables, which will be used to build the SQL query
+
+// initialize search and sort variables, which will be used to build the SQL query
 $filter = "all";
 $job_ref = "";
 $first_name = "";
@@ -85,26 +97,48 @@ $sort = "EOInumber";
 $dir = "ASC";
 
 if (isset($_POST['filter'])) {
-    $filter = $_POST['filter'];
+    $filter = strval($_POST['filter']);
 }
 if (isset($_POST['job_ref'])) {
-    $job_ref = trim($_POST['job_ref']);
+    $job_ref = trim(strval($_POST['job_ref']));
 }
 if (isset($_POST['first_name'])) {
-    $first_name = trim($_POST['first_name']);
+    $first_name = trim(strval($_POST['first_name']));
 }
 if (isset($_POST['last_name'])) {
-    $last_name = trim($_POST['last_name']);
+    $last_name = trim(strval($_POST['last_name']));
 }
-if (isset($_POST['sort']) && array_key_exists($_POST['sort'], $sort_fields)) {
-    $sort = $_POST['sort'];
+if (isset($_POST['sort']) && array_key_exists(strval($_POST['sort']), $sort_fields)) {
+    $sort = strval($_POST['sort']);
 }
 if (isset($_POST['dir']) && $_POST['dir'] == "desc") {
     $dir = "DESC";
 }
 
+// remember which options the manager picked, so the form shows them again
+$check_all = "";
+$check_job = "";
+$check_name = "";
+if ($filter == "job") {
+    $check_job = "checked";
+} elseif ($filter == "name") {
+    $check_name = "checked";
+} else {
+    $check_all = "checked";
+}
+
+$select_asc = "";
+$select_desc = "";
+if ($dir == "DESC") {
+    $select_desc = "selected";
+} else {
+    $select_asc = "selected";
+}
+
 // build the query
-$query = "SELECT EOInumber, reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status FROM eoi";
+$query = "SELECT EOInumber, reference, first_name, surname, dob, gender, "
+    . "street, suburb, state, postcode, email, phone, skills, other, status "
+    . "FROM eoi";
 
 // decide which search to run
 $search = "all";
@@ -158,24 +192,32 @@ $result = $stmt->get_result();
 
     <h1>Manage Expressions of Interest</h1>
 
+    <?php
+    if ($message != "") {
+        echo "<p><strong>" . $message . "</strong></p>";
+    }
+    ?>
+
     <!-- list, search, and sort -->
     <form method="post" action="manage.php">
         <fieldset>
             <legend>List EOIs</legend>
             <p>
-                <input type="radio" name="filter" id="filter_all" value="all" <?php if ($filter == "all") { echo "checked"; } ?>>
+                <input type="radio" name="filter" id="filter_all" value="all" <?php echo $check_all; ?>>
                 <label for="filter_all">All EOIs</label>
             </p>
             <p>
-                <input type="radio" name="filter" id="filter_job" value="job" <?php if ($filter == "job") { echo "checked"; } ?>>
+                <input type="radio" name="filter" id="filter_job" value="job" <?php echo $check_job; ?>>
                 <label for="filter_job">By job reference</label>
                 <input type="text" name="job_ref" value="<?php echo htmlspecialchars($job_ref); ?>">
             </p>
             <p>
-                <input type="radio" name="filter" id="filter_name" value="name" <?php if ($filter == "name") { echo "checked"; } ?>>
+                <input type="radio" name="filter" id="filter_name" value="name" <?php echo $check_name; ?>>
                 <label for="filter_name">By applicant name</label>
-                <input type="text" name="first_name" placeholder="First name" value="<?php echo htmlspecialchars($first_name); ?>">
-                <input type="text" name="last_name" placeholder="Last name" value="<?php echo htmlspecialchars($last_name); ?>">
+                <input type="text" name="first_name" placeholder="First name"
+                    value="<?php echo htmlspecialchars($first_name); ?>">
+                <input type="text" name="last_name" placeholder="Last name"
+                    value="<?php echo htmlspecialchars($last_name); ?>">
                 (one or both)
             </p>
             <p>
@@ -192,8 +234,8 @@ $result = $stmt->get_result();
                     ?>
                 </select>
                 <select name="dir">
-                    <option value="asc" <?php if ($dir == "ASC") { echo "selected"; } ?>>Ascending</option>
-                    <option value="desc" <?php if ($dir == "DESC") { echo "selected"; } ?>>Descending</option>
+                    <option value="asc" <?php echo $select_asc; ?>>Ascending</option>
+                    <option value="desc" <?php echo $select_desc; ?>>Descending</option>
                 </select>
             </p>
             <input type="submit" value="Search">
@@ -236,19 +278,23 @@ $result = $stmt->get_result();
         <?php
         if ($result && mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                // join the address columns into one line
+                $address = strval($row['street']) . ", " . strval($row['suburb']) . " "
+                    . strtoupper(strval($row['state'])) . " " . strval($row['postcode']);
+
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['reference']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['surname']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['dob']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['street'] . ", " . $row['suburb'] . " " . strtoupper($row['state']) . " " . $row['postcode']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['skills']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['other']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['status']) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['EOInumber'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['reference'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['first_name'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['surname'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['dob'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['gender'])) . "</td>";
+                echo "<td>" . htmlspecialchars($address) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['email'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['phone'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['skills'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['other'])) . "</td>";
+                echo "<td>" . htmlspecialchars(strval($row['status'])) . "</td>";
 
                 // status form: hidden fields remember the EOI and the current search
                 echo "<td>";
@@ -292,7 +338,3 @@ $result = $stmt->get_result();
 <?php
 $stmt->close();
 mysqli_close($conn);
-?>
-
-
-
