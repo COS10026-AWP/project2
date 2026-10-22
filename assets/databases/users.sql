@@ -10,3 +10,6 @@ CREATE TABLE users (
   password_hash VARCHAR(255) NOT NULL ,
   user_role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
   );
+
+INSERT INTO users (username, password_hash, user_role) VALUES
+  ('admin', '$2a$12$/gi4vNftyma4L855cGIUqOK5U791ste5VfK8u0PAotkVu6WRunJkK', 'admin');
