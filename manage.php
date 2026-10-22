@@ -122,3 +122,21 @@ if ($filter == "job" && $job_ref != "") {
     $query = $query . " WHERE surname LIKE ?";
 }
 
+// sort column was checked against $sort_fields above
+$query = $query . " ORDER BY $sort $dir";
+
+$like_first = "%" . $first_name . "%";
+$like_last = "%" . $last_name . "%";
+
+$stmt = $conn->prepare($query);
+if ($search == "job") {
+    $stmt->bind_param("s", $job_ref);
+} elseif ($search == "both") {
+    $stmt->bind_param("ss", $like_first, $like_last);
+} elseif ($search == "first") {
+    $stmt->bind_param("s", $like_first);
+} elseif ($search == "last") {
+    $stmt->bind_param("s", $like_last);
+}
+$stmt->execute();
+$result = $stmt->get_result();
