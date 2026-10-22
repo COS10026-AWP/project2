@@ -76,4 +76,49 @@ if (isset($_POST['action'])) {
     }
 
 }
+ // initialize search and sort variables, which will be used to build the SQL query
+$filter = "all";
+$job_ref = "";
+$first_name = "";
+$last_name = "";
+$sort = "EOInumber";
+$dir = "ASC";
+
+if (isset($_POST['filter'])) {
+    $filter = $_POST['filter'];
+}
+if (isset($_POST['job_ref'])) {
+    $job_ref = trim($_POST['job_ref']);
+}
+if (isset($_POST['first_name'])) {
+    $first_name = trim($_POST['first_name']);
+}
+if (isset($_POST['last_name'])) {
+    $last_name = trim($_POST['last_name']);
+}
+if (isset($_POST['sort']) && array_key_exists($_POST['sort'], $sort_fields)) {
+    $sort = $_POST['sort'];
+}
+if (isset($_POST['dir']) && $_POST['dir'] == "desc") {
+    $dir = "DESC";
+}
+
+// build the query
+$query = "SELECT EOInumber, reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status FROM eoi";
+
+// decide which search to run
+$search = "all";
+if ($filter == "job" && $job_ref != "") {
+    $search = "job";
+    $query = $query . " WHERE reference = ?";
+} elseif ($filter == "name" && $first_name != "" && $last_name != "") {
+    $search = "both";
+    $query = $query . " WHERE first_name LIKE ? AND surname LIKE ?";
+} elseif ($filter == "name" && $first_name != "") {
+    $search = "first";
+    $query = $query . " WHERE first_name LIKE ?";
+} elseif ($filter == "name" && $last_name != "") {
+    $search = "last";
+    $query = $query . " WHERE surname LIKE ?";
+}
 
