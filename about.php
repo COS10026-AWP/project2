@@ -152,7 +152,7 @@
         <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption>
     </figure>
 
-    <table>
+    <!-- <table>
         <caption>Fun Facts About Our Team Member</caption>
         <thead>
             <tr>
@@ -190,7 +190,39 @@
                 <td>Have met multiple popular celebrities in person and had their autographs</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
+
+    <?php
+
+    $config = require 'settings.php';
+    $dbconn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+    if($dbconn) {
+        $query = "SELECT * FROM fun_fact_section";
+        $result = mysqli_query($dbconn,$query);
+        if($result) {
+            echo "<table> <caption>Fun Facts About Our Team Member</caption>
+            <thead> <tr>
+            <th>Fun Facts</th>
+            <th>Nathan</th>
+            <th>Harper</th>
+            <th>Tiffany</th>
+            <th>Khoi</th>
+            </tr> </thead>
+            <tbody>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['fun_facts'] . "</td>";
+                echo "<td>" . $row['nathan'] . "</td>";
+                echo "<td>" . $row['harper'] . "</td>";
+                echo "<td>" . $row['tiffany'] . "</td>";
+                echo "<td>" . $row['khoi'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</tbody> </table>";
+        }
+    } else echo "<p>Unable to connect to the db.</p>";
+    
+    ?>
 
     <br>
 
