@@ -60,8 +60,6 @@
                 <p>
                     <label for="reference">Job reference number</label>
                     <input type="text" name="reference" id="reference"
-                    <label for="reference">Job reference number</label>
-                    <input type="text" name="reference" id="reference"
                         pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
                 </p>
 
@@ -121,8 +119,6 @@
                             <option value="act">ACT</option>
                         </select>
 
-                        <label for="postcode">Postcode</label> 
-                        <input type="text" name="postcode" id="postcode"
                         <label for="postcode">Postcode</label> 
                         <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
