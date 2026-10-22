@@ -75,12 +75,12 @@
             <fieldset>
                 <legend>Address and Contact details</legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="address">Street address</label> <input type="text" name="address" id="address"
+                    <label for="street">Street address</label> <input type="text" name="street" id="street"
                         maxlength="40" required="required">
 >>>>>>> ddca11b (changed a few code for less confusion)
 
-                <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
-                    required="required">
+                    <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
+                        required="required">
 
                 <label for="state">State</label>
                 <select name="state" id="state" required="required">
@@ -99,11 +99,11 @@
                         <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
 
-                    <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
-                    <label for="phone">Phone number</label> <input type="tel" name="phone" id="phone"
-                        pattern="[0-9]{8,12}" required="required">
-                </p>
-            </fieldset>
+                        <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
+                        <label for="phone">Phone number</label> <input type="tel" name="phone" id="phone"
+                            pattern="[0-9]{8,12}" required="required">
+                    </p>
+                </fieldset>
 
 
             <fieldset>
