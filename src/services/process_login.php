@@ -1,4 +1,5 @@
 <?php
+
 function get_user_from_credentials(mysqli $db_conn, string $username, string $password): ?array
 {
     try {
