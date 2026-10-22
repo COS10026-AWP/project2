@@ -13,14 +13,16 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
         $login_error = 'Something went wrong. Please try again.';
     }
 
-    if ($login_error === null &&
-        !is_string($_POST['username']) || !is_string($_POST['password'])) {
-        $login_error = 'Something went wrong. Please try again.';
-    } elseif ($db_conn instanceof mysqli) {
-        $user = get_user_from_credentials($db_conn, $_POST['username'], $_POST['password']);
-        mysqli_close($db_conn);
-    } else {
-        $user = null;
+    $user = null;
+    if ($login_error === null) {
+        if (!isset($_POST['username']) || !isset($_POST['password'])) {
+            $login_error = 'Please provide both username and password.';
+        } elseif (!is_string($_POST['username']) || !is_string($_POST['password'])) {
+            $login_error = 'Invalid input. Please try again.';
+        } elseif ($db_conn instanceof mysqli) {
+            $user = get_user_from_credentials($db_conn, $_POST['username'], $_POST['password']);
+            mysqli_close($db_conn);
+        }
     }
 
     if ($login_error === null && is_array($user)) {
