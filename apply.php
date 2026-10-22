@@ -61,6 +61,8 @@
                 <p>
                     <label for="reference">Job reference number</label>
                     <input type="text" name="reference" id="reference"
+                    <label for="reference">Job reference number</label>
+                    <input type="text" name="reference" id="reference"
                         pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
                 </p>
 
@@ -100,30 +102,12 @@
             <fieldset>
                 <legend>Address and Contact details</legend>
                 <p style="display: grid; grid-template-columns: auto 1fr auto 1fr; align-items:center; gap:10px">
-                    <label for="address">Street address</label> <input type="text" name="address" id="address"
+                    <label for="street">Street address</label> <input type="text" name="street" id="street"
                         maxlength="40" required="required">
 
-                    <label for="suburb">Suburb/Town</label> <input type="text" name="suburb" id="suburb" maxlength="40"
+                    <label for="suburb">Suburb/Town</label> 
+                    <input type="text" name="suburb" id="suburb" maxlength="40"
                         required="required">
-
-                <label for="state">State</label>
-                <select name="state" id="state" required="required">
-                    <option value="">Please select</option>
-                <select name="state" id="state" required="required">
-                    <option value="">Please select</option>
-                    <option value="vic">VIC</option>
-                    <option value="nsw">NSW</option>
-                    <option value="qld">QLD</option>
-                    <option value="nt">NT</option>
-                    <option value="wa">WA</option>
-                    <option value="sa">SA</option>
-                    <option value="tas">TAS</option>
-                    <option value="act">ACT</option>
-                </select>
-=======
-                        <label for="suburb">Suburb/Town</label> 
-                        <input type="text" name="suburb" id="suburb" maxlength="40"
-                            required="required">
 
                         <label for="state">State</label>
                         <select name="state" id="state" required="required">
@@ -139,6 +123,8 @@
                         </select>
 >>>>>>> af1f76a (cleaned up css on apply.php)
 
+                        <label for="postcode">Postcode</label> 
+                        <input type="text" name="postcode" id="postcode"
                         <label for="postcode">Postcode</label> 
                         <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
