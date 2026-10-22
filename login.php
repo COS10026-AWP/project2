@@ -60,7 +60,15 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
         <form id="login-form" method="POST">
             <label for="username">Username:</label>
             <input id="username" type="text" name="username" required
-                value=<?= htmlspecialchars($_POST["username"] ?? "")?>>
+                value=
+                <?php
+                if (isset($_POST["username"]) && is_string($_POST["username"])) {
+                    echo htmlspecialchars($_POST["username"]);
+                } else {
+                    echo '""';
+                }
+                ?>
+            >
 
             <label for="password">Password:</label>
             <input id="password" type="password" name="password" required>
