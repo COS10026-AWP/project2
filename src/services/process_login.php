@@ -22,13 +22,14 @@ function get_user_from_credentials(mysqli $db_conn, string $username, string $pa
 
         // User is returned as an associative array if found, or null if not found or password does not match
         $user = mysqli_fetch_assoc($result);
-        if (is_array($user) &&
+        if (
+            is_array($user) &&
             is_string($user['password_hash']) &&
-            password_verify($password, $user['password_hash'])) {
+            password_verify($password, $user['password_hash'])
+        ) {
             return $user;
-        } else {
-            return null;
         }
+        return null;
     } catch (mysqli_sql_exception $e) {
         error_log('Database query error: ' . $e->getMessage());
         return null;
