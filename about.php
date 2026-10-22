@@ -90,62 +90,58 @@
 
     <h2 class="heading-background">Our Contributions</h2>
     
-    <dl>
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Harper <p class="student-id">(106696764)</p></dt>
         <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Nathan <p class="student-id">(106565482)</p></dt>
         <dd>Co-leader, responsible for the job info page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Tiffany <p class="student-id">(105996858)</p></dt>
         <dd>Responsible for the job application page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Khoi <p class="student-id">(106379243)</p></dt>
         <dd>Responsible for the about page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-        </aside>
     </dl>
 
     <h2 class="heading-background">Cool Quotes!</h2>
     
-    <dl>
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>好好学习，天天向上</dt>
         <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn
             là nên cố gắng cho hiện tại.</dt>
         <dd>Translation (from Vietnamese): The future changes from moment to moment. Therefore, instead
             of worrying about what lies ahead, it is better to focus on the present.</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.</dt>
         <dd>Translation (from Indonesian): Life is a road, don't know what's along the way</dd>
-        </aside>
+    </dl>
 
-        <aside class="travel-tips">
+    <dl class="travel-tips">
         <dt>Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì
             việc chúng ta đang làm mà thôi.</dt>
         <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
             on something else other than what we're doing.</dd>
-        </aside>
     </dl>
 
     <h2 class="heading-background">Our Team</h2>
