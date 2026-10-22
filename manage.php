@@ -2,7 +2,7 @@
 session_start();
 
 // only logged-in managers can see this page
-if (!isset($_SESSION['manager'])) {
+if (!isset($_SESSION['user_role'])) {
     header("Location: login.php");
     exit();
 }
@@ -24,3 +24,14 @@ if (!$conn) {
     echo "<p>Sorry, the database is not available right now.</p>";
     exit();
 }
+
+// arrays
+$statuses = array("New", "Current", "Final");
+$sort_fields = array(
+    "EOInumber" => "EOI Number",
+    "reference" => "Job Reference",
+    "first_name" => "First Name",
+    "surname" => "Last Name",
+    "status" => "Status"
+);
+
