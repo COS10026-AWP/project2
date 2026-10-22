@@ -1,5 +1,5 @@
 <a href="index.php">
-    <img id="logo-small" src="images/tourism_logo.png" alt="World Wide Travel logo" title="World Wide Travel"></a>
+    <img id="logo-small" src="images/tourism_logo.png" alt="World Wide Travel logo" title="Home"></a>
 <p id="acknowledgements">
     World Wide Travel acknowledges the Traditional Owners, the Wurundjeri people of the Kulin Nation, on whose land we
     meet, share and work. We pay our respects to Elders past and present, and extend our respect to Aboriginal and
