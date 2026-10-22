@@ -16,3 +16,11 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 
 }
 $_SESSION['last_activity'] = time();
 
+// make connection to the database
+$config = require "settings.php";
+$conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+
+if (!$conn) {
+    echo "<p>Sorry, the database is not available right now.</p>";
+    exit();
+}
