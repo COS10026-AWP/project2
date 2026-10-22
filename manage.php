@@ -140,3 +140,5 @@ if ($search == "job") {
 }
 $stmt->execute();
 $result = $stmt->get_result();
+?>
+
