@@ -46,6 +46,35 @@
             background-color: #F9C74F;
             color: black;
         }
+
+        .apply-page h1 {
+            margin-top: 15px;
+        margin-bottom: 25px;
+        display: flex;   
+        justify-content: center;
+        color: #12343B;
+        }
+
+        /* Buttons for submit and reset made by Harper */
+        .apply-page .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .apply-page .button:hover {
+            background-color: #F9C74F;
+            color: black;
+        }
     </style>
 </head>
 
