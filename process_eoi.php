@@ -140,8 +140,10 @@ foreach ($skills_arr as $skill) {
 }
 $skills_string = implode(", ", $sanitised_skills);
 
-$sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status) 
-        VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
+$sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, 
+        state, postcode, email, phone, skills, other, status) 
+        VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', 
+        '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
 
 if (mysqli_query($conn, $sql)) {
     $eoi_id = mysqli_insert_id($conn);
