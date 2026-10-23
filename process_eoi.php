@@ -1,13 +1,18 @@
 <head><link rel="stylesheet" href="styles/styles.css"></head>
 <?php
 $config = require 'settings.php';
-$conn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+$conn = mysqli_connect(
+    $config['host'], 
+    $config['user'], 
+    $config['pwd'], 
+    $config['sql_db']
+);
 
 if (!$conn) {
     die("<p>Database connection failure.</p>");
 }
 
-if ($_SERVER["REQUEST_METHOD" ?? ''] !== "POST") {
+if (($_SERVER["REQUEST_METHOD"] ?? '') !== "POST") {
     header("location: apply.php");
     exit();
 }
@@ -34,7 +39,8 @@ if (!mysqli_query($conn, $table_sql)) {
     die("<p>Error creating table: " . mysqli_error($conn) . "</p>");
 }
 
-function clean($data, $conn): string{
+function clean(string $data, mysqli $conn): string
+{
     return mysqli_real_escape_string($conn, htmlspecialchars(trim($data)));
 }
 
@@ -92,12 +98,14 @@ $raw_skills = $_POST['category'] ?? [];
 $skills_arr = is_array($raw_skills) ? $raw_skills : [];
 if (empty($skills_arr)) {
     $errors[] = "You must select at least one skill from the list.";
-    }
+}
 
 
-    if (!empty($errors)) {
+if (!empty($errors)) {
     echo "<h3>Please fix the following fields:</h3><ul>";
-    foreach ($errors as $e) echo "<li>$e</li>";
+    foreach ($errors as $e) {
+        echo "<li>" . htmlspecialchars($e) . "</li>";
+    }
     echo "</ul><p><a href='apply.php'>Return to Form</a></p>";
     exit();
 }
@@ -118,4 +126,5 @@ if (mysqli_query($conn, $sql)) {
     echo "<p><a href='index.php'>Return to Home</a></p>";
 }
 
+mysqli_close($conn);
 ?>
