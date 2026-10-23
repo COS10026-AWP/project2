@@ -39,47 +39,46 @@ if (!mysqli_query($conn, $table_sql)) {
     die("<p>Error creating table: " . mysqli_error($conn) . "</p>");
 }
 
-function clean(string $data, mysqli $conn): string
-{
+$clean = static function (string $data, mysqli $conn): string {
     return mysqli_real_escape_string($conn, htmlspecialchars(trim($data)));
-}
+};
 
 // collects info
 $refVal = $_POST['reference'] ?? '';
-$ref    = clean(is_string($refVal) ? $refVal : '', $conn);
+$ref    = is_string($refVal) ? $clean($refVal, $conn) : '';
 
 $fnameVal   = $_POST['first_name'] ?? '';
-$fname      = clean(is_string($fnameVal) ? $fnameVal : '', $conn);
+$fname      = is_string($fnameVal) ? $clean($fnameVal, $conn) : '';
 
 $snameVal   = $_POST['surname'] ?? '';
-$surname    = clean(is_string($snameVal) ? $snameVal : '', $conn);
+$surname    = is_string($snameVal) ? $clean($snameVal, $conn) : '';
 
 $dobVal = $_POST['dob'] ?? '';
-$dob    = clean(is_string($dobVal) ? $dobVal : '', $conn);
+$dob    = is_string($dobVal) ? $clean($dobVal, $conn) : '';
 
 $genderVal  = $_POST['gender'] ?? '';
-$gender     = clean(is_string($genderVal) ? $genderVal : '', $conn);
+$gender     = is_string($genderVal) ? $clean($genderVal, $conn) : '';
 
 $streetVal  = $_POST['street'] ?? '';
-$street     = clean(is_string($streetVal) ? $streetVal : '', $conn);
+$street     = is_string($streetVal) ? $clean($streetVal, $conn) : '';
 
 $suburbVal  = $_POST['suburb'] ?? '';
-$suburb     = clean(is_string($suburbVal) ? $suburbVal : '', $conn);
+$suburb     = is_string($suburbVal) ? $clean($suburbVal, $conn) : '';
 
 $stateVal   = $_POST['state'] ?? '';
-$state      = clean(is_string($stateVal) ? $stateVal : '', $conn);
+$state      = is_string($stateVal) ? $clean($stateVal, $conn) : '';
 
 $postVal    = $_POST['postcode'] ?? '';
-$post       = clean(is_string($postVal) ? $postVal : '', $conn);
+$post       = is_string($postVal) ? $clean($postVal, $conn) : '';
 
 $emailVal   = $_POST['email'] ?? '';
-$email      = clean(is_string($emailVal) ? $emailVal : '', $conn);
+$email      = is_string($emailVal) ? $clean($emailVal, $conn) : '';
 
 $phoneVal   = $_POST['phone'] ?? '';
-$phone      = clean(is_string($phoneVal) ? $phoneVal : '', $conn);
+$phone      = is_string($phoneVal) ? $clean($phoneVal, $conn) : '';
 
 $otherVal   = $_POST['other'] ?? '';
-$other      = clean(is_string($otherVal) ? $otherVal : '', $conn);
+$other      = is_string($otherVal) ? $clean($otherVal, $conn) : '';
 
 // server side validation
 $errors = [];
