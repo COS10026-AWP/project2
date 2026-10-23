@@ -22,7 +22,6 @@
         }
 
         .apply-forms legend {
-        .apply-forms legend {
             font-weight: bold;
             
         }
