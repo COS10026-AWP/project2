@@ -19,25 +19,43 @@ function toSalary(float $min, float $max): string
     return "\${$min_salary} - \${$max_salary}";
 }
 
-function getQueryAsArray(mysqli $db_conn, string $query): array|bool
+function filterJobs(mysqli $db_conn, string $select, ?string $search = null): array|bool
 {
-    try {
-        $query_res = mysqli_query($db_conn, $query);
-    } catch (mysqli_sql_exception $e) {
-        error_log('Database query error: ' . $e->getMessage());
+    // Private function, $select is not user input
+    $sql = "SELECT {$select}
+            FROM job_listings
+            WHERE job_status = 'active'";
+    if (!is_null($search)) {
+        $sql .= " AND (title LIKE ? OR short_description LIKE ?)";
+    }
+    $sql .= " ORDER BY title ASC";
+
+    $stmt = mysqli_prepare($db_conn, $sql);
+
+    if (is_bool($stmt)) {
+        error_log('Database query preparation error: ' . mysqli_error($db_conn));
         return false;
     }
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        return mysqli_fetch_all($query_res, MYSQLI_ASSOC);
+
+    if (!is_null($search)) {
+        $pattern = '%' . $search . '%';
+        $_ = mysqli_stmt_bind_param($stmt, 'ss', $pattern, $pattern);
     }
+
+    $_ = mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (is_bool($result)) {
+        error_log('Database query execution error: ' . mysqli_error($db_conn));
+        return false;
+    }
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-function getAvailableJobs(mysqli $db_conn): array|bool
+function getAvailableJobs(mysqli $db_conn, ?string $search = null): array|bool
 {
-    $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = getQueryAsArray($db_conn, $query);
+    $query_res = filterJobs($db_conn, '*', $search);
 
     if (is_bool($query_res)) {
         return $query_res;
@@ -57,10 +75,9 @@ function getAvailableJobs(mysqli $db_conn): array|bool
     }
 }
 
-function getJobsForNav(mysqli $db_conn): array|bool
+function getJobsForNav(mysqli $db_conn, ?string $search = null): array|bool
 {
-    $query = "SELECT reference_number, title FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = getQueryAsArray($db_conn, $query);
+    $query_res = filterJobs($db_conn, 'reference_number, title', $search);
 
     if (is_bool($query_res)) {
         return $query_res;
