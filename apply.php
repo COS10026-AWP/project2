@@ -105,6 +105,35 @@
             color: black;
 >>>>>>> af1f76a (cleaned up css on apply.php)
         }
+
+        .apply-page h1 {
+            margin-top: 15px;
+        margin-bottom: 25px;
+        display: flex;   
+        justify-content: center;
+        color: #12343B;
+        }
+
+        /* Buttons for submit and reset made by Harper */
+        .apply-page .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .apply-page .button:hover {
+            background-color: #F9C74F;
+            color: black;
+        }
     </style>
 </head>
 
@@ -352,8 +381,10 @@
                         <p> <label for="skill-api">API Development and Integration</label>
                             <input type="checkbox" id="skill-api" name="category[]" value="api">
                         </p>
-                        <p> <label for="skill-database-data-analysis">Database Management and Data Analysis</label>
-                            <input type="checkbox" id="skill-database-data-analysis" name="category[]" value="database-data">
+                        <p> <label for="skill-database-data-analysis">
+                            Database Management and Data Analysis</label>
+                            <input type="checkbox" id="skill-database-data-analysis" 
+                            name="category[]" value="database-data">
                         </p>
                     </fieldset>
                     
