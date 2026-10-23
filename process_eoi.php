@@ -1,4 +1,5 @@
 <?php
+
 $config = require 'settings.php';
 $conn = mysqli_connect(
     $config['host'],
@@ -44,18 +45,41 @@ function clean(string $data, mysqli $conn): string
 }
 
 // collects info
-$ref  = clean(is_string($_POST['reference'] ?? null)? $_POST['reference'] : '', $conn);
-$fname = clean(is_string($_POST['first_name'] ?? null) ? $_POST['first_name'] ?? '', $conn);
-$surname = clean(is_string($_POST['surname'] ?? null) ? $_POST['surname'] ?? '', $conn);
-$dob   = clean(is_string($_POST['dob'] ?? null) ? $_POST['dob'] ?? '', $conn);
-$gender = clean(is_string($_POST['gender'] ?? null) ? $_POST['gender'] ?? '', $conn);
-$street = clean(is_string($_POST['street'] ?? null) ? $_POST['street'] ?? '', $conn);
-$suburb = clean(is_string($_POST['suburb'] ?? null) ? $_POST['suburb'] ?? '', $conn);
-$state = clean(is_string($_POST['state'] ?? null) ? $_POST['state'] ?? '', $conn);
-$post  = clean(is_string($_POST['postcode'] ?? null) ? $_POST['postcode'] ?? '', $conn);
-$email = clean(is_string($_POST['email'] ?? null) ? $_POST['email'] ?? '', $conn);
-$phone = clean(is_string($_POST['phone'] ?? null) ? $_POST['phone'] ?? '', $conn);
-$other = clean(is_string($_POST['other'] ?? null) ? $_POST['other'] ?? '', $conn);
+$refVal = $_POST['reference'] ?? '';
+$ref    = clean(is_string($refVal) ? $refVal : '', $conn);
+
+$fnameVal   = $_POST['first_name'] ?? '';
+$fname      = clean(is_string($fnameVal) ? $fnameVal : '', $conn);
+
+$snameVal   = $_POST['surname'] ?? '';
+$surname    = clean(is_string($snameVal) ? $snameVal : '', $conn);
+
+$dobVal = $_POST['dob'] ?? '';
+$dob    = clean(is_string($dobVal) ? $dobVal : '', $conn);
+
+$genderVal  = $_POST['gender'] ?? '';
+$gender     = clean(is_string($genderVal) ? $genderVal : '', $conn);
+
+$streetVal  = $_POST['street'] ?? '';
+$street     = clean(is_string($streetVal) ? $streetVal : '', $conn);
+
+$suburbVal  = $_POST['suburb'] ?? '';
+$suburb     = clean(is_string($suburbVal) ? $suburbVal : '', $conn);
+
+$stateVal   = $_POST['state'] ?? '';
+$state      = clean(is_string($stateVal) ? $stateVal : '', $conn);
+
+$postVal    = $_POST['postcode'] ?? '';
+$post       = clean(is_string($postVal) ? $postVal : '', $conn);
+
+$emailVal   = $_POST['email'] ?? '';
+$email      = clean(is_string($emailVal) ? $emailVal : '', $conn);
+
+$phoneVal   = $_POST['phone'] ?? '';
+$phone      = clean(is_string($phoneVal) ? $phoneVal : '', $conn);
+
+$otherVal   = $_POST['other'] ?? '';
+$other      = clean(is_string($otherVal) ? $otherVal : '', $conn);
 
 // server side validation
 $errors = [];
@@ -114,7 +138,6 @@ foreach ($skills_arr as $skill) {
     if (is_string($skill)) {
         $sanitised_skills[] = clean($skill, $conn);
     }
-    $sanitised_skills[] = clean($skill, $conn);
 }
 $skills_string = implode(", ", $sanitised_skills);
 
@@ -129,4 +152,3 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-?>
