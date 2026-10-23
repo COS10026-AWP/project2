@@ -13,97 +13,11 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
-        body {
-            background-color: white;
-        }
-        
-        #apply-page {
-            padding: 20px;
-            background-color: #F0F8FA;
-        }
-
-        .apply-page h1 {
-            margin-top: 15px;
-            margin-bottom: 25px;
-            display: flex;   
-            justify-content: center;
-            color: #12343B;
-        }
-
-        .apply-forms {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 20px;
-            color: #12343B;
-        }
-
-        .apply-forms fieldset {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        form {
-            color: #12343B;
-        }
 
         .skill-align {
 =======
         .apply-forms legend {
             font-weight: bold;
-            
-        }
-
-        .apply-forms input, select {
-            background-color: #F0F8FA;
-            border-radius: 5px;
-            border: 3px solid #ddd;
-        }
-        
-        .apply-forms input[type="checkbox"], input[type="radio"] {
-            accent-color: #12343B;
-        }
-        .apply-page .personal-info {
-            display: flex; 
-            align-items: center; 
-            gap:15px;
-        }
-        .apply-forms .address-contact {
-            display: grid; 
-            grid-template-columns: auto 1fr auto 1fr;
-            align-items:center; 
-        }
-        .apply-forms .languages {
-            display: flex; 
-            align-items: center; 
-            gap:15px;
-        }
-        .apply-forms .skill-lists {
-            display: grid; 
-            grid-template-columns: auto auto; 
-            align-items:center; 
-            gap:10px;
-        }
-
-        .apply-page .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            background-color: #12343B;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .apply-page .button:hover {
-            background-color: #F9C74F;
-            color: black;
->>>>>>> af1f76a (cleaned up css on apply.php)
         }
 
         .apply-page h1 {
@@ -366,7 +280,8 @@
                         <p> <label for="skill-figma">Figma and Prototyping</label>
                             <input type="checkbox" id="skill-figma" name="category[]" value="figma">
                         </p>
-                        <p> <label for="skill-resp-design">Responsive Web Design and Web Accessibility</label>
+                        <p> <label for="skill-resp-design">
+                            Responsive Web Design and Web Accessibility</label>
                             <input type="checkbox" id="skill-resp-design" name="category[]" value="responsive-design">
                         </p>
                         <p> <label for="skill-accessibility">Web Accessibility</label>
@@ -410,7 +325,8 @@
                             <input type="checkbox" id="skill-tourism" name="category[]" value="tourism">
                         </p>
                         <p> <label for="skill-booking">Online Booking Systems</label>
-                            <input type="checkbox" id="skill-booking" name="category[]" value="booking-systems">
+                            <input type="checkbox" id="skill-booking" 
+                            name="category[]" value="booking-systems">
                         </p>
                     </fieldset>
 
