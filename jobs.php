@@ -8,6 +8,8 @@ try {
 } catch (mysqli_sql_exception $e) {
     error_log('Database connection error: ' . $e->getMessage());
 }
+
+$get_search = isset($_GET['search']) ? trim($_GET['search']) : null;
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +46,17 @@ try {
 
     <main id="job-content">
         <aside id="job-sidebar">
-            <nav id="job-available">
+            <div id="job-available">
                 <h2>Jobs available</h2>
+                <form action="jobs.php" method="get">
+                    <label for="job-search">Search jobs:</label>
+                    <input type="text" id="job-search" name="search" placeholder="Enter keywords..."
+                        value="<?= $get_search; ?>">
+                    <button type="submit">Search</button>
+                </form>
+                <nav>
                 <?php
-                $activeJobsNav = ($db_conn instanceof mysqli) ? getJobsForNav($db_conn) : false;
+                $activeJobsNav = ($db_conn instanceof mysqli) ? getJobsForNav($db_conn, $get_search) : false;
                 if (!(is_array($activeJobsNav))) {
                     echo 'Could not load jobs.';
                 } elseif (count($activeJobsNav) === 0) {
@@ -58,7 +67,8 @@ try {
                     }
                 }
                 ?>
-            </nav>
+                </nav>
+            </div>
             <section id="job-apply-note">
                 <h2>Before you apply</h2>
                 <p>
@@ -78,7 +88,7 @@ try {
                     All generated text was reviewed by the author before use.
                 -->
             <?php
-            $activeJobs = ($db_conn instanceof mysqli) ? getAvailableJobs($db_conn) : false;
+            $activeJobs = ($db_conn instanceof mysqli) ? getAvailableJobs($db_conn, $get_search) : false;
             if (!(is_array($activeJobs))) {
                 echo 'Could not load jobs.';
             } elseif (count($activeJobs) === 0) {
