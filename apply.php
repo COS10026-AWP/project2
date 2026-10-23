@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
-<<<<<<< HEAD
-=======
         body {
             background-color: white;
         }
@@ -24,27 +22,30 @@
             background-color: #F0F8FA;
         }
 
-        #apply-forms {
+        .apply-page h1 {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;   
+            justify-content: center;
+            color: #12343B;
+        }
+
+        .apply-forms {
             border: 3px solid #ddd;
             background-color: white;
             border-radius: 20px;
+            color: #12343B;
         }
 
-        fieldset {
+        .apply-forms fieldset {
             border: 3px solid #ddd;
             background-color: white;
             border-radius: 10px;
+            margin-top: 10px;
         }
 
->>>>>>> af1f76a (cleaned up css on apply.php)
         form {
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
-<<<<<<< HEAD
-        form p {
-            color: #12343B
+            color: #12343B;
         }
 
         .skill-align {
@@ -63,8 +64,29 @@
         .apply-forms input[type="checkbox"], input[type="radio"] {
             accent-color: #12343B;
         }
+        .apply-page .personal-info {
+            display: flex; 
+            align-items: center; 
+            gap:15px;
+        }
+        .apply-forms .address-contact {
+            display: grid; 
+            grid-template-columns: auto 1fr auto 1fr;
+            align-items:center; 
+        }
+        .apply-forms .languages {
+            display: flex; 
+            align-items: center; 
+            gap:15px;
+        }
+        .apply-forms .skill-lists {
+            display: grid; 
+            grid-template-columns: auto auto; 
+            align-items:center; 
+            gap:10px;
+        }
 
-        .button {
+        .apply-page .button {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 15px;
@@ -91,12 +113,8 @@
         <?php include 'header.inc.php'; ?>
     </header>
     <section class="apply-page">
-<<<<<<< HEAD
-        <h1>Job Application Page</h1>
-=======
         <h1>
             Job Application Page</h1>
->>>>>>> af1f76a (cleaned up css on apply.php)
 
         <form method="post" action="process_eoi.php" novalidate>
             <fieldset class="apply-forms">
@@ -298,7 +316,7 @@
                             Skill list checkbox structure was added by the original author.
                         -->
                     <legend>Skill list</legend>
-                    <fieldset class="languages">
+                    <fieldset style="display: flex; align-items: center; gap:15px;">
                         <legend>Programming languages</legend>
                         <p> <label for="skill-html">HTML5</label>
                             <input type="checkbox" id="skill-html" name="category[]" value="html">
