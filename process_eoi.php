@@ -135,7 +135,7 @@ if (!empty($errors)) {
 $sanitised_skills = [];
 foreach ($skills_arr as $skill) {
     if (is_string($skill)) {
-        $sanitised_skills[] = clean($skill, $conn);
+        $sanitised_skills[] = $clean($skill, $conn);
     }
 }
 $skills_string = implode(", ", $sanitised_skills);
