@@ -9,7 +9,9 @@ try {
     error_log('Database connection error: ' . $e->getMessage());
 }
 
-$get_search = isset($_GET['search']) ? trim($_GET['search']) : null;
+$get_search = (isset($_GET['search']) && is_string($_GET['search'])) ?
+    trim($_GET['search']) :
+    null;
 ?>
 
 <!DOCTYPE html>
