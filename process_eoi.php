@@ -39,7 +39,8 @@ if (!mysqli_query($conn, $table_sql)) {
     die("<p>Error creating table: " . mysqli_error($conn) . "</p>");
 }
 
-function clean($data, $conn): string{
+function clean(string $data, mysqli $conn): string
+{
     return mysqli_real_escape_string($conn, htmlspecialchars(trim($data)));
 }
 
@@ -97,12 +98,14 @@ $raw_skills = $_POST['category'] ?? [];
 $skills_arr = is_array($raw_skills) ? $raw_skills : [];
 if (empty($skills_arr)) {
     $errors[] = "You must select at least one skill from the list.";
-    }
+}
 
 
-    if (!empty($errors)) {
+if (!empty($errors)) {
     echo "<h3>Please fix the following fields:</h3><ul>";
-    foreach ($errors as $e) echo "<li>$e</li>";
+    foreach ($errors as $e) {
+        echo "<li>" . htmlspecialchars($e) . "</li>";
+    }
     echo "</ul><p><a href='apply.php'>Return to Form</a></p>";
     exit();
 }
@@ -112,5 +115,15 @@ foreach ($skills_arr as $skill) {
     $sanitised_skills[] = clean($skill, $conn);
 }
 $skills_string = implode(", ", $sanitised_skills);
+
+$sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, state, postcode, email, phone, skills, other, status) 
+        VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
+
+if (mysqli_query($conn, $sql)) {
+    $eoi_id = mysqli_insert_id($conn);
+    echo "<h1>Application Successfully Submitted!</h1>";
+    echo "<p>Thank you. Your EOI tracking number is: <strong>$eoi_id</strong></p>";
+    echo "<p><a href='index.php'>Return to Home</a></p>";
+}
 
 ?>
