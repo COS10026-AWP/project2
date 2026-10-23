@@ -96,6 +96,35 @@
             background-color: #F9C74F;
             color: black;
         }
+
+        .apply-page h1 {
+            margin-top: 15px;
+        margin-bottom: 25px;
+        display: flex;   
+        justify-content: center;
+        color: #12343B;
+        }
+
+        /* Buttons for submit and reset made by Harper */
+        .apply-page .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .apply-page .button:hover {
+            background-color: #F9C74F;
+            color: black;
+        }
     </style>
 </head>
 
@@ -114,20 +143,20 @@
                         pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
                 </p>
 
-            <fieldset>
-                <legend>Personal information</legend>
-                <p style="display: flex; align-items: center; gap:15px;">
-                    <label for="first_name">First name</label> 
-                    <input type="text" name="first_name" id="first_name"
-                        pattern="[a-zA-Z]{1,20}" required="required">
-                    <label for="surname">Last name</label> 
-                    <input type="text" name="surname" id="surname"
-                        pattern="[a-zA-Z]{1,20}" required="required">
-                </p>
-                <p>
-                    <label for="dob"> Date of birth</label> 
-                    <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
-                </p>
+                <fieldset>
+                    <legend>Personal information</legend>
+                    <p class="personal-info">
+                        <label for="first_name">First name</label> 
+                        <input type="text" name="first_name" id="first_name"
+                            pattern="[a-zA-Z]{1,20}" required="required">
+                        <label for="surname">Last name</label> 
+                        <input type="text" name="surname" id="surname"
+                            pattern="[a-zA-Z]{1,20}" required="required">
+                    </p>
+                    <p>
+                        <label for="dob"> Date of birth</label> 
+                        <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
+                    </p>
 
                 <fieldset style="display: flex; align-items: center; gap:15px;">
                     <legend>Gender</legend>
@@ -220,8 +249,10 @@
                         <p> <label for="skill-api">API Development and Integration</label>
                             <input type="checkbox" id="skill-api" name="category[]" value="api">
                         </p>
-                        <p> <label for="skill-database-data-analysis">Database Management and Data Analysis</label>
-                            <input type="checkbox" id="skill-database-data-analysis" name="category[]" value="database-data">
+                        <p> <label for="skill-database-data-analysis">
+                            Database Management and Data Analysis</label>
+                            <input type="checkbox" id="skill-database-data-analysis" 
+                            name="category[]" value="database-data">
                         </p>
                     </fieldset>
                     

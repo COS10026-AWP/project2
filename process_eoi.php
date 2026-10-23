@@ -1,10 +1,9 @@
-<head><link rel="stylesheet" href="styles/styles.css"></head>
 <?php
 $config = require 'settings.php';
 $conn = mysqli_connect(
-    $config['host'], 
-    $config['user'], 
-    $config['pwd'], 
+    $config['host'],
+    $config['user'],
+    $config['pwd'],
     $config['sql_db']
 );
 
@@ -45,54 +44,54 @@ function clean(string $data, mysqli $conn): string
 }
 
 // collects info
-$ref  = clean($_POST['reference'] ?? '', $conn);
-$fname = clean($_POST['first_name'] ?? '', $conn);
-$surname = clean($_POST['surname'] ?? '', $conn);
-$dob   = clean($_POST['dob'] ?? '', $conn);
-$gender = clean($_POST['gender'] ?? '', $conn);
-$street = clean($_POST['street'] ?? '', $conn);
-$suburb = clean($_POST['suburb'] ?? '', $conn);
-$state = clean($_POST['state'] ?? '', $conn);
-$post  = clean($_POST['postcode'] ?? '', $conn);
-$email = clean($_POST['email'] ?? '', $conn);
-$phone = clean($_POST['phone'] ?? '', $conn);
-$other = clean($_POST['other'] ?? '', $conn);
+$ref  = clean(is_string($_POST['reference'] ?? null)? $_POST['reference'] : '', $conn);
+$fname = clean(is_string($_POST['first_name'] ?? null) ? $_POST['first_name'] ?? '', $conn);
+$surname = clean(is_string($_POST['surname'] ?? null) ? $_POST['surname'] ?? '', $conn);
+$dob   = clean(is_string($_POST['dob'] ?? null) ? $_POST['dob'] ?? '', $conn);
+$gender = clean(is_string($_POST['gender'] ?? null) ? $_POST['gender'] ?? '', $conn);
+$street = clean(is_string($_POST['street'] ?? null) ? $_POST['street'] ?? '', $conn);
+$suburb = clean(is_string($_POST['suburb'] ?? null) ? $_POST['suburb'] ?? '', $conn);
+$state = clean(is_string($_POST['state'] ?? null) ? $_POST['state'] ?? '', $conn);
+$post  = clean(is_string($_POST['postcode'] ?? null) ? $_POST['postcode'] ?? '', $conn);
+$email = clean(is_string($_POST['email'] ?? null) ? $_POST['email'] ?? '', $conn);
+$phone = clean(is_string($_POST['phone'] ?? null) ? $_POST['phone'] ?? '', $conn);
+$other = clean(is_string($_POST['other'] ?? null) ? $_POST['other'] ?? '', $conn);
 
 // server side validation
 $errors = [];
-if (!preg_match("/^[a-zA-Z0-9]{6}$/", $ref)) { 
+if (!preg_match("/^[a-zA-Z0-9]{6}$/", $ref)) {
     $errors[] = "Invalid job reference format.";
-    }
+}
 if (!preg_match("/^[a-zA-Z]{1,20}$/", $fname)) {
     $errors[] = "Invalid first name.";
-    } 
+}
 if (!preg_match("/^[a-zA-Z]{1,20}$/", $surname)) {
     $errors[] = "Invalid last name.";
-    }
+}
 if (!preg_match("/^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/(\d{4})$/", $dob)) {
     $errors[] = "Invalid Date of Birth format.";
-    }
+}
 if (!in_array($gender, ['male', 'female', 'other'])) {
     $errors[] = "Please select a valid gender.";
-    }
+}
 if (empty($street) || strlen($street) > 40) {
     $errors[] = "Street address is required and cannot exceed 40 characters.";
-    }
+}
 if (empty($suburb) || strlen($suburb) > 40) {
     $errors[] = "Suburb is required and cannot exceed 40 characters.";
-    }
+}
 if (!in_array(strtolower($state), ['vic', 'nsw', 'qld', 'nt', 'wa', 'sa', 'tas', 'act'])) {
     $errors[] = "Please select a valid Australian state.";
-    }
-if (!preg_match("/^[0-9]{4}$/", $post)) { 
+}
+if (!preg_match("/^[0-9]{4}$/", $post)) {
     $errors[] = "Postcode must be exactly 4 digits.";
-    }
-if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Invalid email.";
-    }
+}
 if (!preg_match("/^[0-9]{8,12}$/", $phone)) {
     $errors[] = "Phone number must be between 8 and 12 digits.";
-    }
+}
 
 $raw_skills = $_POST['category'] ?? [];
 $skills_arr = is_array($raw_skills) ? $raw_skills : [];
@@ -112,6 +111,9 @@ if (!empty($errors)) {
 
 $sanitised_skills = [];
 foreach ($skills_arr as $skill) {
+    if (is_string($skill)) {
+        $sanitised_skills[] = clean($skill, $conn);
+    }
     $sanitised_skills[] = clean($skill, $conn);
 }
 $skills_string = implode(", ", $sanitised_skills);

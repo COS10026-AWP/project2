@@ -554,14 +554,6 @@ td {
     background-color: #F0F8FA;
 }
 
-.apply-page h1 {
-    margin-top: 15px;
-    margin-bottom: 25px;
-    display: flex;   
-    justify-content: center;
-    color: #12343B;
-}
-
 .apply-forms {
     border: 3px solid #ddd;
     background-color: white;
@@ -586,7 +578,7 @@ td {
     accent-color: #12343B;
 }
 
-/*Layout for the qestions*/
+/* Layout for the qestions */
 
 .apply-page .personal-info {
     display: flex; 
@@ -605,26 +597,6 @@ td {
     grid-template-columns: auto auto; 
     align-items:center; 
     gap:10px;
-}
-
-/*Buttons for submit and reset made by Harper*/
-.apply-page .button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 1em;
-    font-weight: bold;
-    color: white;
-    background-color: #12343B;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-.apply-page .button:hover {
-    background-color: #F9C74F;
-    color: black;
 }
 
 /* -------------------------
