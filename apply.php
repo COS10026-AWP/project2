@@ -53,8 +53,7 @@
         <?php include 'header.inc.php'; ?>
     </header>
     <section class="apply-page">
-        <h1>
-            Job Application Page</h1>
+        <h1>Job Application Page</h1>
 
         <form method="post" action="process_eoi.php" novalidate>
             <fieldset class="apply-forms">
@@ -138,38 +137,25 @@
                 </fieldset>
 
 
-<<<<<<< HEAD
-            <fieldset>
-                <!--
-                        Skills generated using ChatGPT (OpenAI) based on jobs.php, version GPT-5.6 Luna, Sep 2026.
-                        All generated text was reviewed by the AI user before addition.
-                        Skill list checkbox structure was added by the original author.
-                    -->
-                <legend>Skill list</legend>
-                <fieldset style="display: flex; align-items: center; gap:15px;">
-                    <legend>Programming languages</legend>
-                    <p> <label for="skill-html">HTML5</label>
-                        <input type="checkbox" id="skill-html" name="category[]" value="html">
-                    </p>
-                    <p> <label for="skill-css">CSS3</label>
-                        <input type="checkbox" id="skill-css" name="category[]" value="css">
-                    </p>
-                    <p> <label for="skill-javascript">JavaScript</label>
-                        <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
-                    </p>
-                </fieldset>
-                <fieldset style="display: flex; align-items: center; gap:15px;">
-                    <legend>Programming languages</legend>
-                    <p> <label for="skill-html">HTML5</label>
-                        <input type="checkbox" id="skill-html" name="category[]" value="html">
-                    </p>
-                    <p> <label for="skill-css">CSS3</label>
-                        <input type="checkbox" id="skill-css" name="category[]" value="css">
-                    </p>
-                    <p> <label for="skill-javascript">JavaScript</label>
-                        <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
-                    </p>
-                </fieldset>
+                <fieldset>
+                    <!--
+                            Skills generated using ChatGPT (OpenAI) based on jobs.php, version GPT-5.6 Luna, Sep 2026.
+                            All generated text was reviewed by the AI user before addition.
+                            Skill list checkbox structure was added by the original author.
+                        -->
+                    <legend>Skill list</legend>
+                    <fieldset style="display: flex; align-items: center; gap:15px;">
+                        <legend>Programming languages</legend>
+                        <p> <label for="skill-html">HTML5</label>
+                            <input type="checkbox" id="skill-html" name="category[]" value="html">
+                        </p>
+                        <p> <label for="skill-css">CSS3</label>
+                            <input type="checkbox" id="skill-css" name="category[]" value="css">
+                        </p>
+                        <p> <label for="skill-javascript">JavaScript</label>
+                            <input type="checkbox" id="skill-javascript" name="category[]" value="javascript">
+                        </p>
+                    </fieldset>
 
                     <fieldset class="skill-lists">
                         <legend>Technical and Design Skills</legend>
