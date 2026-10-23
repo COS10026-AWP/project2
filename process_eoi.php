@@ -155,4 +155,3 @@ if (mysqli_query($conn, $sql)) {
 ?>
 =======
 mysqli_close($conn);
->>>>>>> 72f756b (fixe lint issues a with process_eoi)
