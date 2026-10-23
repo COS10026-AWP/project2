@@ -43,8 +43,8 @@ if (isset($_POST['action'])) {
     // delete all EOIs for a job reference
     if ($_POST['action'] == "delete_by_job") {
         $job = "";
-        if (isset($_POST['job_reference'])) {
-            $job = trim(strval($_POST['job_reference']));
+        if (isset($_POST['job_reference']) && is_string($_POST['job_reference'])) {
+            $job = trim($_POST['job_reference']);
         }
         if ($job == "") {
             $message = "Please enter a job reference to delete.";
@@ -70,8 +70,8 @@ if (isset($_POST['action'])) {
         if (isset($_POST['eoi_id'])) {
             $eoi_id = intval($_POST['eoi_id']); // convert id to integer
         }
-        if (isset($_POST['status'])) {
-            $status = strval($_POST['status']);
+        if (isset($_POST['status']) && is_string($_POST['status'])) {
+            $status = $_POST['status'];
         }
         if ($eoi_id > 0 && in_array($status, $statuses)) {
             $stmt = $conn->prepare("UPDATE eoi SET status = ? WHERE EOInumber = ?");
@@ -96,20 +96,20 @@ $last_name = "";
 $sort = "EOInumber";
 $dir = "ASC";
 
-if (isset($_POST['filter'])) {
-    $filter = strval($_POST['filter']);
+if (isset($_POST['filter']) && is_string($_POST['filter'])) {
+    $filter = $_POST['filter'];
 }
-if (isset($_POST['job_ref'])) {
-    $job_ref = trim(strval($_POST['job_ref']));
+if (isset($_POST['job_ref']) && is_string($_POST['job_ref'])) {
+    $job_ref = trim($_POST['job_ref']);
 }
-if (isset($_POST['first_name'])) {
-    $first_name = trim(strval($_POST['first_name']));
+if (isset($_POST['first_name']) && is_string($_POST['first_name'])) {
+    $first_name = trim($_POST['first_name']);
 }
-if (isset($_POST['last_name'])) {
-    $last_name = trim(strval($_POST['last_name']));
+if (isset($_POST['last_name']) && is_string($_POST['last_name'])) {
+    $last_name = trim($_POST['last_name']);
 }
-if (isset($_POST['sort']) && array_key_exists(strval($_POST['sort']), $sort_fields)) {
-    $sort = strval($_POST['sort']);
+if (isset($_POST['sort']) && is_string($_POST['sort']) && array_key_exists($_POST['sort'], $sort_fields)) {
+    $sort = $_POST['sort'];
 }
 if (isset($_POST['dir']) && $_POST['dir'] == "desc") {
     $dir = "DESC";
