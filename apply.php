@@ -13,38 +13,9 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
-        .apply-page h1 {
-            margin-top: 15px;
-            margin-bottom: 25px;
-            display: flex;   
-            justify-content: center;
-            color: #12343B;
-        }
 
         .apply-forms legend {
             font-weight: bold;
-            
-        }
-
-        /* buttons made by Harper */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            background-color: #12343B;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .apply-page .button:hover {
-            background-color: #F9C74F;
-            color: black;
         }
 
         .apply-page h1 {
@@ -189,7 +160,8 @@
                         <p> <label for="skill-figma">Figma and Prototyping</label>
                             <input type="checkbox" id="skill-figma" name="category[]" value="figma">
                         </p>
-                        <p> <label for="skill-resp-design">Responsive Web Design and Web Accessibility</label>
+                        <p> <label for="skill-resp-design">
+                            Responsive Web Design and Web Accessibility</label>
                             <input type="checkbox" id="skill-resp-design" name="category[]" value="responsive-design">
                         </p>
                         <p> <label for="skill-accessibility">Web Accessibility</label>
