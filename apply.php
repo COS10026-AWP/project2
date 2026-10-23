@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
+
+        .apply-page {
+            padding: 20px;
+            background-color: #F0F8FA;
+        }
+
         .apply-page h1 {
             margin-top: 15px;
             margin-bottom: 25px;
@@ -21,12 +27,58 @@
             color: #12343B;
         }
 
-        .apply-forms legend {
-            font-weight: bold;
+        .apply-forms {
+            border: 3px solid #ddd;
+            background-color: white;
+            border-radius: 20px;
+            color: #12343B;
         }
 
-        /* buttons made by Harper */
-        .button {
+        .apply-forms fieldset {
+            border: 3px solid #ddd;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+
+        .apply-forms legend {
+            font-weight: bold;
+            
+        }
+
+        .apply-forms input, select {
+            background-color: #F0F8FA;
+            border-radius: 5px;
+            border: 3px solid #ddd;
+        }
+        
+        .apply-forms input[type="checkbox"], input[type="radio"] {
+            accent-color: #12343B;
+        }
+        .apply-page .personal-info {
+            display: flex; 
+            align-items: center; 
+            gap:15px;
+        }
+        .apply-forms .address-contact {
+            display: grid; 
+            grid-template-columns: auto 1fr auto 1fr;
+            align-items:center; 
+        }
+        .apply-forms .languages {
+            display: flex; 
+            align-items: center; 
+            gap:15px;
+        }
+        .apply-forms .skill-lists {
+            display: grid; 
+            grid-template-columns: auto auto; 
+            align-items:center; 
+            gap:10px;
+        }
+
+        .apply-page .button {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 15px;
@@ -40,7 +92,6 @@
             cursor: pointer;
             text-decoration: none;
         }
-
         .apply-page .button:hover {
             background-color: #F9C74F;
             color: black;
