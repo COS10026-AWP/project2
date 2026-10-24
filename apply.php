@@ -81,6 +81,10 @@
                         placeholder="dd/mm/yyyy" 
                         pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" 
                         maxlength="10" size="10" required="required">
+                        <input type="text" name= "dob" id="dob" 
+                        placeholder="dd/mm/yyyy" 
+                        pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" 
+                        maxlength="10" size="10" required="required">
                     </p>
 
                 <fieldset style="display: flex; align-items: center; gap:15px;">
@@ -206,8 +210,7 @@
                             <input type="checkbox" id="skill-tourism" name="category[]" value="tourism">
                         </p>
                         <p> <label for="skill-booking">Online Booking Systems</label>
-                            <input type="checkbox" id="skill-booking" 
-                            name="category[]" value="booking-systems">
+                            <input type="checkbox" id="skill-booking" name="category[]" value="booking-systems">
                         </p>
                     </fieldset>
 
