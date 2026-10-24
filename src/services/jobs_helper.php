@@ -53,42 +53,38 @@ function filterJobs(mysqli $db_conn, string $select, ?string $search = null): ar
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-function getAvailableJobs(mysqli $db_conn, ?string $search = null): array|bool
+function getJobsForDisplay(array|bool $jobs): array|bool
 {
-    $query_res = filterJobs($db_conn, '*', $search);
-
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        $cleaned_res = [];
-        foreach ($query_res as $job) {
-            $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
-            $job['title'] = htmlspecialchars((string) $job['title']);
-            $job['short_description'] = htmlspecialchars((string) $job['short_description']);
-            $job['salary'] = toSalary((float) $job['salary_min'], (float) $job['salary_max']);
-            $job['reporting_line'] = htmlspecialchars((string) $job['reporting_line']);
-            $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
-            $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
-            $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
-            $cleaned_res[] = $job;
-        }
-        return $cleaned_res;
+    if (is_bool($jobs)) {
+        return $jobs;
     }
+
+    $cleaned_res = [];
+    foreach ($jobs as $job) {
+        $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
+        $job['title'] = htmlspecialchars((string) $job['title']);
+        $job['short_description'] = htmlspecialchars((string) $job['short_description']);
+        $job['salary'] = toSalary((float) $job['salary_min'], (float) $job['salary_max']);
+        $job['reporting_line'] = htmlspecialchars((string) $job['reporting_line']);
+        $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
+        $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
+        $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
+        $cleaned_res[] = $job;
+    }
+    return $cleaned_res;
 }
 
-function getJobsForNav(mysqli $db_conn, ?string $search = null): array|bool
+function getJobsForNav(array|bool $jobs): array|bool
 {
-    $query_res = filterJobs($db_conn, 'reference_number, title', $search);
-
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        $cleaned_res = [];
-        foreach ($query_res as $job) {
-            $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
-            $job['title'] = htmlspecialchars((string) $job['title']);
-            $cleaned_res[] = $job;
-        }
-        return $cleaned_res;
+    if (is_bool($jobs)) {
+        return $jobs;
     }
+
+    $cleaned_res = [];
+    foreach ($jobs as $job) {
+        $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
+        $job['title'] = htmlspecialchars((string) $job['title']);
+        $cleaned_res[] = $job;
+    }
+    return $cleaned_res;
 }
