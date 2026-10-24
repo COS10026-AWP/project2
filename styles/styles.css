@@ -143,14 +143,15 @@ footer #social {
     color: var(--color-text-link-dark);
 }
 
+#site-nav a:hover {
+    color: #F9C74F;
+}
+
 #jobs-page main a:hover {
     color: var(--color-text-link-dark-hover);
     font-style: italic;
 }
 
-#site-nav a:hover {
-    color: #F9C74F;
-}
 
 /* -------------------------
     index.php styles
@@ -488,7 +489,7 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#job-listings h1 {
+#jobs-page #job-listings h1 {
     text-align: center;
 }
 
