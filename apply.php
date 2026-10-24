@@ -65,7 +65,6 @@
                         pattern="[a-zA-Z0-9]{6}" title="Exactly 6 alphanumeric characters" required="required">
                 </p>
 
-<<<<<<< HEAD
                 <fieldset>
                     <legend>Personal information</legend>
                     <p class="personal-info">
@@ -95,7 +94,7 @@
                         <input type="radio" name="gender" id="female" value="female">
                     </p>
                 </fieldset>
->>>>>>> af1f76a (cleaned up css on apply.php)
+
             </fieldset>
 
             <fieldset>
@@ -190,7 +189,8 @@
                     <fieldset class="skill-lists">
                         <legend>Professional Skills</legend>
                         <p> <label for="skill-project">Project Management</label>
-                            <input type="checkbox" id="skill-project" name="category[]" value="project-management">
+                            <input type="checkbox" id="skill-project" 
+                            name="category[]" value="project-management">
                         </p>
                         <p> <label for="skill-agile">Agile Development</label>
                             <input type="checkbox" id="skill-agile" name="category[]" value="agile">
