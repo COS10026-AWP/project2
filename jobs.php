@@ -53,7 +53,7 @@ if ($db_conn instanceof mysqli) {
     </header>
 
     <main>
-        <aside id="job-sidebar">
+        <aside>
             <div id="job-available">
                 <h2>Jobs available</h2>
                 <form action="jobs.php" method="get">

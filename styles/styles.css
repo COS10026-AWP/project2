@@ -441,7 +441,7 @@ td {
 }
 
 /* Cards */
-#job-sidebar > *,
+#jobs-page aside > *,
 .job-position {
     padding: 0 1.5rem 2rem;
     border: var(--jobs-card-border);
@@ -450,7 +450,7 @@ td {
 }
 
 /* Sidebar */
-#job-sidebar {
+#jobs-page aside {
     --top-height: 20px;
 
     order: 1;
@@ -462,17 +462,17 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#job-available {
+#jobs-page aside #job-available {
     /* Grid is used for flexibility in 2D where more jobs may be added */
     display: grid;
     grid-column: 1;
 }
-
-#job-apply-note {
+    
+#jobs-page aside #job-apply-note {
     flex-grow: 1;
 }
 
-#jump-to-top {
+#jobs-page aside #jump-to-top {
     color: var(--color-text-dark);
     text-align: center;
     padding: 0.5rem;
@@ -671,7 +671,7 @@ td {
         grid-template-columns: 1fr;
     }
 
-    #job-sidebar {
+    #jobs-page aside {
         position: static;
         height: auto;
         margin: 0;
@@ -890,7 +890,7 @@ td {
 
 @media only screen and (height <= 500px) {
     /* Responsive design for short viewports up to 500px */
-    #job-sidebar {
+    #jobs-page aside {
         position: static;
         height: auto;
         margin-top: 80px;
