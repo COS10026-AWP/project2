@@ -752,7 +752,6 @@ td {
         font-size: 20px;
     }
 
-    /* Checkbox is visually hidden but still keyboard focusable */
     #menu-toggle {
         display: block;
         position: absolute;
