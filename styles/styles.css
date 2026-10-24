@@ -457,10 +457,9 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#jobs-page aside #job-available {
-    /* Grid is used for flexibility in 2D where more jobs may be added */
-    display: grid;
-    grid-column: 1;
+#jobs-page aside nav {
+    display: flex;
+    flex-direction: column;
 }
     
 #jobs-page aside #job-apply-note {
