@@ -22,7 +22,6 @@
         }
 
         .apply-forms legend {
-        .apply-forms legend {
             font-weight: bold;
             
         }
@@ -77,10 +76,6 @@
                     </p>
                     <p>
                         <label for="dob"> Date of birth</label> 
-                        <input type="text" name= "dob" id="dob" 
-                        placeholder="dd/mm/yyyy" 
-                        pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" 
-                        maxlength="10" size="10" required="required">
                         <input type="text" name= "dob" id="dob" 
                         placeholder="dd/mm/yyyy" 
                         pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" 

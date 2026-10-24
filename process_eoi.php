@@ -214,4 +214,3 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
 
 <?php
 mysqli_close($conn);
-
