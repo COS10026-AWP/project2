@@ -54,7 +54,7 @@ if ($db_conn instanceof mysqli) {
 
     <main>
         <aside>
-            <div id="job-available">
+            <section>
                 <h2>Jobs available</h2>
                 <form action="jobs.php" method="get">
                     <label for="job-search">Search jobs:</label>
@@ -76,7 +76,7 @@ if ($db_conn instanceof mysqli) {
                 }
                 ?>
                 </nav>
-            </div>
+            </section>
             <section id="job-apply-note">
                 <h2>Before you apply</h2>
                 <p>
