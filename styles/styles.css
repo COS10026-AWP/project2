@@ -541,6 +541,60 @@ td {
 }
 
 /* -------------------------
+    manage.php
+------------------------- */
+.manage-page {
+    background-color: #f0f8fa;
+    text-align: center;
+}
+
+.manage-page h1 {
+    color: #12343B;
+}
+
+.manage-page form {
+    margin: 30px;
+}
+
+.manage-page input,
+.manage-page select {
+    padding: 10px;
+    margin: 5px;
+}
+
+.manage-page input[type="submit"] {
+    background-color: #12343B;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.manage-page input[type="submit"]:hover {
+    background-color: #F9C74F;
+    color: black;
+}
+
+.manage-page table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.manage-page th,
+.manage-page td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.manage-page th {
+    background-color: #12343B;
+    color: white;
+}
+
+.manage-page td form {
+    margin: 0;
+}
+
+/* -------------------------
     Responsive design
     Order matters: widest query first, narrowest last,
     so smaller screens override larger ones.
