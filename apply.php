@@ -13,21 +13,20 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
+        .apply-page h1 {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;   
+            justify-content: center;
+            color: #12343B;
+        }
 
         .apply-forms legend {
             font-weight: bold;
         }
 
-        .apply-page h1 {
-            margin-top: 15px;
-        margin-bottom: 25px;
-        display: flex;   
-        justify-content: center;
-        color: #12343B;
-        }
-
-        /* Buttons for submit and reset made by Harper */
-        .apply-page .button {
+        /* buttons made by Harper */
+        .button {
             display: inline-block;
             padding: 10px 20px;
             margin-top: 15px;
