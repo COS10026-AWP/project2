@@ -467,12 +467,8 @@ td {
 }
 
 #jobs-page aside #jump-to-top {
-    color: var(--color-text-dark);
     text-align: center;
     padding: 0.5rem;
-    border: var(--jobs-card-border);
-    border-radius: var(--jobs-card-radius-l);
-    background: var(--color-bg-section);
 }
 
 /* Job position card layout */
