@@ -134,8 +134,6 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
         state, postcode, email, phone, skills, other, status) 
         VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', 
         '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
-
-
 ?>
 
 <!DOCTYPE html>
@@ -211,6 +209,8 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
         <?php include 'footer.inc.php'; ?>
     </footer>
 </body>
+
+</html>
 
 <?php
 mysqli_close($conn);
