@@ -20,8 +20,9 @@ This student project is a continuation of Applied Web Project Part 1, which may 
 [Prismic](https://prismic.io/blog/css-hover-effects) | [styles.css](styles/styles.css): Card hover effect | 11 Sep 2026 | [f1bce07](https://github.com/COS10026-AWP/project1/commit/f1bce07002bd6eef7ef1758142a70e2a4f93148a)* |
 | [Stack Overflow](https://stackoverflow.com/questions/48522388/the-meaning-and-benefits-of-flex-1) | [styles.css](styles/styles.css): Usage of `flex: 1`| 09 Sep 2026 | [d0ab126](https://github.com/COS10026-AWP/project1/commit/d0ab1266b9344dd6cbec1fd565e45eb9c8c2655a)* |
 | [Stack Overflow](https://stackoverflow.com/a/74816531) | [jobs.php](jobs.php): Highlight on hover | 09 Sep 2026 | [ab1f5b6](https://github.com/COS10026-AWP/project1/commit/ab1f5b610fb1c2060e3476de398f6de2831b5146)* |
+| [codefront](https://codefronts.com/navigation/css-hamburger-menus/fixed-sticky-header-with-shrinking-hamburger-icon/) | [style.css](styles/styles.css): Hamburger menu for mobile| 15 Oct 2026 | [564663f](https://github.com/COS10026-AWP/project2/commit/564663f602ff4debfea02f8e3c308cc628994a8a)
 
-> \* *Referenced sources accessed in Project 1 development*
+> \* *Referenced sources accessed in Project 1 and 2 development*
 
 
 ## GenAI Usage
