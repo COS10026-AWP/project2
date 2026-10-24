@@ -428,12 +428,6 @@ td {
     margin: 0 10px;
 }
 
-#jobs-page main h1 {
-    /* min-height so a long title can wrap on small screens without overlapping */
-    min-height: 40px;
-    margin: 20px 0;
-}
-
 #jobs-page main h1,
 #jobs-page main h2,
 #jobs-page main h3 {
@@ -463,10 +457,9 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#jobs-page aside #job-available {
-    /* Grid is used for flexibility in 2D where more jobs may be added */
-    display: grid;
-    grid-column: 1;
+#jobs-page aside nav {
+    display: flex;
+    flex-direction: column;
 }
     
 #jobs-page aside #job-apply-note {
@@ -474,12 +467,8 @@ td {
 }
 
 #jobs-page aside #jump-to-top {
-    color: var(--color-text-dark);
     text-align: center;
     padding: 0.5rem;
-    border: var(--jobs-card-border);
-    border-radius: var(--jobs-card-radius-l);
-    background: var(--color-bg-section);
 }
 
 /* Job position card layout */

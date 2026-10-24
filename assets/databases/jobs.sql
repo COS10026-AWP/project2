@@ -18,6 +18,8 @@ CREATE TABLE job_listings (
   job_status VARCHAR(10) NOT NULL
   );
 
+-- Job details and descriptions generated using ChatGPT (OpenAI), version GPT-5.6 Luna, Sep 2026.
+-- All generated text was reviewed by the author before use.
 INSERT INTO job_listings (reference_number, title, short_description, salary_min, salary_max, reporting_line, key_responsibilities, essential_requirements, preferable_requirements, job_status) VALUES
 ('FS2026',
  'Full-Stack Software Developer',
