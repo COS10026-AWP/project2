@@ -595,6 +595,24 @@ td {
 }
 
 /* -------------------------
+    process_eoi.php
+    - layout and colours
+------------------------- */
+
+.eoi-page {
+    padding: 20px;
+    color: #12343B;
+    background-color: #F0F8FA;;
+}
+
+.application-box {
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* -------------------------
     Responsive design
     Order matters: widest query first, narrowest last,
     so smaller screens override larger ones.
