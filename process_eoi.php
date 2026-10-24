@@ -134,12 +134,6 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
         state, postcode, email, phone, skills, other, status) 
         VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', 
         '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
-$sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, suburb, 
-        state, postcode, email, phone, skills, other, status) 
-        VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', 
-        '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
-
-
 ?>
 
 <!DOCTYPE html>
