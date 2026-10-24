@@ -19,57 +19,72 @@ function toSalary(float $min, float $max): string
     return "\${$min_salary} - \${$max_salary}";
 }
 
-function getQueryAsArray(mysqli $db_conn, string $query): array|bool
+function filterJobs(mysqli $db_conn, string $select, ?string $search = null): array|bool
 {
-    try {
-        $query_res = mysqli_query($db_conn, $query);
-    } catch (mysqli_sql_exception $e) {
-        error_log('Database query error: ' . $e->getMessage());
+    // Private function, $select is not user input
+    $sql = "SELECT {$select}
+            FROM job_listings
+            WHERE job_status = 'active'";
+    if (!is_null($search)) {
+        $sql .= " AND (title LIKE ? OR short_description LIKE ?)";
+    }
+    $sql .= " ORDER BY title ASC";
+
+    $stmt = mysqli_prepare($db_conn, $sql);
+
+    if (is_bool($stmt)) {
+        error_log('Database query preparation error: ' . mysqli_error($db_conn));
         return false;
     }
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        return mysqli_fetch_all($query_res, MYSQLI_ASSOC);
+
+    if (!is_null($search)) {
+        $pattern = '%' . $search . '%';
+        $_ = mysqli_stmt_bind_param($stmt, 'ss', $pattern, $pattern);
     }
+
+    $_ = mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (is_bool($result)) {
+        error_log('Database query execution error: ' . mysqli_error($db_conn));
+        return false;
+    }
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-function getAvailableJobs(mysqli $db_conn): array|bool
+function getJobsForDisplay(array|bool $jobs): array|bool
 {
-    $query = "SELECT * FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = getQueryAsArray($db_conn, $query);
-
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        foreach ($query_res as &$job) {
-            $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
-            $job['title'] = htmlspecialchars((string) $job['title']);
-            $job['short_description'] = htmlspecialchars((string) $job['short_description']);
-            $job['salary'] = toSalary((float) $job['salary_min'], (float) $job['salary_max']);
-            $job['reporting_line'] = htmlspecialchars((string) $job['reporting_line']);
-            $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
-            $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
-            $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
-        }
-        unset($job);
-        return $query_res;
+    if (is_bool($jobs)) {
+        return $jobs;
     }
+
+    $cleaned_res = [];
+    foreach ($jobs as $job) {
+        $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
+        $job['title'] = htmlspecialchars((string) $job['title']);
+        $job['short_description'] = htmlspecialchars((string) $job['short_description']);
+        $job['salary'] = toSalary((float) $job['salary_min'], (float) $job['salary_max']);
+        $job['reporting_line'] = htmlspecialchars((string) $job['reporting_line']);
+        $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
+        $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
+        $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
+        $cleaned_res[] = $job;
+    }
+    return $cleaned_res;
 }
 
-function getJobsForNav(mysqli $db_conn): array|bool
+function getJobsForNav(array|bool $jobs): array|bool
 {
-    $query = "SELECT reference_number, title FROM job_listings WHERE job_status = 'active' ORDER BY title ASC";
-    $query_res = getQueryAsArray($db_conn, $query);
-
-    if (is_bool($query_res)) {
-        return $query_res;
-    } else {
-        foreach ($query_res as &$job) {
-            $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
-            $job['title'] = htmlspecialchars((string) $job['title']);
-        }
-        unset($job);
-        return $query_res;
+    if (is_bool($jobs)) {
+        return $jobs;
     }
+
+    $cleaned_res = [];
+    foreach ($jobs as $job) {
+        $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
+        $job['title'] = htmlspecialchars((string) $job['title']);
+        $cleaned_res[] = $job;
+    }
+    return $cleaned_res;
 }
