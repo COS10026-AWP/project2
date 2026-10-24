@@ -12,6 +12,12 @@ try {
 $get_search = (isset($_GET['search']) && is_string($_GET['search'])) ?
     trim($_GET['search']) :
     null;
+
+$filtered_jobs = false;
+if ($db_conn instanceof mysqli) {
+    $filtered_jobs = filterJobs($db_conn, '*', $get_search);
+    mysqli_close($db_conn);
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,13 +64,13 @@ $get_search = (isset($_GET['search']) && is_string($_GET['search'])) ?
                 </form>
                 <nav>
                 <?php
-                $activeJobsNav = ($db_conn instanceof mysqli) ? getJobsForNav($db_conn, $get_search) : false;
-                if (!(is_array($activeJobsNav))) {
+                $navJobs = getJobsForNav($filtered_jobs);
+                if (!(is_array($navJobs))) {
                     echo 'Could not load jobs.';
-                } elseif (count($activeJobsNav) === 0) {
+                } elseif (count($navJobs) === 0) {
                     echo 'There are no jobs to display.';
                 } else {
-                    foreach ($activeJobsNav as $job) {
+                    foreach ($navJobs as $job) {
                         echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
                     }
                 }
@@ -90,14 +96,15 @@ $get_search = (isset($_GET['search']) && is_string($_GET['search'])) ?
                     All generated text was reviewed by the author before use.
                 -->
             <?php
-            $activeJobs = ($db_conn instanceof mysqli) ? getAvailableJobs($db_conn, $get_search) : false;
-            if (!(is_array($activeJobs))) {
+            $displayJobs = getJobsForDisplay($filtered_jobs);
+            if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
-            } elseif (count($activeJobs) === 0) {
+            } elseif (count($displayJobs) === 0) {
                 echo 'There are no jobs to display.';
             } else {
-                foreach ($activeJobs as $job) {
-                    echo "<section class='job-position' id='job-{strtolower({$job['reference_number']})}'>";
+                foreach ($displayJobs as $job) {
+                    $reference = "job-" . strtolower($job['reference_number']);
+                    echo "<section class='job-position' id='{$reference}'>";
 
                     echo "<div class='job-header'>";
                     echo "<h2 class='job-title'>{$job['title']}</h2>";
@@ -140,9 +147,3 @@ $get_search = (isset($_GET['search']) && is_string($_GET['search'])) ?
 </body>
 
 </html>
-
-<?php
-if ($db_conn instanceof mysqli) {
-    mysqli_close($db_conn);
-}
-?>
