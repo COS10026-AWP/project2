@@ -185,7 +185,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body>
+<body class="manage-page">
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
