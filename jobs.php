@@ -71,7 +71,8 @@ if ($db_conn instanceof mysqli) {
                         echo 'There are no jobs to display.';
                     } else {
                         foreach ($navJobs as $job) {
-                            echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
+                            $reference = "job-" . strtolower($job['reference_number']);
+                            echo "<a href='#{$reference}'>" . $job['title'] . "</a>";
                         }
                     }
                     ?>
