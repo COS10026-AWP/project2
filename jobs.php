@@ -92,10 +92,6 @@ if ($db_conn instanceof mysqli) {
         </aside>
         <article id="job-listings">
             <h1>We're hiring!</h1>
-            <!--
-                    Job details and descriptions generated using ChatGPT (OpenAI), version GPT-5.6 Luna, Sep 2026.
-                    All generated text was reviewed by the author before use.
-                -->
             <?php
             $displayJobs = getJobsForDisplay($filtered_jobs);
             if (!(is_array($displayJobs))) {
