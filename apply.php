@@ -121,7 +121,6 @@
                             <option value="tas">TAS</option>
                             <option value="act">ACT</option>
                         </select>
->>>>>>> af1f76a (cleaned up css on apply.php)
 
                         <label for="postcode">Postcode</label> 
                         <input type="text" name="postcode" id="postcode"
