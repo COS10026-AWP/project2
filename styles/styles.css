@@ -428,12 +428,6 @@ td {
     margin: 0 10px;
 }
 
-#jobs-page main h1 {
-    /* min-height so a long title can wrap on small screens without overlapping */
-    min-height: 40px;
-    margin: 20px 0;
-}
-
 #jobs-page main h1,
 #jobs-page main h2,
 #jobs-page main h3 {
