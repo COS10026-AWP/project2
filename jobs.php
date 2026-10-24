@@ -120,9 +120,9 @@ if ($db_conn instanceof mysqli) {
 
                     echo "<section class='job-resp'> <h3>Key responsibilities</h3>
                         <ul> {$job['key_responsibilities']}</ul> </section>";
-                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3>
+                    echo "<section class='job-req'> <h3>Essential requirements</h3>
                         <ol> {$job['essential_requirements']}</ol> </section>";
-                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3>
+                    echo "<section class='job-req'> <h3>Preferable requirements</h3>
                         <ol> {$job['preferable_requirements']}</ol> </section>";
 
                     echo "</section>";
