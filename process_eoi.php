@@ -183,14 +183,14 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
 
     <section class="eoi-page">
 
-        <?php 
+        <?php
         if (!empty($errors)) {
             echo "<h1>Application failed</h1>";
             echo "<div class='application-box'";
             echo "<h3><strong>Please fix the following fields:</strong></h3><ul>";
-        foreach ($errors as $e) {
-            echo "<li>" . htmlspecialchars($e) . "</li>";
-        }
+            foreach ($errors as $e) {
+                echo "<li>" . htmlspecialchars($e) . "</li>";
+            }
             echo "</div>";
             echo "</ul><p><a href='apply.php' class='button'>Return to Form</a></p>";
         } else {
