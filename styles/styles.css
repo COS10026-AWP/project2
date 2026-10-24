@@ -544,8 +544,6 @@ td {
     apply.php
     - layout and colours
     - layout for questions
-    - buttons
-    - 
 ------------------------- */
 
 /* layout and colours */
@@ -565,7 +563,7 @@ td {
     border: 3px solid #ddd;
     background-color: white;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .apply-forms input, select {

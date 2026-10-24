@@ -13,45 +13,19 @@
     <link rel="stylesheet" href="styles/styles.css">
     
     <style>
-        body {
-            background-color: white;
-        }
-        
-        #apply-page {
-            padding: 20px;
-            background-color: #F0F8FA;
-        }
-
-        #apply-forms {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 20px;
-        }
-
-        fieldset {
-            border: 3px solid #ddd;
-            background-color: white;
-            border-radius: 10px;
-        }
-
-        form {
+        .apply-page h1 {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;   
+            justify-content: center;
             color: #12343B;
         }
 
-        legend {
+        .apply-forms legend {
             font-weight: bold;
         }
 
-        input, select {
-            background-color: #F0F8FA;
-            border-radius: 5px;
-            border: 3px solid #ddd;
-        }
-        
-        input[type="checkbox"], input[type="radio"] {
-            accent-color: #12343B;
-        }
-
+        /* buttons made by Harper */
         .button {
             display: inline-block;
             padding: 10px 20px;
