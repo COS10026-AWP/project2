@@ -63,18 +63,18 @@ if ($db_conn instanceof mysqli) {
                     <button type="submit">Search</button>
                 </form>
                 <nav>
-                <?php
-                $navJobs = getJobsForNav($filtered_jobs);
-                if (!(is_array($navJobs))) {
-                    echo 'Could not load jobs.';
-                } elseif (count($navJobs) === 0) {
-                    echo 'There are no jobs to display.';
-                } else {
-                    foreach ($navJobs as $job) {
-                        echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
+                    <?php
+                    $navJobs = getJobsForNav($filtered_jobs);
+                    if (!(is_array($navJobs))) {
+                        echo 'Could not load jobs.';
+                    } elseif (count($navJobs) === 0) {
+                        echo 'There are no jobs to display.';
+                    } else {
+                        foreach ($navJobs as $job) {
+                            echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
+                        }
                     }
-                }
-                ?>
+                    ?>
                 </nav>
             </section>
             <section id="job-apply-note">
