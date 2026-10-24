@@ -186,20 +186,20 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
         <?php
         if (!empty($errors)) {
             echo "<h1>Application failed</h1>";
-            echo "<div class='application-box'";
-            echo "<h3><strong>Please fix the following fields:</strong></h3><ul>";
+            echo "<section class='application-box'>";
+            echo "<h3>Please fix the following fields:</h3><ul>";
             foreach ($errors as $e) {
                 echo "<li>" . htmlspecialchars($e) . "</li>";
             }
-            echo "</div>";
+            echo "</section>";
             echo "</ul><p><a href='apply.php' class='button'>Return to Form</a></p>";
         } else {
             if (mysqli_query($conn, $sql)) {
                 $eoi_id = mysqli_insert_id($conn);
                 echo "<h1>Application Successfully Submitted!</h1>";
-                echo "<div class='application-box'";
+                echo "<section class='application-box'>";
                 echo "<p>Thank you. Your EOI tracking number is: <strong>$eoi_id</strong></p>";
-                echo "</div>";
+                echo "</section>";
                 echo "<p><a href='index.php' class='button'>Return to Home</a></p>";
             }
         }
