@@ -122,16 +122,6 @@ if (empty($skills_arr)) {
     $errors[] = "You must select at least one skill from the list.";
 }
 
-
-if (!empty($errors)) {
-    echo "<h3>Please fix the following fields:</h3><ul>";
-    foreach ($errors as $e) {
-        echo "<li>" . htmlspecialchars($e) . "</li>";
-    }
-    echo "</ul><p><a href='apply.php'>Return to Form</a></p>";
-    exit();
-}
-
 $sanitised_skills = [];
 foreach ($skills_arr as $skill) {
     if (is_string($skill)) {
@@ -145,14 +135,82 @@ $sql = "INSERT INTO eoi (reference, first_name, surname, dob, gender, street, su
         VALUES ('$ref', '$fname', '$surname', '$dob', '$gender', '$street', '$suburb', 
         '$state', '$post', '$email', '$phone', '$skills_string', '$other', 'New')";
 
-if (mysqli_query($conn, $sql)) {
-    $eoi_id = mysqli_insert_id($conn);
-    echo "<h1>Application Successfully Submitted!</h1>";
-    echo "<p>Thank you. Your EOI tracking number is: <strong>$eoi_id</strong></p>";
-    echo "<p><a href='index.php'>Return to Home</a></p>";
-}
 
-<<<<<<< HEAD
 ?>
-=======
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Application result</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Anastasia Tiffany">
+    <meta name="keywords" content="jobs, employment, EOI">
+    <meta name="description" content="Results of submission.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background-color: #12343B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #F9C74F;
+            color: black;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header id="site-header">
+        <?php include 'header.inc.php'; ?>
+    </header>
+
+    <section class="eoi-page">
+
+        <?php 
+        if (!empty($errors)) {
+            echo "<h1>Application failed</h1>";
+            echo "<div class='application-box'";
+            echo "<h3><strong>Please fix the following fields:</strong></h3><ul>";
+        foreach ($errors as $e) {
+            echo "<li>" . htmlspecialchars($e) . "</li>";
+        }
+            echo "</div>";
+            echo "</ul><p><a href='apply.php' class='button'>Return to Form</a></p>";
+        } else {
+            if (mysqli_query($conn, $sql)) {
+                $eoi_id = mysqli_insert_id($conn);
+                echo "<h1>Application Successfully Submitted!</h1>";
+                echo "<div class='application-box'";
+                echo "<p>Thank you. Your EOI tracking number is: <strong>$eoi_id</strong></p>";
+                echo "</div>";
+                echo "<p><a href='index.php' class='button'>Return to Home</a></p>";
+            }
+        }
+        ?>
+
+    </section>
+
+    <footer id="site-footer">
+        <?php include 'footer.inc.php'; ?>
+    </footer>
+</body>
+
+<?php
 mysqli_close($conn);
