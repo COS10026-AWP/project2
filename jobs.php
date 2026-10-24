@@ -47,12 +47,12 @@ if ($db_conn instanceof mysqli) {
     </style>
 </head>
 
-<body>
+<body id="jobs-page">
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
 
-    <main id="job-content">
+    <main>
         <aside id="job-sidebar">
             <div id="job-available">
                 <h2>Jobs available</h2>

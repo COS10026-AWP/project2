@@ -139,11 +139,11 @@ footer #social {
     color: white;
 }
 
-#job-content a {
+#jobs-page main a {
     color: var(--color-text-link-dark);
 }
 
-#job-content a:hover {
+#jobs-page main a:hover {
     color: var(--color-text-link-dark-hover);
     font-style: italic;
 }
@@ -407,7 +407,7 @@ td {
 ------------------------- */
 
 /* Page layout */
-#job-content {
+#jobs-page main {
     padding: 15px;
     display: grid;
     grid-template-columns: 1fr 28%;
@@ -423,19 +423,19 @@ td {
     --jobs-card-radius-l: 12px;
 }
 
-#job-content > * {
+#jobs-page main > * {
     margin: 0 10px;
 }
 
-#job-content h1 {
+#jobs-page main h1 {
     /* min-height so a long title can wrap on small screens without overlapping */
     min-height: 40px;
     margin: 20px 0;
 }
 
-#job-content h1,
-#job-content h2,
-#job-content h3 {
+#jobs-page main h1,
+#jobs-page main h2,
+#jobs-page main h3 {
     color: var(--color-text-headers);
     font-weight: bold;
 }
@@ -737,7 +737,7 @@ td {
     }
 
     /* jobs.php responsive design */
-    #job-content {
+    #jobs-page main {
         grid-template-columns: 1fr;
     }
 
@@ -785,11 +785,11 @@ td {
         flex-direction: column;
     }
 
-    #job-content {
+    #jobs-page main {
         padding: 10px;
     }
 
-    #job-content > * {
+    #jobs-page main > * {
         margin: 0;
     }
 
