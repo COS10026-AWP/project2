@@ -47,14 +47,14 @@ if ($db_conn instanceof mysqli) {
     </style>
 </head>
 
-<body>
+<body id="jobs-page">
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
 
-    <main id="job-content">
-        <aside id="job-sidebar">
-            <div id="job-available">
+    <main>
+        <aside>
+            <section>
                 <h2>Jobs available</h2>
                 <form action="jobs.php" method="get">
                     <label for="job-search">Search jobs:</label>
@@ -63,20 +63,21 @@ if ($db_conn instanceof mysqli) {
                     <button type="submit">Search</button>
                 </form>
                 <nav>
-                <?php
-                $navJobs = getJobsForNav($filtered_jobs);
-                if (!(is_array($navJobs))) {
-                    echo 'Could not load jobs.';
-                } elseif (count($navJobs) === 0) {
-                    echo 'There are no jobs to display.';
-                } else {
-                    foreach ($navJobs as $job) {
-                        echo "<a href='#job-" . strtolower($job['reference_number']) . "'>" . $job['title'] . "</a>";
+                    <?php
+                    $navJobs = getJobsForNav($filtered_jobs);
+                    if (!(is_array($navJobs))) {
+                        echo 'Could not load jobs.';
+                    } elseif (count($navJobs) === 0) {
+                        echo 'There are no jobs to display.';
+                    } else {
+                        foreach ($navJobs as $job) {
+                            $reference = "job-" . strtolower($job['reference_number']);
+                            echo "<a href='#{$reference}'>" . $job['title'] . "</a>";
+                        }
                     }
-                }
-                ?>
+                    ?>
                 </nav>
-            </div>
+            </section>
             <section id="job-apply-note">
                 <h2>Before you apply</h2>
                 <p>
@@ -120,9 +121,9 @@ if ($db_conn instanceof mysqli) {
 
                     echo "<section class='job-resp'> <h3>Key responsibilities</h3>
                         <ul> {$job['key_responsibilities']}</ul> </section>";
-                    echo "<section class='job-req-ess'> <h3>Essential requirements</h3>
+                    echo "<section class='job-req'> <h3>Essential requirements</h3>
                         <ol> {$job['essential_requirements']}</ol> </section>";
-                    echo "<section class='job-req-pref'> <h3>Preferable requirements</h3>
+                    echo "<section class='job-req'> <h3>Preferable requirements</h3>
                         <ol> {$job['preferable_requirements']}</ol> </section>";
 
                     echo "</section>";
