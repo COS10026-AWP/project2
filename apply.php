@@ -75,7 +75,8 @@
                     </p>
                     <p>
                         <label for="dob"> Date of birth</label> 
-                        <input type="text" name= "dob" id="dob" placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
+                        <input type="text" name= "dob" id="dob" 
+                        placeholder="dd/mm/yyyy" pattern="(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[12])\/(\d{4})" maxlength="10" size="10" required="required">
                     </p>
 
                 <fieldset style="display: flex; align-items: center; gap:15px;">
@@ -119,7 +120,8 @@
                         <input type="text" name="postcode" id="postcode"
                             pattern="[0-9]{4}" required="required">
 
-                        <label for="email">Email</label> <input type="email" name="email" id="email" required="required">
+                        <label for="email">Email</label> 
+                        <input type="email" name="email" id="email" required="required">
                         <label for="phone">Phone number</label> <input type="tel" name="phone" id="phone"
                             pattern="[0-9]{8,12}" required="required">
                     </p>
@@ -170,7 +172,8 @@
                         <input type="checkbox" id="skill-api" name="category[]" value="api">
                     </p>
                     <p> <label for="skill-database-data-analysis">Database Management and Data Analysis</label>
-                        <input type="checkbox" id="skill-database-data-analysis" name="category[]" value="database-data">
+                        <input type="checkbox" id="skill-database-data-analysis" n
+                        ame="category[]" value="database-data">
                     </p>
                 </fieldset>
                 
