@@ -541,62 +541,57 @@ td {
 }
 
 /* -------------------------
-    apply.php
-    - layout and colours
-    - layout for questions
-    - buttons
-    - 
+    manage.php
 ------------------------- */
-
-/* layout and colours */
-.apply-page {
-    padding: 20px;
-    background-color: #F0F8FA;
+.manage-page {
+    background-color: #f0f8fa;
+    text-align: center;
 }
 
-.apply-forms {
-    border: 3px solid #ddd;
-    background-color: white;
-    border-radius: 20px;
+.manage-page h1 {
     color: #12343B;
 }
 
-.apply-forms fieldset {
-    border: 3px solid #ddd;
-    background-color: white;
-    border-radius: 10px;
-    margin-top: 10px;
+.manage-page form {
+    margin: 30px;
 }
 
-.apply-forms input, select {
-    background-color: #F0F8FA;
-    border-radius: 5px;
-    border: 3px solid #ddd;
-}
-        
-.apply-forms input[type="checkbox"], input[type="radio"] {
-    accent-color: #12343B;
+.manage-page input,
+.manage-page select {
+    padding: 10px;
+    margin: 5px;
 }
 
-/* Layout for the qestions */
-
-.apply-page .personal-info {
-    display: flex; 
-    align-items: center; 
-    gap:15px;
+.manage-page input[type="submit"] {
+    background-color: #12343B;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-.apply-forms .address-contact {
-    display: grid; 
-    grid-template-columns: auto 1fr auto 1fr;
-    align-items:center; 
+.manage-page input[type="submit"]:hover {
+    background-color: #F9C74F;
+    color: black;
 }
 
-.apply-forms .skill-lists {
-    display: grid; 
-    grid-template-columns: auto auto; 
-    align-items:center; 
-    gap:10px;
+.manage-page table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.manage-page th,
+.manage-page td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.manage-page th {
+    background-color: #12343B;
+    color: white;
+}
+
+.manage-page td form {
+    margin: 0;
 }
 
 /* -------------------------
