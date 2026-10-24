@@ -60,7 +60,8 @@ function getAvailableJobs(mysqli $db_conn, ?string $search = null): array|bool
     if (is_bool($query_res)) {
         return $query_res;
     } else {
-        foreach ($query_res as &$job) {
+        $cleaned_res = [];
+        foreach ($query_res as $job) {
             $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
             $job['title'] = htmlspecialchars((string) $job['title']);
             $job['short_description'] = htmlspecialchars((string) $job['short_description']);
@@ -69,9 +70,9 @@ function getAvailableJobs(mysqli $db_conn, ?string $search = null): array|bool
             $job['key_responsibilities'] = toListItems((string) $job['key_responsibilities']);
             $job['essential_requirements'] = toListItems((string) $job['essential_requirements']);
             $job['preferable_requirements'] = toListItems((string) $job['preferable_requirements']);
+            $cleaned_res[] = $job;
         }
-        unset($job);
-        return $query_res;
+        return $cleaned_res;
     }
 }
 
@@ -82,11 +83,12 @@ function getJobsForNav(mysqli $db_conn, ?string $search = null): array|bool
     if (is_bool($query_res)) {
         return $query_res;
     } else {
-        foreach ($query_res as &$job) {
+        $cleaned_res = [];
+        foreach ($query_res as $job) {
             $job['reference_number'] = htmlspecialchars((string) $job['reference_number']);
             $job['title'] = htmlspecialchars((string) $job['title']);
+            $cleaned_res[] = $job;
         }
-        unset($job);
-        return $query_res;
+        return $cleaned_res;
     }
 }
