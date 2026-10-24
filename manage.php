@@ -256,6 +256,7 @@ $result = $stmt->get_result();
     </form>
 
     <!-- Results -->
+<div class="table-wrap">
     <table>
         <thead>
             <tr>
@@ -328,6 +329,7 @@ $result = $stmt->get_result();
         ?>
         </tbody>
     </table>
+</div>
 
     <footer id="site-footer">
         <?php include 'footer.inc.php'; ?>
