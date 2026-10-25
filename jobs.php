@@ -99,9 +99,13 @@ if ($db_conn instanceof mysqli) {
             $displayJobs = getJobsForDisplay($filtered_jobs);
             if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
-            } elseif (count($displayJobs) === 0) {
-                echo 'There are no jobs to display.';
             } else {
+                echo '<section id="job-search-results">';
+                if (!is_null($get_search)) {
+                    echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
+                }
+                echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
+                echo '</section>';
                 foreach ($displayJobs as $job) {
                     $reference = "job-" . strtolower($job['reference_number']);
                     echo "<section class='job-position' id='{$reference}'>";
