@@ -100,12 +100,12 @@ if ($db_conn instanceof mysqli) {
             if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
             } else {
-                echo '<section id="job-search-results">';
+                echo '<div id="job-search-results">';
                 if (!is_null($get_search)) {
                     echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
                 }
                 echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
-                echo '</section>';
+                echo '</div>';
                 foreach ($displayJobs as $job) {
                     $reference = "job-" . strtolower($job['reference_number']);
                     echo "<section class='job-position' id='{$reference}'>";
