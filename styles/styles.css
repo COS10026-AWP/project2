@@ -748,13 +748,13 @@ td {
     #jobs-page aside {
         position: static;
         height: auto;
-        margin: 0;
+        margin-bottom: var(--vertical-margins);
     }
 
-    /* display: none removes the leftover padding and border that height: 0 left behind */
-    #jump-to-top,
-    #job-available {
+    #jobs-page aside #jump-to-top,
+    #jobs-page aside #job-apply-note {
         display: none;
+        margin-bottom: var(--vertical-margins);
     }
 
     .job-details {
@@ -783,18 +783,6 @@ td {
 
     .job-header {
         flex-direction: column;
-    }
-
-    #jobs-page main {
-        padding: 10px;
-    }
-
-    #jobs-page main > * {
-        margin: 0;
-    }
-
-    .job-position {
-        padding: 0 1rem 1.5rem;
     }
 
     /* Mobile navigation (hamburger menu) */
