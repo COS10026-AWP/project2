@@ -76,6 +76,30 @@ if (!$dbconn) {
             color: #ffffff;
             background: #12343B;
         }
+
+        .image-style {
+            width: 4000px;
+            max-width: 80%;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: #e0f1f5;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .image-style img {
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            height: 90%; 
+        }
+
+        .image-style figcaption {
+            color: #12343B;
+        }
     </style>
 </head>
 
@@ -199,12 +223,12 @@ if (!$dbconn) {
 
     <h2 class="heading-background">Our Team</h2>
 
-    <figure>
+    <figure class="image-style">
     <?php
         $result_img = mysqli_query($dbconn, "SELECT * FROM image_section LIMIT 1");
         if ($result_img) {
             while ($row = mysqli_fetch_assoc($result_img)) {
-                echo "<img style=\"display: block; margin: 0 auto; width: 90%; height: 90%;\" src=\"" . $row['img_location'] . "\"";
+                echo "<img src=\"" . $row['img_location'] . "\"";
                 echo "alt=\"" . $row['img_alt_description'] . "\" title=\"" . $row['img_title'];
                 echo "\" width=\"" . $row['width'] . "\" height=\"" . $row['height'] . "\"";
                 echo "<figcaption>" . $row['img_figcaption'] . "</figcaption>";
