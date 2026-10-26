@@ -70,12 +70,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
                 $clean_username = htmlspecialchars($_SESSION['username']);
                 $clean_user_role = htmlspecialchars($_SESSION['user_role']);
                 echo '<p id="already-logged-in">You are already logged in as ' . $clean_username . ' (' . $clean_user_role . ').</p>';
+                echo '<span id="logged-in-links">';
                 if ($clean_user_role === 'admin') {
                     echo '<a href="manage.php" id="manage-link">Go to Manage Page</a>';
                 } else {
                     echo '<a href="jobs.php" id="jobs-link">View Jobs</a>';
                 }
                 echo '<a href="login.php?logout=1" id="logout-link">Logout</a>';
+                echo '</span>';
             } else {
                 echo '<p id="login-instructions">Enter your username and password to log in.</p>';
             }
