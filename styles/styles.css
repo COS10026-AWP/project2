@@ -623,7 +623,8 @@ td {
     margin-bottom: 10px;
 }
 
-.apply-forms input, select {
+.apply-forms input,
+.apply-forms select {
     background-color: #F0F8FA;
     border-radius: 5px;
     border: 3px solid #ddd;
