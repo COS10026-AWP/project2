@@ -62,7 +62,11 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
             if (!is_null($get_search) && $get_search !== '') {
                 echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
             }
-            echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
+            if (is_bool($displayJobs)) {
+                echo '<p>Could not load jobs.</p>';
+            } else {
+                echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
+            }
             ?>
         </div>
         <aside>
