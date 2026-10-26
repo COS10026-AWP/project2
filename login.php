@@ -55,9 +55,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     </header>
 
     <main>
-        <h1>Login</h1>
-
         <form id="login-form" method="POST">
+            <h1>Login</h1>
             <label for="username">Username:</label>
             <input id="username" type="text" name="username" required
                 value=
