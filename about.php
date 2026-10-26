@@ -110,19 +110,22 @@ if (!$dbconn) {
     
     <?php
         $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_index");
-        $contributions = [];
 
-        while ($contribution = mysqli_fetch_assoc($result_contribution)) {
-            $contributions[] = $contribution;
-        }
+        if ($result_contribution) {
+            $contributions = [];
 
-        foreach ($contributions as $contribution) {
-        echo "<dl class=\"travel-tips\">";
-        echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
-        echo "<dd>" . $contribution['contribution_1'] . "</dd>";
-        echo "<dd>" . $contribution['contribution_2'] . "</dd>";
-        echo "</dl>";
-        }
+            while ($contribution = mysqli_fetch_assoc($result_contribution)) {
+                $contributions[] = $contribution;
+            }
+
+            foreach ($contributions as $contribution) {
+                echo "<dl class=\"travel-tips\">";
+                echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
+                echo "<dd>" . $contribution['contribution_1'] . "</dd>";
+                echo "<dd>" . $contribution['contribution_2'] . "</dd>";
+                echo "</dl>";
+            }
+        } else echo "Error: Could not fetch data from database!";
     ?>
         <!-- <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
@@ -154,18 +157,20 @@ if (!$dbconn) {
     
     <?php
         $result_quote = mysqli_query($dbconn, "SELECT * FROM quote_section ORDER BY quote_index");
-        $quotes = [];
+        if($result_quote) {
+            $quotes = [];
 
-        while ($quote = mysqli_fetch_assoc($result_quote)) {
-            $quotes[] = $quote;
-        }
+            while ($quote = mysqli_fetch_assoc($result_quote)) {
+                $quotes[] = $quote;
+            }
 
-        foreach ($quotes as $quote) {
-        echo "<dl class=\"travel-tips\">";
-        echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</p></dt>";
-        echo "<dd>" . $quote['translation'] . "</dd>";
-        echo "</dl>";
-        }
+            foreach ($quotes as $quote) {
+                echo "<dl class=\"travel-tips\">";
+                echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</p></dt>";
+                echo "<dd>" . $quote['translation'] . "</dd>";
+                echo "</dl>";
+            }
+        } else echo "Error: Could not fetch data from database!";
     ?>
 
     <!-- <dl class="travel-tips">
@@ -193,11 +198,22 @@ if (!$dbconn) {
     </dl> -->
 
     <h2 class="heading-background">Our Team</h2>
-    
+
     <figure>
-        <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
+    <?php
+        $result_img = mysqli_query($dbconn, "SELECT * FROM image_section LIMIT 1");
+        if ($result_img) {
+            while ($row = mysqli_fetch_assoc($result_img)) {
+                echo "<img style=\"display: block; margin: 0 auto; width: 90%; height: 90%;\" src=\"" . $row['img_location'] . "\"";
+                echo "alt=\"" . $row['img_alt_description'] . "\" title=\"" . $row['img_title'];
+                echo "\" width=\"" . $row['width'] . "\" height=\"" . $row['height'] . "\"";
+                echo "<figcaption>" . $row['img_figcaption'] . "</figcaption>";
+            }
+        } else echo "Error: Could not fetch data from database!";
+    ?> 
+        <!-- <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
             alt="A picture of us!" title="Group Photo" width="1200" height="900">
-        <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption>
+        <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption> -->
     </figure>
 
     <!-- <table>
