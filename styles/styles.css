@@ -583,11 +583,19 @@ td {
 
 #login-page #login-form #card-title {
     text-align: center;
-    padding: 1rem 0;
-    border-bottom: var(--login-card-border);
+    margin-bottom: 0;
 }
 
 /* Login form elements */
+#login-page #login-form #logged-in-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    border-bottom: var(--login-card-border);
+    margin-bottom: 1rem;
+}
+
 #login-page #login-form #username,
 #login-page #login-form #password,
 #login-page #login-form button {
