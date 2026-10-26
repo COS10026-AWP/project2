@@ -109,7 +109,7 @@ if (!$dbconn) {
     <h2 class="heading-background">Our Contributions</h2>
     
     <?php
-        $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_id");
+        $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_index");
         $contributions = [];
 
         while ($contribution = mysqli_fetch_assoc($result_contribution)) {
