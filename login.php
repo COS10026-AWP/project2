@@ -76,7 +76,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
                 <p id="invalid-login"><?= $login_error ?></p>
             <?php endif; ?>
 
-            <button type="submit">Login</button>
+            <button type="submit">Continue</button>
         </form>
     </main>
 
