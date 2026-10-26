@@ -411,7 +411,11 @@ td {
 #jobs-page main {
     padding: 15px;
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid:
+        "header header" auto
+        "listings sidebar" 1fr
+        "signup sidebar" auto
+        / 1fr 28%;
     background: var(--color-bg-main);
     color: var(--color-text-dark);
 
@@ -448,7 +452,7 @@ td {
 #jobs-page aside {
     --top-height: 20px;
 
-    order: 1;
+    grid-area: sidebar;
     position: sticky;
     top: var(--top-height);
     height: calc(100vh - var(--top-height) - var(--vertical-margins));
@@ -473,6 +477,8 @@ td {
 
 /* Job position card layout */
 #job-listings {
+    grid-area: listings;
+
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--vertical-margins);
@@ -532,7 +538,7 @@ td {
 
 /* Job email signup */
 .job-signup {
-    order: 2;
+    grid-area: signup;
     text-align: center;
 }
 
@@ -734,7 +740,12 @@ td {
 
     /* jobs.php responsive design */
     #jobs-page main {
-        grid-template-columns: 1fr;
+        grid:
+            "header" auto
+            "sidebar" auto
+            "listings" auto
+            "signup" auto
+            / auto;
     }
 
     #jobs-page aside {
@@ -747,10 +758,6 @@ td {
     #jump-to-top,
     #job-available {
         display: none;
-    }
-
-    #job-listings {
-        order: -1;
     }
 
     .job-details {
