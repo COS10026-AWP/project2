@@ -139,7 +139,8 @@ footer #social {
     color: white;
 }
 
-#jobs-page main a {
+#jobs-page main a,
+#login-page #login-form #logged-in-links a{
     color: var(--color-text-link-dark);
 }
 
@@ -147,7 +148,8 @@ footer #social {
     color: #F9C74F;
 }
 
-#jobs-page main a:hover {
+#jobs-page main a:hover,
+#login-page #login-form #logged-in-links a:hover {
     color: var(--color-text-link-dark-hover);
     font-style: italic;
 }
