@@ -482,6 +482,12 @@ td {
     text-align: center;
 }
 
+/* Job search information */
+#job-search-results {
+    text-align: center;
+    justify-content: top;
+}
+
 /* Job header */
 .job-header {
     display: flex;
