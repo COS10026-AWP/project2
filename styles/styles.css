@@ -433,7 +433,7 @@ td {
     margin: 0 10px;
 }
 
-#jobs-page main h1,
+#jobs-page main #job-header,
 #jobs-page main h2,
 #jobs-page main h3 {
     color: var(--color-text-headers);
