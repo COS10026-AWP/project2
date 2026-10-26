@@ -42,7 +42,7 @@ html {
 
     /* Borders */
     --color-border: var(--light-grey);
-    --color-border-highlight: var(--jet-black);
+    --color-border-highlight: var(--alice-blue);
 }
 
 /* -------------------------
@@ -539,6 +539,83 @@ td {
     grid-area: signup;
     text-align: center;
 }
+
+/* -------------------------
+    login.php
+    - page layout
+        - page properties
+    - login card
+        - login form elements
+        - invalid login message
+------------------------- */
+/* Page layout */
+#login-page main {
+    background: var(--color-bg-main);
+    color: var(--color-text-dark);
+
+    /* Page properties */
+    --login-card-border: 1px solid var(--color-border);
+    --login-card-border-highlight: 1px dotted var(--color-border-highlight);
+    --login-card-radius-s: 4px;
+    --login-card-radius-m: 4px;
+    --login-card-radius-l: 12px;
+
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login card */
+#login-page #login-form {
+    border: var(--login-card-border);
+    border-radius: var(--login-card-radius-l);
+    background: var(--color-bg-section);
+
+    min-height: 400px;
+    width: 100%;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 2rem;
+}
+
+#login-page #login-form h1 {
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: var(--login-card-border);
+}
+
+/* Login form elements */
+#login-page #login-form input,
+#login-page #login-form button {
+    padding: 10px;
+    border: var(--login-card-border);
+    border-radius: var(--login-card-radius-m);
+}
+
+#login-page #login-form input {
+    margin-bottom: 10px;
+}
+
+#login-page #login-form input:focus {
+    outline: 2px solid var(--color-border-highlight);
+}
+
+#login-page #login-form button {
+    margin-top: auto;
+    background-color: var(--color-text-headers);
+    color: white;
+    cursor: pointer;
+}
+/* Invalid login message */
+#login-page #login-form #invalid-login {
+    color: red;
+    font-weight: bold;
+}
+
 
 /* -------------------------
     manage.php
