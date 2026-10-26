@@ -152,7 +152,23 @@ if (!$dbconn) {
 
     <h2 class="heading-background">Our Favorite Quotes!</h2>
     
-    <dl class="travel-tips">
+    <?php
+        $result_quote = mysqli_query($dbconn, "SELECT * FROM quote_section ORDER BY quote_index");
+        $quotes = [];
+
+        while ($quote = mysqli_fetch_assoc($result_quote)) {
+            $quotes[] = $quote;
+        }
+
+        foreach ($quotes as $quote) {
+        echo "<dl class=\"travel-tips\">";
+        echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</p></dt>";
+        echo "<dd>" . $quote['translation'] . "</dd>";
+        echo "</dl>";
+        }
+    ?>
+
+    <!-- <dl class="travel-tips">
         <dt>好好学习，天天向上</dt>
         <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
     </dl>
@@ -174,7 +190,7 @@ if (!$dbconn) {
             việc chúng ta đang làm mà thôi.</dt>
         <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
             on something else other than what we're doing.</dd>
-    </dl>
+    </dl> -->
 
     <h2 class="heading-background">Our Team</h2>
     
@@ -227,7 +243,7 @@ if (!$dbconn) {
     <?php
 
     if($dbconn) {
-        $result_fun_facts = mysqli_query($dbconn, "SELECT * FROM fun_fact_section");
+        $result_fun_facts = mysqli_query($dbconn, "SELECT * FROM fun_fact_section ORDER BY fun_facts");
         if($result_fun_facts) {
             echo "<table> <caption>Fun Facts About Our Team Member</caption>
             <thead> <tr>
