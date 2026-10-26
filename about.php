@@ -190,7 +190,7 @@ if (!$dbconn) {
 
             foreach ($quotes as $quote) {
                 echo "<dl class=\"travel-tips\">";
-                echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</p></dt>";
+                echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</dt>";
                 echo "<dd>" . $quote['translation'] . "</dd>";
                 echo "</dl>";
             }
@@ -229,15 +229,12 @@ if (!$dbconn) {
         if ($result_img) {
             while ($row = mysqli_fetch_assoc($result_img)) {
                 echo "<img src=\"" . $row['img_location'] . "\"";
-                echo "alt=\"" . $row['img_alt_description'] . "\" title=\"" . $row['img_title'];
-                echo "\" width=\"" . $row['width'] . "\" height=\"" . $row['height'] . "\"";
-                echo "<figcaption>" . $row['img_figcaption'] . "</figcaption>";
+                echo " alt=\"" . $row['img_alt_description'] . "\" title=\"" . $row['img_title'];
+                echo "\" width=\"" . $row['width'] . "\" height=\"" . $row['height'] . "\">";
+                echo " <figcaption>" . $row['img_figcaption'] . "</figcaption>";
             }
         } else echo "Error: Could not fetch data from database!";
     ?> 
-        <!-- <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
-            alt="A picture of us!" title="Group Photo" width="1200" height="900">
-        <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption> -->
     </figure>
 
     <!-- <table>
