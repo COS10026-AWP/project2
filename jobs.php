@@ -98,7 +98,7 @@ if ($db_conn instanceof mysqli) {
                 echo 'Could not load jobs.';
             } else {
                 echo '<div id="job-search-results">';
-                if (!is_null($get_search)) {
+                if (!is_null($get_search) && $get_search !== '') {
                     echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
                 }
                 echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
