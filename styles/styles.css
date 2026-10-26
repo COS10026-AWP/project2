@@ -448,7 +448,7 @@ td {
 }
 
 /* Page header */
-#jobs-page #job-header {
+#jobs-page main #job-header {
     grid-area: header;
     text-align: center;
 }
@@ -486,7 +486,6 @@ td {
 /* Job position card layout */
 #job-listings {
     grid-area: listings;
-
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--vertical-margins);
