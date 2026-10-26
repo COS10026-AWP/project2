@@ -108,22 +108,22 @@ if (!$dbconn) {
 
     <h2 class="heading-background">Our Contributions</h2>
     
-        <?php
-            $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_id");
-            $contributions = [];
+    <?php
+        $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_id");
+        $contributions = [];
 
-            while ($contribution = mysqli_fetch_assoc($result_contribution)) {
-                $contributions[] = $contribution;
-            }
+        while ($contribution = mysqli_fetch_assoc($result_contribution)) {
+            $contributions[] = $contribution;
+        }
 
-            foreach ($contributions as $contribution) {
-            echo "<dl class=\"travel-tips\">";
-            echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
-            echo "<dd>" . $contribution['contribution_1'] . "</dd>";
-            echo "<dd>" . $contribution['contribution_2'] . "</dd>";
-            echo "</dl>";
-            }
-        ?>
+        foreach ($contributions as $contribution) {
+        echo "<dl class=\"travel-tips\">";
+        echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
+        echo "<dd>" . $contribution['contribution_1'] . "</dd>";
+        echo "<dd>" . $contribution['contribution_2'] . "</dd>";
+        echo "</dl>";
+        }
+    ?>
         <!-- <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd> -->
