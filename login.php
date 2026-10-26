@@ -31,6 +31,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     } else {
         $login_error = 'Invalid username or password.';
     }
+} else {
+    session_start();
+    if (isset($_GET['logout']) && $_GET['logout'] === '1') {
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
+        exit();
+    }
 }
 ?>
 
@@ -57,6 +65,21 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     <main>
         <form id="login-form" method="POST">
             <h1 id="card-title">Login</h1>
+            <?php
+            if(isset($_SESSION['username']) && isset($_SESSION['user_role'])) {
+                $clean_username = htmlspecialchars($_SESSION['username']);
+                $clean_user_role = htmlspecialchars($_SESSION['user_role']);
+                echo '<p id="already-logged-in">You are already logged in as ' . $clean_username . ' (' . $clean_user_role . ').</p>';
+                if ($clean_user_role === 'admin') {
+                    echo '<a href="manage.php" id="manage-link">Go to Manage Page</a>';
+                } else {
+                    echo '<a href="jobs.php" id="jobs-link">View Jobs</a>';
+                }
+                echo '<a href="login.php?logout=1" id="logout-link">Logout</a>';
+            } else {
+                echo '<p id="login-instructions">Enter your username and password to log in.</p>';
+            }
+            ?>
             <label for="username">Username:</label>
             <input id="username" type="text" name="username" required
                 value=
