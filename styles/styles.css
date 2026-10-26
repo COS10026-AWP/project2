@@ -448,6 +448,12 @@ td {
     background: var(--color-bg-section);
 }
 
+/* Page header */
+#jobs-page #job-header {
+    grid-area: header;
+    text-align: center;
+}
+
 /* Sidebar */
 #jobs-page aside {
     --top-height: 20px;
@@ -486,12 +492,6 @@ td {
 
 #jobs-page #job-listings h1 {
     text-align: center;
-}
-
-/* Job search information */
-#job-search-results {
-    text-align: center;
-    justify-content: top;
 }
 
 /* Job header */

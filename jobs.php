@@ -18,6 +18,8 @@ if ($db_conn instanceof mysqli) {
     $filtered_jobs = filterJobs($db_conn, '*', $get_search);
     mysqli_close($db_conn);
 }
+$navJobs = getJobsForNav($filtered_jobs);
+$displayJobs = getJobsForDisplay($filtered_jobs);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,6 @@ if ($db_conn instanceof mysqli) {
     <meta name="description" content="Short & accurate description of the webpage.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
     <link rel="stylesheet" href="styles/styles.css">
 
@@ -53,6 +54,17 @@ if ($db_conn instanceof mysqli) {
     </header>
 
     <main>
+        <div id="job-header">
+            <h1>We're hiring!</h1>
+            <?php
+            echo '<div id="job-search-results">';
+            if (!is_null($get_search) && $get_search !== '') {
+                echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
+            }
+            echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
+            echo '</div>';
+            ?>
+        </div>
         <aside>
             <section>
                 <h2>Jobs available</h2>
@@ -64,7 +76,6 @@ if ($db_conn instanceof mysqli) {
                 </form>
                 <nav>
                     <?php
-                    $navJobs = getJobsForNav($filtered_jobs);
                     if (!(is_array($navJobs))) {
                         echo 'Could not load jobs.';
                     } elseif (count($navJobs) === 0) {
@@ -91,18 +102,10 @@ if ($db_conn instanceof mysqli) {
             </nav>
         </aside>
         <article id="job-listings">
-            <h1>We're hiring!</h1>
             <?php
-            $displayJobs = getJobsForDisplay($filtered_jobs);
             if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
             } else {
-                echo '<div id="job-search-results">';
-                if (!is_null($get_search) && $get_search !== '') {
-                    echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
-                }
-                echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
-                echo '</div>';
                 foreach ($displayJobs as $job) {
                     $reference = "job-" . strtolower($job['reference_number']);
                     echo "<section class='job-position' id='{$reference}'>";
