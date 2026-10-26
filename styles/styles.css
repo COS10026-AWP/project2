@@ -471,14 +471,11 @@ td {
     display: flex;
     flex-direction: column;
 }
-    
-#jobs-page aside #job-apply-note {
-    flex-grow: 1;
-}
 
 #jobs-page aside #jump-to-top {
     text-align: center;
     padding: 0.5rem;
+    margin-top: auto;
 }
 
 /* Job position card layout */
