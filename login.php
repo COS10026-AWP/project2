@@ -56,7 +56,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
 
     <main>
         <form id="login-form" method="POST">
-            <h1>Login</h1>
+            <h1 id="card-title">Login</h1>
             <label for="username">Username:</label>
             <input id="username" type="text" name="username" required
                 value=

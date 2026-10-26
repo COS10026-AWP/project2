@@ -582,25 +582,28 @@ td {
     padding: 0 1.5rem 2rem;
 }
 
-#login-page #login-form h1 {
+#login-page #login-form #card-title {
     text-align: center;
     padding: 1rem 0;
     border-bottom: var(--login-card-border);
 }
 
 /* Login form elements */
-#login-page #login-form input,
+#login-page #login-form #username,
+#login-page #login-form #password,
 #login-page #login-form button {
     padding: 10px;
     border: var(--login-card-border);
     border-radius: var(--login-card-radius-m);
 }
 
-#login-page #login-form input {
+#login-page #login-form #username,
+#login-page #login-form #password {
     margin-bottom: 10px;
 }
 
-#login-page #login-form input:focus {
+#login-page #login-form #username:focus,
+#login-page #login-form #password:focus {
     outline: 2px solid var(--color-border-highlight);
 }
 
