@@ -30,7 +30,8 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
     <meta charset="UTF-8">
     <meta name="author" content="Nathan Yan">
     <meta name="keywords" content="tourism, travel, jobs, employment, career">
-    <meta name="description" content="Short & accurate description of the webpage.">
+    <meta name="description" content="View and search for available job listings at World Wide Travel.
+        Find your next career opportunity in the tourism and travel industry.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
