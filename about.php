@@ -23,8 +23,6 @@
             font-size: 23px;
         }
 
-        p { color: #12343B }
-
         dt { font-size: 18px; }
 
         dd { font-size: 15px; }
