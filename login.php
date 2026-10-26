@@ -49,12 +49,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body>
+<body id="login-page">
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
 
-    <main id="login">
+    <main>
         <h1>Login</h1>
 
         <form id="login-form" method="POST">
