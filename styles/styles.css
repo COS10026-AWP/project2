@@ -957,12 +957,11 @@ td {
     }
 }
 
-@media only screen and (height <= 500px) {
-    /* Responsive design for short viewports up to 500px */
+@media only screen and (height <= 700px) {
+    /* Responsive design for short viewports up to 700px */
     #jobs-page aside {
         position: static;
         height: auto;
-        margin-top: 80px;
     }
 
     #job-available {
