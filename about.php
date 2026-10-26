@@ -108,12 +108,26 @@ if (!$dbconn) {
 
     <h2 class="heading-background">Our Contributions</h2>
     
-    <dl class="travel-tips">
-        <dt>Harper <p class="student-id">(106696764)</p></dt>
-        <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
+        <?php
+            $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_id");
+            $contributions = [];
+
+            while ($contribution = mysqli_fetch_assoc($result_contribution)) {
+                $contributions[] = $contribution;
+            }
+
+            foreach ($contributions as $contribution) {
+            echo "<dl class=\"travel-tips\">";
+            echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
+            echo "<dd>" . $contribution['contribution_1'] . "</dd>";
+            echo "<dd>" . $contribution['contribution_2'] . "</dd>";
+            echo "</dl>";
+            }
+        ?>
+        <!-- <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
+        <dd>Lorem ipsum dolor sit amat</dd> -->
+    <!-- </dl>
 
     <dl class="travel-tips">
         <dt>Nathan <p class="student-id">(106565482)</p></dt>
@@ -134,7 +148,7 @@ if (!$dbconn) {
         <dd>Responsible for the about page.</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
         <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
+    </dl> -->
 
     <h2 class="heading-background">Our Favorite Quotes!</h2>
     
