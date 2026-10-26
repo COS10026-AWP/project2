@@ -1,3 +1,12 @@
+<?php 
+$config = require 'settings.php';
+$dbconn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+
+if (!$dbconn) {
+    die("Error: Could not fetch data from database!");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,10 +89,21 @@
     <h2 class="heading-background">The Group</h2>
     
     <ul>
-        <li>We are Group 2!</li>
+        <?php
+            $result_group = mysqli_query($dbconn, "SELECT * FROM group_section LIMIT 1");
+            if ($result_group) {
+                while ($row = mysqli_fetch_assoc($result_group)) {
+                    echo "<li> Group name: " . $row['group_name'] . " (Code: " . $row['group_code'] . ")</li>";
+                    echo "<li> Course: " . $row['course'] . "</li>";
+                    echo "<li> Schedule: " .$row['schedule'] . "</li>";
+                    echo "<li> Tutor: " .$row['tutor'] . "</li>";
+                }
+            } else echo "Error: Could not fetch data from database!";
+        ?>
+        <!-- <li>Group name: </li>
         <li>We are currently studying a class in the 10026 Web Technology course</li>
         <li>Weekly on Thursday, from 4:30 to 6:30</li>
-        <li>Led by our handsome tutor Rahul!</li>
+        <li>Led by our handsome tutor Rahul!</li> -->
     </ul>
 
     <h2 class="heading-background">Our Contributions</h2>
@@ -116,7 +136,7 @@
         <dd>Lorem ipsum dolor sit amat</dd>
     </dl>
 
-    <h2 class="heading-background">Cool Quotes!</h2>
+    <h2 class="heading-background">Our Favorite Quotes!</h2>
     
     <dl class="travel-tips">
         <dt>好好学习，天天向上</dt>
@@ -192,12 +212,9 @@
 
     <?php
 
-    $config = require 'settings.php';
-    $dbconn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
     if($dbconn) {
-        $query = "SELECT * FROM fun_fact_section";
-        $result = mysqli_query($dbconn,$query);
-        if($result) {
+        $result_fun_facts = mysqli_query($dbconn, "SELECT * FROM fun_fact_section");
+        if($result_fun_facts) {
             echo "<table> <caption>Fun Facts About Our Team Member</caption>
             <thead> <tr>
             <th>Fun Facts</th>
@@ -207,7 +224,7 @@
             <th>Khoi</th>
             </tr> </thead>
             <tbody>";
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result_fun_facts)) {
                 echo "<tr>";
                 echo "<td>" . $row['fun_facts'] . "</td>";
                 echo "<td>" . $row['nathan'] . "</td>";
@@ -218,7 +235,7 @@
             }
             echo "</tbody> </table>";
         }
-    } else echo "<p>Unable to connect to the db.</p>";
+    } else echo "<p>Error: Could not fetch data from database!</p>";
     
     ?>
 
