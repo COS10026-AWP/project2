@@ -413,6 +413,7 @@ td {
     display: grid;
     grid:
         "header header" auto
+        "results results" auto
         "listings sidebar" 1fr
         "signup sidebar" auto
         / 1fr 28%;
@@ -452,6 +453,12 @@ td {
 #jobs-page #job-header {
     grid-area: header;
     text-align: center;
+}
+
+#jobs-page #job-search-results {
+    grid-area: results;
+    text-align: center;
+    margin-bottom: var(--vertical-margins);
 }
 
 /* Sidebar */
@@ -740,9 +747,16 @@ td {
         grid:
             "header" auto
             "sidebar" auto
+            "results" auto
             "listings" auto
             "signup" auto
             / auto;
+    }
+
+    #jobs-page #job-search-results {
+        position: sticky;
+        top: 0;
+        background-color: var(--color-bg-main);
     }
 
     #jobs-page aside {

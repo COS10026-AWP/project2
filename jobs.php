@@ -56,13 +56,13 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
     <main>
         <div id="job-header">
             <h1>We're hiring!</h1>
+        </div>
+        <div id="job-search-results">
             <?php
-            echo '<div id="job-search-results">';
             if (!is_null($get_search) && $get_search !== '') {
                 echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
             }
             echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
-            echo '</div>';
             ?>
         </div>
         <aside>
