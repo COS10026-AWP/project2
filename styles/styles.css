@@ -548,6 +548,7 @@ td {
         - login form elements
         - invalid login message
 ------------------------- */
+
 /* Page layout */
 #login-page main {
     background: var(--color-bg-main);
@@ -572,11 +573,9 @@ td {
     border: var(--login-card-border);
     border-radius: var(--login-card-radius-l);
     background: var(--color-bg-section);
-
     min-height: 400px;
     width: 100%;
     max-width: 400px;
-
     display: flex;
     flex-direction: column;
     padding: 0 1.5rem 2rem;
@@ -613,6 +612,7 @@ td {
     color: white;
     cursor: pointer;
 }
+
 /* Invalid login message */
 #login-page #login-form #invalid-login {
     color: red;
