@@ -66,12 +66,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '')  === 'POST') {
         <form id="login-form" method="POST">
             <h1 id="card-title">Login</h1>
             <?php
-            if(isset($_SESSION['username']) && isset($_SESSION['user_role'])) {
+            if (isset($_SESSION['username']) && isset($_SESSION['user_role'])) {
                 $clean_username = htmlspecialchars($_SESSION['username']);
                 $clean_user_role = htmlspecialchars($_SESSION['user_role']);
-                echo '<p id="already-logged-in">You are already logged in as ' . $clean_username . ' (' . $clean_user_role . ').</p>';
+                echo '<p id="already-logged-in">You are already logged in as ' .
+                    $clean_username . ' (<em>' . $clean_user_role . ')</em>.</p>';
                 echo '<span id="logged-in-links">';
-                if ($clean_user_role === 'admin') {
+                if ($_SESSION['user_role'] === 'admin') {
                     echo '<a href="manage.php" id="manage-link">Go to Manage Page</a>';
                 } else {
                     echo '<a href="jobs.php" id="jobs-link">View Jobs</a>';
