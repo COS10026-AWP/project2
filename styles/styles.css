@@ -139,18 +139,19 @@ footer #social {
     color: white;
 }
 
-#job-content a {
+#jobs-page main a {
     color: var(--color-text-link-dark);
-}
-
-#job-content a:hover {
-    color: var(--color-text-link-dark-hover);
-    font-style: italic;
 }
 
 #site-nav a:hover {
     color: #F9C74F;
 }
+
+#jobs-page main a:hover {
+    color: var(--color-text-link-dark-hover);
+    font-style: italic;
+}
+
 
 /* -------------------------
     index.php styles
@@ -215,7 +216,7 @@ footer #social {
     /* Centre vertically */
     justify-content: center;
     background-size: cover;
-    background-image: url('../images/sky.png');
+    background-image: url('images/sky.png');
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
@@ -407,7 +408,7 @@ td {
 ------------------------- */
 
 /* Page layout */
-#job-content {
+#jobs-page main {
     padding: 15px;
     display: grid;
     grid-template-columns: 1fr 28%;
@@ -423,25 +424,25 @@ td {
     --jobs-card-radius-l: 12px;
 }
 
-#job-content > * {
+#jobs-page main > * {
     margin: 0 10px;
 }
 
-#job-content h1 {
+#jobs-page main h1 {
     /* min-height so a long title can wrap on small screens without overlapping */
     min-height: 40px;
     margin: 20px 0;
 }
 
-#job-content h1,
-#job-content h2,
-#job-content h3 {
+#jobs-page main h1,
+#jobs-page main h2,
+#jobs-page main h3 {
     color: var(--color-text-headers);
     font-weight: bold;
 }
 
 /* Cards */
-#job-sidebar > *,
+#jobs-page aside > *,
 .job-position {
     padding: 0 1.5rem 2rem;
     border: var(--jobs-card-border);
@@ -450,7 +451,7 @@ td {
 }
 
 /* Sidebar */
-#job-sidebar {
+#jobs-page aside {
     --top-height: 20px;
 
     order: 1;
@@ -462,17 +463,17 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#job-available {
+#jobs-page aside #job-available {
     /* Grid is used for flexibility in 2D where more jobs may be added */
     display: grid;
     grid-column: 1;
 }
-
-#job-apply-note {
+    
+#jobs-page aside #job-apply-note {
     flex-grow: 1;
 }
 
-#jump-to-top {
+#jobs-page aside #jump-to-top {
     color: var(--color-text-dark);
     text-align: center;
     padding: 0.5rem;
@@ -488,7 +489,7 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#job-listings h1 {
+#jobs-page #job-listings h1 {
     text-align: center;
 }
 
@@ -539,6 +540,135 @@ td {
     order: 2;
     text-align: center;
 }
+
+/* -------------------------
+    manage.php
+------------------------- */
+.manage-page {
+    background-color: #f0f8fa;
+    text-align: center;
+}
+
+.manage-page h1 {
+    color: #12343B;
+}
+
+.manage-page form {
+    margin: 30px;
+}
+
+.manage-page input,
+.manage-page select {
+    padding: 10px;
+    margin: 5px;
+}
+
+.manage-page input[type="submit"] {
+    background-color: #12343B;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.manage-page input[type="submit"]:hover {
+    background-color: #F9C74F;
+    color: black;
+}
+
+.manage-page table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.manage-page th,
+.manage-page td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.manage-page th {
+    background-color: #12343B;
+    color: white;
+}
+
+.manage-page td form {
+    margin: 0;
+}
+
+/* -------------------------
+    apply.php
+    - layout and colours
+    - layout for questions
+------------------------- */
+
+/* layout and colours */
+.apply-page {
+    padding: 20px;
+    background-color: #F0F8FA;
+}
+
+.apply-forms {
+    border: 3px solid #ddd;
+    background-color: white;
+    border-radius: 20px;
+    color: #12343B;
+}
+
+.apply-forms fieldset {
+    border: 3px solid #ddd;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.apply-forms input, select {
+    background-color: #F0F8FA;
+    border-radius: 5px;
+    border: 3px solid #ddd;
+}
+        
+.apply-forms input[type="checkbox"], input[type="radio"] {
+    accent-color: #12343B;
+}
+
+/* Layout for the qestions */
+
+.apply-page .personal-info {
+    display: flex; 
+    align-items: center; 
+    gap:15px;
+}
+
+.apply-forms .address-contact {
+    display: grid; 
+    grid-template-columns: auto 1fr auto 1fr;
+    align-items:center; 
+}
+
+.apply-forms .skill-lists {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    align-items:center; 
+    gap:10px;
+}
+
+/* -------------------------
+    process_eoi.php
+------------------------- */
+
+.eoi-page {
+    padding: 20px;
+    color: #12343B;
+    background-color: #F0F8FA;;
+}
+
+.application-box {
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+}
+
 
 /* -------------------------
     Responsive design
@@ -608,11 +738,11 @@ td {
     }
 
     /* jobs.php responsive design */
-    #job-content {
+    #jobs-page main {
         grid-template-columns: 1fr;
     }
 
-    #job-sidebar {
+    #jobs-page aside {
         position: static;
         height: auto;
         margin: 0;
@@ -656,11 +786,11 @@ td {
         flex-direction: column;
     }
 
-    #job-content {
+    #jobs-page main {
         padding: 10px;
     }
 
-    #job-content > * {
+    #jobs-page main > * {
         margin: 0;
     }
 
@@ -698,7 +828,6 @@ td {
         font-size: 20px;
     }
 
-    /* Checkbox is visually hidden but still keyboard focusable */
     #menu-toggle {
         display: block;
         position: absolute;
@@ -736,8 +865,7 @@ td {
     /* Dropdown menu: hidden until the checkbox is ticked */
     #site-nav {
         display: none;
-        flex-direction: column;
-        flex-wrap: nowrap;
+        flex-flow: column nowrap;
         justify-content: flex-start;
         gap: 0;
         margin: 10px 0 0;
@@ -832,7 +960,7 @@ td {
 
 @media only screen and (height <= 500px) {
     /* Responsive design for short viewports up to 500px */
-    #job-sidebar {
+    #jobs-page aside {
         position: static;
         height: auto;
         margin-top: 80px;
