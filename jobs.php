@@ -66,10 +66,10 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
             ?>
         </div>
         <aside>
-            <section>
-                <h2>Jobs available</h2>
+            <section id="job-nav">
+                <h2>Search available jobs</h2>
                 <form action="jobs.php" method="get">
-                    <label for="job-search">Search jobs:</label>
+                    <label for="job-search">Search jobs by keyword</label>
                     <input type="text" id="job-search" name="search" placeholder="Enter keywords..."
                         value="<?= $get_search; ?>">
                     <button type="submit">Search</button>
