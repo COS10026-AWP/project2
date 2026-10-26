@@ -101,7 +101,7 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
                 <a href="#top">Back to Top</a>
             </nav>
         </aside>
-        <article id="job-listings">
+        <div id="job-listings">
             <?php
             if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
@@ -133,7 +133,7 @@ $displayJobs = getJobsForDisplay($filtered_jobs);
                 }
             }
             ?>
-        </article>
+        </div>
         <section class="job-signup">
             <h2>Looking for more?</h2>
             <p>Sign up to receive email notifications when new positions are posted.</p>
