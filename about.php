@@ -1,9 +1,43 @@
 <?php 
-$config = require 'settings.php';
-$dbconn = mysqli_connect($config['host'], $config['user'], $config['pwd'], $config['sql_db']);
+$config = require "settings.php";
+$dbconn = mysqli_connect(
+    $config['host'],
+    $config['user'],
+    $config['pwd'],
+    $config['sql_db']
+);
 
 if (!$dbconn) {
-    die("Error: Could not fetch data from database!");
+    echo "<p>Sorry, the database is not available right now.</p>";
+    exit();
+}
+
+$query = "SELECT student_id, name, description FROM contributions "
+    . "ORDER BY member_order, item_order";
+
+$result = mysqli_query($dbconn, $query);
+
+$quote_query = "SELECT student_id, quote_native, quote_english, "
+    . "quote_language FROM about";
+
+$quote_result = mysqli_query($dbconn, $quote_query);
+
+if (!$result || !$quote_result) {
+    echo "<p>Sorry, the information could not be loaded.</p>";
+    mysqli_close($dbconn);
+    exit();
+}
+
+$quotes = array();
+
+while ($row = mysqli_fetch_assoc($quote_result)) {
+    $quotes[$row['student_id']] = $row;
+}
+
+if (!$result) {
+    echo "<p>Sorry, contributions could not be loaded.</p>";
+    mysqli_close($dbconn);
+    exit();
 }
 ?>
 
@@ -113,59 +147,65 @@ if (!$dbconn) {
     <h2 class="heading-background">The Group</h2>
     
     <ul>
-        <?php
-            $result_group = mysqli_query($dbconn, "SELECT * FROM group_section LIMIT 1");
-            if ($result_group) {
-                while ($row = mysqli_fetch_assoc($result_group)) {
-                    echo "<li> Group name: " . $row['group_name'] . " (Code: " . $row['group_code'] . ")</li>";
-                    echo "<li> Course: " . $row['course'] . "</li>";
-                    echo "<li> Schedule: " .$row['schedule'] . "</li>";
-                    echo "<li> Tutor: " .$row['tutor'] . "</li>";
-                }
-            } else echo "Error: Could not fetch data from database!";
-        ?>
+        <li>Group name: Group 2 (Code: G02)</li>
+        <li>Course: COS10026 - Web Technology Project</li>
+        <li>Schedule: Thursday, 4:30 - 6:30 PM</li>
+        <li>Tutor: Rahul Raghavan</li>
     </ul>
 
     <h2 class="heading-background">Our Contributions</h2>
-    
-    <?php
-        $result_contribution = mysqli_query($dbconn, "SELECT * FROM contribution_section ORDER BY contribution_index");
+             <div class="member-list">
+                <?php
+                $current = "";
 
-        if ($result_contribution) {
-            $contributions = [];
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row['student_id'] != $current) {
 
-            while ($contribution = mysqli_fetch_assoc($result_contribution)) {
-                $contributions[] = $contribution;
-            }
+                        if ($current != "") {
+                            echo "</ul></div>";
+                        }
 
-            foreach ($contributions as $contribution) {
-                echo "<dl class=\"travel-tips\">";
-                echo "<dt>" . $contribution['name'] . " <p class=\"student-id\">(" . $contribution['student_id'] . ")</p></dt>";
-                echo "<dd>" . $contribution['contribution_1'] . "</dd>";
-                echo "<dd>" . $contribution['contribution_2'] . "</dd>";
-                echo "</dl>";
-            }
-        } else echo "Error: Could not fetch data from database!";
-    ?>
+                        echo "<div class='member'>";
+                        echo "<h3>" . htmlspecialchars($row['name'])
+                            . " (" . htmlspecialchars($row['student_id'])
+                            . ")</h3>";
+
+                        echo "<ul>";
+
+                        $current = $row['student_id'];
+                    }
+
+                    echo "<li>" . htmlspecialchars($row['description'])
+                        . "</li>";
+                }
+
+                if ($current != "") {
+                    echo "</ul></div>";
+                }
+                ?>
+            </div>
 
     <h2 class="heading-background">Our Favorite Quotes!</h2>
     
     <?php
-        $result_quote = mysqli_query($dbconn, "SELECT * FROM quote_section ORDER BY quote_index");
-        if($result_quote) {
-            $quotes = [];
+        echo "<h3>" . htmlspecialchars($row['name'])
+        . " (" . htmlspecialchars($row['student_id']) . ")</h3>";
 
-            while ($quote = mysqli_fetch_assoc($result_quote)) {
-                $quotes[] = $quote;
-            }
+        if (isset($quotes[$row['student_id']])) {
+            echo "<blockquote>";
+            echo "<p>" . htmlspecialchars(
+                $quotes[$row['student_id']]['quote_native']
+            ) . "</p>";
 
-            foreach ($quotes as $quote) {
-                echo "<dl class=\"travel-tips\">";
-                echo "<dt>" . $quote['name'] . ": " . $quote['quote'] . "</dt>";
-                echo "<dd>" . $quote['translation'] . "</dd>";
-                echo "</dl>";
-            }
-        } else echo "Error: Could not fetch data from database!";
+            echo "<p>" . htmlspecialchars(
+                $quotes[$row['student_id']]['quote_english']
+            ) . "</p>";
+
+            echo "<p><em>" . htmlspecialchars(
+                $quotes[$row['student_id']]['quote_language']
+            ) . "</em></p>";
+            echo "</blockquote>";
+        }
     ?>
 
     <h2 class="heading-background">Our Team</h2>

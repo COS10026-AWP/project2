@@ -113,7 +113,6 @@ CREATE TABLE contributions (
 CREATE TABLE about (
     student_id     VARCHAR(10) NOT NULL PRIMARY KEY,
     name           VARCHAR(50) NOT NULL,
-    contribution   TEXT NOT NULL,
     quote_native   TEXT NOT NULL,
     quote_english  TEXT NOT NULL,
     quote_language VARCHAR(30) NOT NULL
@@ -139,19 +138,19 @@ INSERT INTO contributions (student_id, name, description, member_order, item_ord
 ('105996858', 'Tiffany', 'Responsible for the job application page.', 3, 1),
 ('105996858', 'Tiffany', 'Created the process EOI page (process_eoi.php).', 3, 2),
 ('105996858', 'Tiffany', 'Wrote the CSS for the apply and process EOI pages.', 3, 3),
-('106379243', 'Khoi',    'Responsible for the about page.', 4, 1);
+('106379243', 'Khoi',    'Responsible for the about page and its CSS.', 4, 1);
 
-INSERT INTO about (student_id, name, contribution, quote_native, quote_english, quote_language) VALUES
-('106696764', 'Harper', 'Leader in project planning, responsible for HTML, CSS, and the home page.',
- '好好学习，天天向上',
- 'Study hard and make progress every day.', 'Mandarin'),
-('106565482', 'Nathan', 'Co-leader, responsible for the job info page.',
+INSERT INTO about (student_id, name, quote_native, quote_english, quote_language) VALUES
+('106696764', 'Harper',
  'Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn là nên cố gắng cho hiện tại.',
  'The future changes from moment to moment. Therefore, instead of worrying about what lies ahead, it is better to focus on the present.', 'Vietnamese'),
-('105996858', 'Tiffany', 'Responsible for the job application page.',
+('106565482', 'Nathan',
+'好好学习，天天向上',
+ 'Study hard and make progress every day.', 'Mandarin'),
+('105996858', 'Tiffany',
  'Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.',
  'Life is a road, don''t know what''s along the way', 'Indonesian'),
-('106379243', 'Khoi', 'Responsible for the about page.',
+('106379243', 'Khoi',
  'Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì việc chúng ta đang làm mà thôi.',
  'There''s no such thing as being lazy, we''re simply just focus on something else other than what we''re doing.', 'Vietnamese');
 
