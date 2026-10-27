@@ -29,7 +29,7 @@
    <!--HEADER-->
 
     <header id="site-header">
-        <?php include 'header.inc.php'; ?>
+         <?php require __DIR__ . '/header.inc.php'; ?>
     </header>
 
 
@@ -196,7 +196,7 @@
 
     <!-- FOOTER -->
     <footer id="site-footer">
-        <?php include 'footer.inc.php'; ?>
+         <?php require __DIR__ . '/footer.inc.php'; ?>; ?>
     </footer>
 
 </body>
