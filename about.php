@@ -7,6 +7,8 @@ $dbconn = mysqli_connect(
     $config['sql_db']
 );
 
+mysqli_set_charset($dbconn, 'utf8mb4');
+
 if (!$dbconn) {
     echo "<p>Sorry, the database is not available right now.</p>";
     exit();
@@ -17,22 +19,22 @@ $query = "SELECT student_id, name, description FROM contributions "
 
 $result = mysqli_query($dbconn, $query);
 
-$quote_query = "SELECT student_id, quote_native, quote_english, "
-    . "quote_language FROM about";
 
+$quote_query = "SELECT student_id, name, quote_native, quote_english, quote_language FROM about";
 $quote_result = mysqli_query($dbconn, $quote_query);
 
-if (!$result || !$quote_result) {
+if (!$quote_result) {
     echo "<p>Sorry, the information could not be loaded.</p>";
     mysqli_close($dbconn);
     exit();
 }
 
 $quotes = array();
-
-while ($row = mysqli_fetch_assoc($quote_result)) {
-    $quotes[$row['student_id']] = $row;
+while ($quote_row = mysqli_fetch_assoc($quote_result)) {
+    $quotes[$quote_row['student_id']] = $quote_row;
 }
+
+
 
 if (!$result) {
     echo "<p>Sorry, contributions could not be loaded.</p>";
@@ -55,6 +57,13 @@ if (!$result) {
 
     <link rel="stylesheet" href="styles/styles.css">
     <style>
+
+        .quotes-section {
+            padding: 10px;
+            color: #12343B;
+            background-color: #F0F8FA;;
+        }
+
         h1 {
             color: #12343B;
             text-align: center;
@@ -70,15 +79,27 @@ if (!$result) {
 
         dd { font-size: 15px; }
 
+        .member {
+            display: flex; 
+            align-items: center; 
+            gap:5px;
+        }
+    
+
         .student-id {
             color: #12343B;
             font-weight: bold;
             display: inline-block;
+            border: 1px solid #12343B;
+            border-radius: 5px;
+            padding: 3px 5px;
         }
 
         .student-id:hover {
             background-color: #12343B;
             color: white;
+            border-radius: 5px;
+            padding: 3px 5px;
         }
 
         table { 
@@ -96,20 +117,40 @@ if (!$result) {
 
         caption { font-size: 20px; }
 
-        .travel-tips { border-left: 4px solid #12343B ;}
+        .quote-box { 
+            width: 100%;
+            box-sizing: border-box;
+            margin: 25px 0;
+            padding: 8px 15px;
+            background-color: #FFF;
+            border-left: 4px solid #12343B;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+        }
+
+        .quote-box h3 {
+            font-size: 20px;
+            color: #12343B;
+            text-align: left;
+            margin: 0 0 8px;
+        }
+
+        .quote-box p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #263238;
+            text-align: left;
+            margin: 5px 0;
+        }
 
         .heading-background {
             display: inline-block;
-            color: #12343B;
-            background: #e0f1f5;
+            color: #ffffff;
+            background: #12343B;
             padding: 5px 25px;
             border-radius: 20px;
         }
 
-        .heading-background:hover {
-            color: #ffffff;
-            background: #12343B;
-        }
 
         .image-style {
             width: 4000px;
@@ -141,7 +182,7 @@ if (!$result) {
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
-
+    
     <h1>About Us</h1>
 
     <h2 class="heading-background">The Group</h2>
@@ -167,8 +208,8 @@ if (!$result) {
 
                         echo "<div class='member'>";
                         echo "<h3>" . htmlspecialchars($row['name'])
-                            . " (" . htmlspecialchars($row['student_id'])
-                            . ")</h3>";
+                            . "</h3><h3 class='student-id'>" . htmlspecialchars($row['student_id'])
+                            . "</h3></div>";
 
                         echo "<ul>";
 
@@ -180,34 +221,28 @@ if (!$result) {
                 }
 
                 if ($current != "") {
-                    echo "</ul></div>";
+                    echo "</ul>";
                 }
                 ?>
             </div>
 
+    <section class='quotes-section'>        
     <h2 class="heading-background">Our Favorite Quotes!</h2>
     
     <?php
-        echo "<h3>" . htmlspecialchars($row['name'])
-        . " (" . htmlspecialchars($row['student_id']) . ")</h3>";
+    foreach ($quotes as $student_id => $student_quote) {
+        echo "<div class='quote-box'>";
 
-        if (isset($quotes[$row['student_id']])) {
-            echo "<blockquote>";
-            echo "<p>" . htmlspecialchars(
-                $quotes[$row['student_id']]['quote_native']
-            ) . "</p>";
-
-            echo "<p>" . htmlspecialchars(
-                $quotes[$row['student_id']]['quote_english']
-            ) . "</p>";
-
-            echo "<p><em>" . htmlspecialchars(
-                $quotes[$row['student_id']]['quote_language']
-            ) . "</em></p>";
-            echo "</blockquote>";
-        }
+        echo "<blockquote>";
+        echo "<h3>" . htmlspecialchars($student_quote['name'], ENT_QUOTES, 'UTF-8') . "</h3>";
+        echo "<p>" . htmlspecialchars($student_quote['quote_native'], ENT_QUOTES, 'UTF-8') . "</p>";
+        echo "<p><em>" . htmlspecialchars($student_quote['quote_english'], ENT_QUOTES, 'UTF-8') . "</em></p>";
+        echo "<p>" . htmlspecialchars($student_quote['quote_language'], ENT_QUOTES, 'UTF-8') . "</p>";
+        echo "</blockquote>";
+        echo "</div>";
+    }
     ?>
-
+    </section>
     <h2 class="heading-background">Our Team</h2>
 
     <figure class="image-style">
@@ -229,7 +264,7 @@ if (!$result) {
     if($dbconn) {
         $result_fun_facts = mysqli_query($dbconn, "SELECT * FROM fun_fact_section ORDER BY fun_facts");
         if($result_fun_facts) {
-            echo "<table> <caption>Fun Facts About Our Team Member</caption>
+            echo "<table> <caption><strong>Fun Facts About Our Team Member</strong></caption>
             <thead> <tr>
             <th>Fun Facts</th>
             <th>Nathan</th>
