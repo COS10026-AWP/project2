@@ -163,3 +163,16 @@ INSERT INTO facts (student_id, fact) VALUES
 ('105996858', 'Have a Spotify playlist that is over 75 hours'),
 ('106379243', 'Have ungodly skills to play rhythm games, along with a neverending hyperfixation on them'),
 ('106379243', 'Have met multiple popular celebrities in person and had their autographs');
+
+CREATE TABLE `image_section` (
+  `img_index` int(11) NOT NULL,
+  `img_location` text NOT NULL,
+  `img_alt_description` text NOT NULL,
+  `img_title` text NOT NULL,
+  `img_figcaption` text NOT NULL,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `image_section` (`img_index`, `img_location`, `img_alt_description`, `img_title`, `img_figcaption`, `width`, `height`) VALUES
+(1, 'images/group.png', 'A picture of us!', 'Group Photo', 'From left to right: Harper, Nathan, Khoi, Tiffany', 1200, 900);
