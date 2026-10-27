@@ -14,13 +14,13 @@ if (!$dbconn) {
     exit();
 }
 
-$query = "SELECT student_id, name, description FROM contributions "
-    . "ORDER BY member_order, item_order";
-
+$query = "SELECT student_id, name, description
+          FROM contributions
+          ORDER BY member_order, item_order";
 $result = mysqli_query($dbconn, $query);
 
-
-$quote_query = "SELECT student_id, name, quote_native, quote_english, quote_language FROM about";
+$quote_query = "SELECT student_id, name, quote_native, quote_english, quote_language
+                FROM about";
 $quote_result = mysqli_query($dbconn, $quote_query);
 
 if (!$quote_result) {
@@ -33,8 +33,6 @@ $quotes = array();
 while ($quote_row = mysqli_fetch_assoc($quote_result)) {
     $quotes[$quote_row['student_id']] = $quote_row;
 }
-
-
 
 if (!$result) {
     echo "<p>Sorry, contributions could not be loaded.</p>";
@@ -113,7 +111,10 @@ if (!$result) {
 
         table { 
             border-collapse: collapse;
+            border: 1.5px solid #12343B;
             color: #12343B;
+            border-spacing: 0;
+            margin: auto;
         }
 
         th {
@@ -122,7 +123,14 @@ if (!$result) {
             color: white;
         }
 
-        td:hover { background-color: #e0f1f5; }
+        .fact-cell:hover { 
+            background-color: #e0f1f5; 
+        }
+
+        .name {
+            padding: 0 35px;
+        }
+
 
         caption { font-size: 20px; }
 
@@ -174,7 +182,7 @@ if (!$result) {
             box-sizing: border-box;
         }
 
-        img {
+        .image-style img {
             border-radius: 30px;
             display: block;
             margin: 0 auto;
@@ -238,7 +246,7 @@ if (!$result) {
             </div>
 
     <section class='quotes-section'>        
-    <h2 class="heading-background">Our Favorite Quotes!</h2>
+    <h2 class="heading-background">Our Favorite Quotes</h2>
     
     <?php
     foreach ($quotes as $student_id => $student_quote) {
@@ -271,27 +279,43 @@ if (!$result) {
     </figure>
 
     <?php
-
     if($dbconn) {
-        $result_fun_facts = mysqli_query($dbconn, "SELECT * FROM fun_fact_section ORDER BY fun_facts");
-        if($result_fun_facts) {
-            echo "<table> <caption><strong>Fun Facts About Our Team Member</strong></caption>
-            <thead> <tr>
-            <th>Fun Facts</th>
-            <th>Nathan</th>
-            <th>Harper</th>
-            <th>Tiffany</th>
-            <th>Khoi</th>
-            </tr> </thead>
+        $query = "SELECT about.name, facts.fact 
+                  FROM facts
+                  LEFT OUTER JOIN about
+                    ON about.student_id = facts.student_id
+                  ORDER BY about.student_id, facts.fact_id";
+        $query_res = mysqli_query($dbconn, $query);
+        
+        if($query_res) {
+            $query_res = mysqli_fetch_all($query_res, MYSQLI_ASSOC);
+    
+            $fun_facts = [];
+            foreach($query_res as $row) {
+                $name = $row['name'];
+                $fun_facts[$name][] = $row['fact'];
+            }
+            echo "<table class='facts'> <caption><strong>Fun Facts About Our Team Members</strong></caption>
+            <thead> 
+                <tr>
+                    <th>Name</th>
+                    <th>Fun Facts</th>
+                </tr> 
+            </thead>
+
             <tbody>";
-            while ($row = mysqli_fetch_assoc($result_fun_facts)) {
+            foreach($fun_facts as $name => $fact_array) {
+                $fact_count = count($fact_array);
                 echo "<tr>";
-                echo "<td>" . $row['fun_facts'] . "</td>";
-                echo "<td>" . $row['nathan'] . "</td>";
-                echo "<td>" . $row['harper'] . "</td>";
-                echo "<td>" . $row['tiffany'] . "</td>";
-                echo "<td>" . $row['khoi'] . "</td>";
+                echo "<td class='name' rowspan='{$fact_count}'>" . htmlspecialchars($name). "</td>";
+                echo "<td class='fact-cell'>" . htmlspecialchars($fact_array[0]) . "</td>";
                 echo "</tr>";
+
+                for ($i = 1; $i < $fact_count; $i++) {
+                    echo "<tr>";
+                    echo "<td class='fact-cell'>" . htmlspecialchars($fact_array[$i]) . "</td>";
+                    echo "</tr>";
+                }
             }
             echo "</tbody> </table>";
         }
