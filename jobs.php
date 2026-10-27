@@ -18,6 +18,8 @@ if ($db_conn instanceof mysqli) {
     $filtered_jobs = filterJobs($db_conn, '*', $get_search);
     mysqli_close($db_conn);
 }
+$navJobs = getJobsForNav($filtered_jobs);
+$displayJobs = getJobsForDisplay($filtered_jobs);
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +30,10 @@ if ($db_conn instanceof mysqli) {
     <meta charset="UTF-8">
     <meta name="author" content="Nathan Yan">
     <meta name="keywords" content="tourism, travel, jobs, employment, career">
-    <meta name="description" content="Short & accurate description of the webpage.">
+    <meta name="description" content="View and search for available job listings at World Wide Travel.
+        Find your next career opportunity in the tourism and travel industry.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
     <link rel="stylesheet" href="styles/styles.css">
 
@@ -53,18 +55,32 @@ if ($db_conn instanceof mysqli) {
     </header>
 
     <main>
+        <div id="job-header">
+            <h1>We're hiring!</h1>
+        </div>
+        <div id="job-search-results">
+            <?php
+            if (!is_null($get_search) && $get_search !== '') {
+                echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
+            }
+            if (is_bool($displayJobs)) {
+                echo '<p>Could not load jobs.</p>';
+            } else {
+                echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
+            }
+            ?>
+        </div>
         <aside>
-            <section>
-                <h2>Jobs available</h2>
+            <section id="job-nav">
+                <h2 id="job-nav-title">Search available jobs</h2>
                 <form action="jobs.php" method="get">
-                    <label for="job-search">Search jobs:</label>
                     <input type="text" id="job-search" name="search" placeholder="Enter keywords..."
+                        aria-labelledby="job-nav-title"
                         value="<?= $get_search; ?>">
                     <button type="submit">Search</button>
                 </form>
                 <nav>
                     <?php
-                    $navJobs = getJobsForNav($filtered_jobs);
                     if (!(is_array($navJobs))) {
                         echo 'Could not load jobs.';
                     } elseif (count($navJobs) === 0) {
@@ -90,23 +106,11 @@ if ($db_conn instanceof mysqli) {
                 <a href="#top">Back to Top</a>
             </nav>
         </aside>
-        <article id="job-listings">
-            <h1>We're hiring!</h1>
-            <!--
-                    Job details and descriptions generated using ChatGPT (OpenAI), version GPT-5.6 Luna, Sep 2026.
-                    All generated text was reviewed by the author before use.
-                -->
+        <div id="job-listings">
             <?php
-            $displayJobs = getJobsForDisplay($filtered_jobs);
             if (!(is_array($displayJobs))) {
                 echo 'Could not load jobs.';
             } else {
-                echo '<div id="job-search-results">';
-                if (!is_null($get_search)) {
-                    echo '<p>Search results for: <a href="#job-search">' . htmlspecialchars($get_search) . '</a></p>';
-                }
-                echo '<p>Showing ' . count($displayJobs) . ' job(s) available.</p>';
-                echo '</div>';
                 foreach ($displayJobs as $job) {
                     $reference = "job-" . strtolower($job['reference_number']);
                     echo "<section class='job-position' id='{$reference}'>";
@@ -134,7 +138,7 @@ if ($db_conn instanceof mysqli) {
                 }
             }
             ?>
-        </article>
+        </div>
         <section class="job-signup">
             <h2>Looking for more?</h2>
             <p>Sign up to receive email notifications when new positions are posted.</p>

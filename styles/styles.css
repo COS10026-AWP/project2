@@ -2,8 +2,8 @@
 filename: styles.css
 author: Anastasia Tiffany, Harper Lam, Nathan Yan, Son Khoi Nguyen
 created:  03 September 2026
-last modified: 21 October 2026
-description: Styles for 2602-cos10026-applied-web-project-1
+last modified: 26 October 2026
+description: Styles for COS10026-AWP/project2
 */
 
 /* -------------------------
@@ -42,7 +42,7 @@ html {
 
     /* Borders */
     --color-border: var(--light-grey);
-    --color-border-highlight: var(--jet-black);
+    --color-border-highlight: var(--alice-blue);
 }
 
 /* -------------------------
@@ -139,7 +139,8 @@ footer #social {
     color: white;
 }
 
-#jobs-page main a {
+#jobs-page main a,
+#login-page main a{
     color: var(--color-text-link-dark);
 }
 
@@ -147,11 +148,11 @@ footer #social {
     color: #F9C74F;
 }
 
-#jobs-page main a:hover {
+#jobs-page main a:hover,
+#login-page main a:hover {
     color: var(--color-text-link-dark-hover);
     font-style: italic;
 }
-
 
 /* -------------------------
     index.php styles
@@ -201,7 +202,6 @@ footer #social {
     background-color: #F9C74F;
     color: black;
 }
-
 
 /* Content */
 .content {
@@ -411,7 +411,12 @@ td {
 #jobs-page main {
     padding: 15px;
     display: grid;
-    grid-template-columns: 1fr 28%;
+    grid:
+        "header header" auto
+        "results results" auto
+        "listings sidebar" 1fr
+        "signup sidebar" auto
+        / 1fr 28%;
     background: var(--color-bg-main);
     color: var(--color-text-dark);
 
@@ -428,13 +433,7 @@ td {
     margin: 0 10px;
 }
 
-#jobs-page main h1 {
-    /* min-height so a long title can wrap on small screens without overlapping */
-    min-height: 40px;
-    margin: 20px 0;
-}
-
-#jobs-page main h1,
+#jobs-page main #job-header,
 #jobs-page main h2,
 #jobs-page main h3 {
     color: var(--color-text-headers);
@@ -450,11 +449,23 @@ td {
     background: var(--color-bg-section);
 }
 
+/* Page header */
+#jobs-page main #job-header {
+    grid-area: header;
+    text-align: center;
+}
+
+#jobs-page #job-search-results {
+    grid-area: results;
+    text-align: center;
+    margin-bottom: var(--vertical-margins);
+}
+
 /* Sidebar */
 #jobs-page aside {
     --top-height: 20px;
 
-    order: 1;
+    grid-area: sidebar;
     position: sticky;
     top: var(--top-height);
     height: calc(100vh - var(--top-height) - var(--vertical-margins));
@@ -463,38 +474,28 @@ td {
     row-gap: var(--vertical-margins);
 }
 
-#jobs-page aside #job-available {
-    /* Grid is used for flexibility in 2D where more jobs may be added */
-    display: grid;
-    grid-column: 1;
-}
-    
-#jobs-page aside #job-apply-note {
-    flex-grow: 1;
+#jobs-page aside nav {
+    display: flex;
+    flex-direction: column;
 }
 
 #jobs-page aside #jump-to-top {
-    color: var(--color-text-dark);
     text-align: center;
     padding: 0.5rem;
-    border: var(--jobs-card-border);
-    border-radius: var(--jobs-card-radius-l);
-    background: var(--color-bg-section);
+    margin-top: auto;
 }
 
 /* Job position card layout */
 #job-listings {
+    grid-area: listings;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--vertical-margins);
 }
 
-#jobs-page #job-listings h1 {
-    text-align: center;
-}
-
 /* Job header */
 .job-header {
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -537,9 +538,97 @@ td {
 
 /* Job email signup */
 .job-signup {
-    order: 2;
+    grid-area: signup;
     text-align: center;
 }
+
+/* -------------------------
+    login.php
+    - page layout
+        - page properties
+    - login card
+        - login form elements
+        - invalid login message
+------------------------- */
+
+/* Page layout */
+#login-page main {
+    background: var(--color-bg-main);
+    color: var(--color-text-dark);
+
+    /* Page properties */
+    --login-card-border: 1px solid var(--color-border);
+    --login-card-border-highlight: 1px dotted var(--color-border-highlight);
+    --login-card-radius-s: 4px;
+    --login-card-radius-m: 4px;
+    --login-card-radius-l: 12px;
+
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login card */
+#login-page #login-form {
+    border: var(--login-card-border);
+    border-radius: var(--login-card-radius-l);
+    background: var(--color-bg-section);
+    min-height: 400px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 2rem;
+}
+
+#login-page #login-form #card-title {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Login form elements */
+#login-page #login-form #logged-in-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    border-bottom: var(--login-card-border);
+    margin-bottom: 1rem;
+}
+
+#login-page #login-form #username,
+#login-page #login-form #password,
+#login-page #login-form button {
+    padding: 10px;
+    border: var(--login-card-border);
+    border-radius: var(--login-card-radius-m);
+}
+
+#login-page #login-form #username,
+#login-page #login-form #password {
+    margin-bottom: 10px;
+}
+
+#login-page #login-form #username:focus,
+#login-page #login-form #password:focus {
+    outline: 2px solid var(--color-border-highlight);
+}
+
+#login-page #login-form button {
+    margin-top: auto;
+    background-color: var(--color-text-headers);
+    color: white;
+    cursor: pointer;
+}
+
+/* Invalid login message */
+#login-page #login-form #invalid-login {
+    color: red;
+    font-weight: bold;
+}
+
 
 /* -------------------------
     manage.php
@@ -621,7 +710,8 @@ td {
     margin-bottom: 10px;
 }
 
-.apply-forms input, select {
+.apply-forms input,
+.apply-forms select {
     background-color: #F0F8FA;
     border-radius: 5px;
     border: 3px solid #ddd;
@@ -668,7 +758,6 @@ td {
     padding: 5px;
     background-color: #fff;
 }
-
 
 /* -------------------------
     Responsive design
@@ -739,23 +828,31 @@ td {
 
     /* jobs.php responsive design */
     #jobs-page main {
-        grid-template-columns: 1fr;
+        grid:
+            "header" auto
+            "sidebar" auto
+            "results" auto
+            "listings" auto
+            "signup" auto
+            / auto;
+    }
+
+    #jobs-page #job-search-results {
+        position: sticky;
+        top: 0;
+        background-color: var(--color-bg-main);
     }
 
     #jobs-page aside {
         position: static;
         height: auto;
-        margin: 0;
+        margin-bottom: var(--vertical-margins);
     }
 
-    /* display: none removes the leftover padding and border that height: 0 left behind */
-    #jump-to-top,
-    #job-available {
+    #jobs-page aside #jump-to-top,
+    #jobs-page aside #job-apply-note {
         display: none;
-    }
-
-    #job-listings {
-        order: -1;
+        margin-bottom: var(--vertical-margins);
     }
 
     .job-details {
@@ -784,18 +881,6 @@ td {
 
     .job-header {
         flex-direction: column;
-    }
-
-    #jobs-page main {
-        padding: 10px;
-    }
-
-    #jobs-page main > * {
-        margin: 0;
-    }
-
-    .job-position {
-        padding: 0 1rem 1.5rem;
     }
 
     /* Mobile navigation (hamburger menu) */
@@ -958,12 +1043,11 @@ td {
     }
 }
 
-@media only screen and (height <= 500px) {
-    /* Responsive design for short viewports up to 500px */
+@media only screen and (height <= 700px) {
+    /* Responsive design for short viewports up to 700px */
     #jobs-page aside {
         position: static;
         height: auto;
-        margin-top: 80px;
     }
 
     #job-available {

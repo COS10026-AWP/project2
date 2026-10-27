@@ -1,6 +1,29 @@
 CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
 USE world_wide_travel_db;
 
+DROP TABLE IF EXISTS eoi;
+
+CREATE TABLE eoi (
+  EOInumber INT AUTO_INCREMENT PRIMARY KEY,
+  reference VARCHAR(6),
+  first_name VARCHAR(20),
+  surname VARCHAR(20),
+  dob VARCHAR(10),
+  gender VARCHAR(10),
+  street VARCHAR(40),
+  suburb VARCHAR(40),
+  state VARCHAR(3),
+  postcode VARCHAR(4),
+  email VARCHAR(100),
+  phone VARCHAR(12),
+  skills TEXT,
+  other TEXT,
+  status ENUM('New', 'Current', 'Final') DEFAULT 'New'
+);
+
+CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
+USE world_wide_travel_db;
+
 DROP TABLE IF EXISTS job_listings;
 
 CREATE TABLE job_listings (
@@ -18,6 +41,8 @@ CREATE TABLE job_listings (
   job_status VARCHAR(10) NOT NULL
   );
 
+-- Job details and descriptions generated using ChatGPT (OpenAI), version GPT-5.6 Luna, Sep 2026.
+-- All generated text was reviewed by the author before use.
 INSERT INTO job_listings (reference_number, title, short_description, salary_min, salary_max, reporting_line, key_responsibilities, essential_requirements, preferable_requirements, job_status) VALUES
 ('FS2026',
  'Full-Stack Software Developer',
@@ -49,3 +74,93 @@ INSERT INTO job_listings (reference_number, title, short_description, salary_min
  '["Degree, diploma or equivalent professional experience in UX design, interaction design, visual design or a related field.", "Demonstrated experience designing digital products or responsive websites.", "Proficiency with modern design and prototyping tools such as Figma.", "Strong understanding of user-centred design, information architecture and usability principles.", "Ability to communicate design decisions clearly and collaborate effectively with developers and stakeholders."]',
  '["Experience designing products in the travel, tourism, hospitality or e-commerce industries.", "Experience designing booking, checkout or payment experiences.", "Knowledge of web accessibility standards and inclusive design practices.", "Experience working with a formal design system or component library."]',
  'active');
+
+ CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
+USE world_wide_travel_db;
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  username VARCHAR(50) NOT NULL PRIMARY KEY ,
+  -- With php password_hash(), the PASSWORD_DEFAULT algorithm produces a 60-character hash,
+  -- however 255 allows for future changes in the algorithm that may produce longer hashes.
+  password_hash VARCHAR(255) NOT NULL ,
+  user_role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
+  );
+
+INSERT INTO users (username, password_hash, user_role) VALUES
+  ('admin', '$2a$12$/gi4vNftyma4L855cGIUqOK5U791ste5VfK8u0PAotkVu6WRunJkK', 'admin');
+
+--about page for facts and quotes
+CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
+USE world_wide_travel_db;
+
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS facts;
+DROP TABLE IF EXISTS about;
+DROP TABLE IF EXISTS contributions;
+
+CREATE TABLE contributions (
+    contribution_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id      VARCHAR(10) NOT NULL,
+    name            VARCHAR(50) NOT NULL,
+    description     VARCHAR(255) NOT NULL,
+    member_order    INT NOT NULL DEFAULT 0,
+    item_order      INT NOT NULL DEFAULT 0
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE about (
+    student_id     VARCHAR(10) NOT NULL PRIMARY KEY,
+    name           VARCHAR(50) NOT NULL,
+    contribution   TEXT NOT NULL,
+    quote_native   TEXT NOT NULL,
+    quote_english  TEXT NOT NULL,
+    quote_language VARCHAR(30) NOT NULL
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE facts (
+    fact_id    INT AUTO_INCREMENT PRIMARY KEY,
+    student_id VARCHAR(10) NOT NULL,
+    fact       TEXT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES about(student_id) ON DELETE CASCADE
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO contributions (student_id, name, description, member_order, item_order) VALUES
+('106696764', 'Harper',  'Leader in project planning, responsible for HTML, CSS, and the home page.', 1, 1),
+('106696764', 'Harper',  'Created the manage page (manage.php).', 1, 2),
+('106696764', 'Harper',  'Added a dynamic menu for mobile.', 1, 3),
+('106696764', 'Harper',  'Wrote the CSS for the manage page.', 1, 4),
+('106565482', 'Nathan',  'Co-leader, responsible for the job info page.', 2, 1),
+('106565482', 'Nathan',  'Created the login page (login.php).', 2, 2),
+('106565482', 'Nathan',  'Created the search page (search.php).', 2, 3),
+('106565482', 'Nathan',  'Created the settings file (settings.php).', 2, 4),
+('106565482', 'Nathan',  'Wrote the CSS for the login, search and about pages.', 2, 5),
+('105996858', 'Tiffany', 'Responsible for the job application page.', 3, 1),
+('105996858', 'Tiffany', 'Created the process EOI page (process_eoi.php).', 3, 2),
+('105996858', 'Tiffany', 'Wrote the CSS for the apply and process EOI pages.', 3, 3),
+('106379243', 'Khoi',    'Responsible for the about page.', 4, 1);
+
+INSERT INTO about (student_id, name, contribution, quote_native, quote_english, quote_language) VALUES
+('106696764', 'Harper', 'Leader in project planning, responsible for HTML, CSS, and the home page.',
+ '好好学习，天天向上',
+ 'Study hard and make progress every day.', 'Mandarin'),
+('106565482', 'Nathan', 'Co-leader, responsible for the job info page.',
+ 'Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn là nên cố gắng cho hiện tại.',
+ 'The future changes from moment to moment. Therefore, instead of worrying about what lies ahead, it is better to focus on the present.', 'Vietnamese'),
+('105996858', 'Tiffany', 'Responsible for the job application page.',
+ 'Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.',
+ 'Life is a road, don''t know what''s along the way', 'Indonesian'),
+('106379243', 'Khoi', 'Responsible for the about page.',
+ 'Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì việc chúng ta đang làm mà thôi.',
+ 'There''s no such thing as being lazy, we''re simply just focus on something else other than what we''re doing.', 'Vietnamese');
+
+INSERT INTO facts (student_id, fact) VALUES
+('106565482', 'Used to dream of becoming a ski instructor to travel the world, but never found the time to stack up enough experience'),
+('106565482', 'Runs around in circles for eight hours a week, and spends around the same time doing flashcards (both as hobbies)'),
+('106696764', 'Nearly drowned as a kid'),
+('106696764', 'Had 8 stitches on her foot as a kid'),
+('105996858', 'Can recognize 85% of Asian countries by their flags most of the times'),
+('105996858', 'Have a Spotify playlist that is over 75 hours'),
+('106379243', 'Have ungodly skills to play rhythm games, along with a neverending hyperfixation on them'),
+('106379243', 'Have met multiple popular celebrities in person and had their autographs');
