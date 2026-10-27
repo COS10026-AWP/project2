@@ -80,11 +80,20 @@ if (!$result) {
         dd { font-size: 15px; }
 
         .member {
-            display: flex; 
-            align-items: center; 
-            gap:5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+            margin-left: 10px;
         }
-    
+
+        .member h3 {
+            margin: 0;  
+        }
+
+        .member + ul {
+            margin-top: 8px; 
+        }
 
         .student-id {
             color: #12343B;
@@ -151,25 +160,27 @@ if (!$result) {
             border-radius: 20px;
         }
 
-
+        caption {
+            margin: 10px;
+        }
         .image-style {
             width: 4000px;
             max-width: 80%;
             margin: 30px auto;
-            padding: 15px;
-            background-color: #e0f1f5;
+            padding: 15px 0px;
             border-radius: 20px;
             box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
             text-align: center;
             box-sizing: border-box;
         }
 
-        .image-style img {
-            border-radius: 12px;
+        img {
+            border-radius: 30px;
             display: block;
             margin: 0 auto;
             width: 90%;
             height: 90%; 
+            padding: 10px;
         }
 
         .image-style figcaption {
