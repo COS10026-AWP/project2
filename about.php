@@ -1,3 +1,46 @@
+<?php 
+$config = require "settings.php";
+$dbconn = mysqli_connect(
+    $config['host'],
+    $config['user'],
+    $config['pwd'],
+    $config['sql_db']
+);
+
+mysqli_set_charset($dbconn, 'utf8mb4');
+
+if (!$dbconn) {
+    echo "<p>Sorry, the database is not available right now.</p>";
+    exit();
+}
+
+$query = "SELECT student_id, name, description
+          FROM contributions
+          ORDER BY member_order, item_order";
+$result = mysqli_query($dbconn, $query);
+
+$quote_query = "SELECT student_id, name, quote_native, quote_english, quote_language
+                FROM about";
+$quote_result = mysqli_query($dbconn, $quote_query);
+
+if (!$quote_result) {
+    echo "<p>Sorry, the information could not be loaded.</p>";
+    mysqli_close($dbconn);
+    exit();
+}
+
+$quotes = array();
+while ($quote_row = mysqli_fetch_assoc($quote_result)) {
+    $quotes[$quote_row['student_id']] = $quote_row;
+}
+
+if (!$result) {
+    echo "<p>Sorry, contributions could not be loaded.</p>";
+    mysqli_close($dbconn);
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +55,13 @@
 
     <link rel="stylesheet" href="styles/styles.css">
     <style>
+
+        .quotes-section {
+            padding: 10px;
+            color: #12343B;
+            background-color: #F0F8FA;;
+        }
+
         h1 {
             color: #12343B;
             text-align: center;
@@ -23,26 +73,48 @@
             font-size: 23px;
         }
 
-        p { color: #12343B }
-
         dt { font-size: 18px; }
 
         dd { font-size: 15px; }
+
+        .member {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .member h3 {
+            margin: 0;  
+        }
+
+        .member + ul {
+            margin-top: 8px; 
+        }
 
         .student-id {
             color: #12343B;
             font-weight: bold;
             display: inline-block;
+            border: 1px solid #12343B;
+            border-radius: 5px;
+            padding: 3px 5px;
         }
 
         .student-id:hover {
             background-color: #12343B;
             color: white;
+            border-radius: 5px;
+            padding: 3px 5px;
         }
 
         table { 
             border-collapse: collapse;
+            border: 1.5px solid #12343B;
             color: #12343B;
+            border-spacing: 0;
+            margin: auto;
         }
 
         th {
@@ -51,23 +123,76 @@
             color: white;
         }
 
-        td:hover { background-color: #e0f1f5; }
+        .fact-cell:hover { 
+            background-color: #e0f1f5; 
+        }
+
+        .name {
+            padding: 0 35px;
+        }
+
 
         caption { font-size: 20px; }
 
-        .travel-tips { border-left: 4px solid #12343B ;}
+        .quote-box { 
+            width: 100%;
+            box-sizing: border-box;
+            margin: 25px 0;
+            padding: 8px 15px;
+            background-color: #FFF;
+            border-left: 4px solid #12343B;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+        }
+
+        .quote-box h3 {
+            font-size: 20px;
+            color: #12343B;
+            text-align: left;
+            margin: 0 0 8px;
+        }
+
+        .quote-box p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #263238;
+            text-align: left;
+            margin: 5px 0;
+        }
 
         .heading-background {
             display: inline-block;
-            color: #12343B;
-            background: #e0f1f5;
+            color: #ffffff;
+            background: #12343B;
             padding: 5px 25px;
             border-radius: 20px;
         }
 
-        .heading-background:hover {
-            color: #ffffff;
-            background: #12343B;
+        caption {
+            margin: 10px;
+        }
+        .image-style {
+            width: 4000px;
+            max-width: 80%;
+            margin: 30px auto;
+            padding: 15px 0px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .image-style img {
+            border-radius: 30px;
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            height: 90%; 
+            padding: 10px;
+        }
+
+        .image-style figcaption {
+            color: #12343B;
         }
     </style>
 </head>
@@ -76,121 +201,127 @@
     <header id="site-header">
         <?php include 'header.inc.php'; ?>
     </header>
-
+    
     <h1>About Us</h1>
 
     <h2 class="heading-background">The Group</h2>
     
     <ul>
-        <li>We are Group 2!</li>
-        <li>We are currently studying a class in the 10026 Web Technology course</li>
-        <li>Weekly on Thursday, from 4:30 to 6:30</li>
-        <li>Led by our handsome tutor Rahul!</li>
+        <li>Group name: Group 2 (Code: G02)</li>
+        <li>Course: COS10026 - Web Technology Project</li>
+        <li>Schedule: Thursday, 4:30 - 6:30 PM</li>
+        <li>Tutor: Rahul Raghavan</li>
     </ul>
 
     <h2 class="heading-background">Our Contributions</h2>
+             <div class="member-list">
+                <?php
+                $current = "";
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row['student_id'] != $current) {
+
+                        if ($current != "") {
+                            echo "</ul></div>";
+                        }
+
+                        echo "<div class='member'>";
+                        echo "<h3>" . htmlspecialchars($row['name'])
+                            . "</h3><h3 class='student-id'>" . htmlspecialchars($row['student_id'])
+                            . "</h3></div>";
+
+                        echo "<ul>";
+
+                        $current = $row['student_id'];
+                    }
+
+                    echo "<li>" . htmlspecialchars($row['description'])
+                        . "</li>";
+                }
+
+                if ($current != "") {
+                    echo "</ul>";
+                }
+                ?>
+            </div>
+
+    <section class='quotes-section'>        
+    <h2 class="heading-background">Our Favorite Quotes</h2>
     
-    <dl class="travel-tips">
-        <dt>Harper <p class="student-id">(106696764)</p></dt>
-        <dd>Leader in project planning, responsible for HTML, CSS, and the home page.</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
+    <?php
+    foreach ($quotes as $student_id => $student_quote) {
+        echo "<div class='quote-box'>";
 
-    <dl class="travel-tips">
-        <dt>Nathan <p class="student-id">(106565482)</p></dt>
-        <dd>Co-leader, responsible for the job info page.</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
-
-    <dl class="travel-tips">
-        <dt>Tiffany <p class="student-id">(105996858)</p></dt>
-        <dd>Responsible for the job application page.</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
-
-    <dl class="travel-tips">
-        <dt>Khoi <p class="student-id">(106379243)</p></dt>
-        <dd>Responsible for the about page.</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-        <dd>Lorem ipsum dolor sit amat</dd>
-    </dl>
-
-    <h2 class="heading-background">Cool Quotes!</h2>
-    
-    <dl class="travel-tips">
-        <dt>好好学习，天天向上</dt>
-        <dd>Translation (from Mandarin): Study hard and make progress every day.</dd>
-    </dl>
-
-    <dl class="travel-tips">
-        <dt>Tương lai thay đổi từng khoảnh khắc. Vậy nên, thay vì phiền não bởi những điều phía trước, tốt hơn
-            là nên cố gắng cho hiện tại.</dt>
-        <dd>Translation (from Vietnamese): The future changes from moment to moment. Therefore, instead
-            of worrying about what lies ahead, it is better to focus on the present.</dd>
-    </dl>
-
-    <dl class="travel-tips">
-        <dt>Hidup adalah jalan, tak tahu apa yang ada di sepanjang jalan.</dt>
-        <dd>Translation (from Indonesian): Life is a road, don't know what's along the way</dd>
-    </dl>
-
-    <dl class="travel-tips">
-        <dt>Chúng ta không có gì là lười biếng cả, chỉ là chúng ta đang dành thời gian cho việc khác thay vì
-            việc chúng ta đang làm mà thôi.</dt>
-        <dd>Translation (from Vietnamese): There's no such thing as being lazy, we're simply just focus
-            on something else other than what we're doing.</dd>
-    </dl>
-
+        echo "<blockquote>";
+        echo "<h3>" . htmlspecialchars($student_quote['name'], ENT_QUOTES, 'UTF-8') . "</h3>";
+        echo "<p>" . htmlspecialchars($student_quote['quote_native'], ENT_QUOTES, 'UTF-8') . "</p>";
+        echo "<p><em>" . htmlspecialchars($student_quote['quote_english'], ENT_QUOTES, 'UTF-8') . "</em></p>";
+        echo "<p>" . htmlspecialchars($student_quote['quote_language'], ENT_QUOTES, 'UTF-8') . "</p>";
+        echo "</blockquote>";
+        echo "</div>";
+    }
+    ?>
+    </section>
     <h2 class="heading-background">Our Team</h2>
-    
-    <figure>
-        <img style="display: block; margin: 0 auto; width: 90%; height: 90%;" src="images/group.png"
-            alt="A picture of us!" title="Group Photo" width="1200" height="900">
-        <figcaption>From left to right: Harper, Nathan, Khoi, Tiffany</figcaption>
+
+    <figure class="image-style">
+    <?php
+        $result_img = mysqli_query($dbconn, "SELECT * FROM image_section LIMIT 1");
+        if ($result_img) {
+            while ($row = mysqli_fetch_assoc($result_img)) {
+                echo "<img src=\"" . $row['img_location'] . "\"";
+                echo " alt=\"" . $row['img_alt_description'] . "\" title=\"" . $row['img_title'];
+                echo "\" width=\"" . $row['width'] . "\" height=\"" . $row['height'] . "\">";
+                echo " <figcaption>" . $row['img_figcaption'] . "</figcaption>";
+            }
+        } else echo "Error: Could not fetch data from database!";
+    ?> 
     </figure>
 
-    <table>
-        <caption>Fun Facts About Our Team Member</caption>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Fun Fact 1</th>
-                <th>Fun Fact 2</th>
-            </tr>
-        </thead>
+    <?php
+    if($dbconn) {
+        $query = "SELECT about.name, facts.fact 
+                  FROM facts
+                  LEFT OUTER JOIN about
+                    ON about.student_id = facts.student_id
+                  ORDER BY about.student_id, facts.fact_id";
+        $query_res = mysqli_query($dbconn, $query);
+        
+        if($query_res) {
+            $query_res = mysqli_fetch_all($query_res, MYSQLI_ASSOC);
+    
+            $fun_facts = [];
+            foreach($query_res as $row) {
+                $name = $row['name'];
+                $fun_facts[$name][] = $row['fact'];
+            }
+            echo "<table class='facts'> <caption><strong>Fun Facts About Our Team Members</strong></caption>
+            <thead> 
+                <tr>
+                    <th>Name</th>
+                    <th>Fun Facts</th>
+                </tr> 
+            </thead>
 
-        <tbody>
-            <tr>
-                <td>Nathan</td>
-                <td>Used to dream of becoming a ski instructor to travel the world, but never found the time to
-                    stack up enough experience</td>
-                <td>Runs around in circles for eight hours a week, and spends around the same time doing
-                    flashcards (both as hobbies)</td>
-            </tr>
+            <tbody>";
+            foreach($fun_facts as $name => $fact_array) {
+                $fact_count = count($fact_array);
+                echo "<tr>";
+                echo "<td class='name' rowspan='{$fact_count}'>" . htmlspecialchars($name). "</td>";
+                echo "<td class='fact-cell'>" . htmlspecialchars($fact_array[0]) . "</td>";
+                echo "</tr>";
 
-            <tr>
-                <td>Harper</td>
-                <td>Nearly drown as a kid</td>
-                <td>Had 8 stiches on her foot as a kid</td>
-            </tr>
-
-            <tr>
-                <td>Tiffany</td>
-                <td>Can recognize 85% of Asian countries by their flags most of the times</td>
-                <td>Have a Spotify playlist that is over 75 hours</td>
-            </tr>
-
-            <tr>
-                <td>Khoi</td>
-                <td>Have ungodly skills to play rhythm games, along with a neverending hyperfixation on them
-                </td>
-                <td>Have met multiple popular celebrities in person and had their autographs</td>
-            </tr>
-        </tbody>
-    </table>
+                for ($i = 1; $i < $fact_count; $i++) {
+                    echo "<tr>";
+                    echo "<td class='fact-cell'>" . htmlspecialchars($fact_array[$i]) . "</td>";
+                    echo "</tr>";
+                }
+            }
+            echo "</tbody> </table>";
+        }
+    } else echo "<p>Error: Could not fetch data from database!</p>";
+    
+    ?>
 
     <br>
 
