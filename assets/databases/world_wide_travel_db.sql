@@ -91,7 +91,7 @@ CREATE TABLE users (
 INSERT INTO users (username, password_hash, user_role) VALUES
   ('admin', '$2a$12$/gi4vNftyma4L855cGIUqOK5U791ste5VfK8u0PAotkVu6WRunJkK', 'admin');
 
---about page for facts and quotes
+-- about page for facts and quotes
 CREATE DATABASE IF NOT EXISTS world_wide_travel_db;
 USE world_wide_travel_db;
 
